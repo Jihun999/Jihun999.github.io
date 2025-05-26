@@ -129,3 +129,9 @@ name {
 span.highlight {
   background-color: #ffffd0;
 }
+.responsive-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
