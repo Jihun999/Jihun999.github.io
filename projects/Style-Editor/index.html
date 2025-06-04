@@ -180,7 +180,7 @@
             </figcaption>
           </figure>
         </br>
-          <h2 class="title is-4">PRS module</h2>
+          <!-- <h2 class="title is-4">PRS module</h2>
           <figure>
             <img src="static/images/PRS.png" alt="Pre-fixed Region Selection (PRS) module"/>
             <figcaption style="font-size: 0.9rem; font-style: italic; text-align: justify; margin-top: 0.5em; line-height: 1.4;">
@@ -194,12 +194,78 @@
             <figcaption style="font-size: 0.9rem; font-style: italic; text-align: justify; margin-top: 0.5em; line-height: 1.4;">
               <b>Overview of TMPS module.</b> TMPS module utilizes CLIP’s text and image encoders to select patches from \(I^{\text{src}}\) that contain the object we want to stylize.
             </figcaption>
-          </figure>
+          </figure> -->
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- PDF Carousel Section -->
+ <!-- PDF 미리보기가 안돼서 우선 아래 png로 해두었습니다 -->
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">PDF Carousel</h2>
+
+    <div id="pdf-carousel" class="carousel results-carousel">
+      
+      <div class="item has-text-centered">
+        <h3 class="title is-5">Paper 1</h3>
+        <iframe src="static/asset/proposed/tmps_w_alg.pdf" width="100%" height="600px" style="border: 1px solid #ccc;"></iframe>
+      </div>
+      
+      <div class="item has-text-centered">
+        <h3 class="title is-5">Paper 2</h3>
+        <iframe src="static/asset/proposed/prs_w_alg.pdf" width="100%" height="600px" style="border: 1px solid #ccc;"></iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    bulmaCarousel.attach('#pdf-carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      infinite: true
+    });
+  });
+</script> -->
+
+<!-- Image (PDF preview) Carousel Section -->
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Paper Previews</h2>
+
+    <div id="png-carousel" class="carousel results-carousel">
+      
+      <div class="item has-text-centered">
+        <h3 class="title is-5">Paper 1</h3>
+        <img src="static/images/paper1_preview.png" alt="Paper 1 Preview" style="max-width: 100%; height: auto; border: 1px solid #ccc;">
+      </div>
+
+      <div class="item has-text-centered">
+        <h3 class="title is-5">Paper 2</h3>
+        <img src="static/images/paper2_preview.png" alt="Paper 2 Preview" style="max-width: 100%; height: auto; border: 1px solid #ccc;">
+      </div>
+
+    </div>
+  </div>
+</section> -->
+
+<!-- Carousel Init Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    bulmaCarousel.attach('#png-carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      infinite: true
+    });
+  });
+</script>
+
+
 
 
 <!-- 이미지 슬라이딩 비교 -->
@@ -310,7 +376,54 @@
 
 
 
+<!-- Video Carousel Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Visualization of Proposed Loss</h2>
 
+    <div id="video-carousel" class="carousel results-carousel">
+      
+      <!-- Slide 1 -->
+      <div class="item has-text-centered">
+        <h3 class="title is-5">Patch-wise directional loss (\(\mathcal{L}_{\text{dir}}\)) from \(\mathcal{L}_{\text{pcd}}\)</h3>
+        <video controls autoplay loop muted style="max-width: 100%; height: auto;">
+          <source src="static/asset/proposed/l_dir_unisize.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      
+      <!-- Slide 2 -->
+      <div class="item has-text-centered">
+        <h3 class="title is-5">Patch distribution consistency loss (\(\mathcal{L}_{\text{con}}\)) from \(\mathcal{L}_{\text{pcd}}\)</h3>
+        <video controls autoplay loop muted style="max-width: 100%; height: auto;">
+          <source src="static/asset/proposed/l_con_unisize.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="item has-text-centered">
+        <h3 class="title is-5">Adaptive background preservation loss (\(\mathcal{L}_{\text{abp}}\))</h3>
+        <video controls autoplay loop muted style="max-width: 100%; height: auto;">
+          <source src="static/asset/proposed/l_abp_unisize.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- bulmaCarousel 초기화 -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    bulmaCarousel.attach('#video-carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      infinite: true
+    });
+  });
+</script>
 
 <!-- Video carousel -->
 <section class="section">
@@ -565,7 +678,7 @@
             <div class="menu">
               <p class="src-name">Content:</p>
               <ul class="menu-list">
-                <li><a href="#" class="option-button" data-target="styleImage4" data-img="static/asset/image_results/fig-only/door/door1_512.jpg">Cookie</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage4" data-img="static/asset/image_results/fig-only/door/door1_512.jpg">Blue door</a></li>
                 <p class="menu-label">Choose a style:</p>
                 <li><a href="#" class="option-button" data-target="styleImage4" data-img="static/asset/image_results/fig-only/door/spiderwebdoor_bluedoor_door1.png">Spider web</a></li>
                 <li><a href="#" class="option-button" data-target="styleImage4" data-img="static/asset/image_results/fig-only/door/snowydoor_bluedoor_door1.png">Snowy</a></li>
@@ -753,6 +866,7 @@
   });
 </script>
 <!-- (END) Multiple Style Section -->
+
 
 
 
