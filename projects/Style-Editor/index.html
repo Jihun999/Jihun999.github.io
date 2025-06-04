@@ -466,8 +466,16 @@
         }
       });
     });
+
+    // 캐러셀 설정 (Loop 활성화)
+    bulmaCarousel.attach('#option-carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      infinite: true  // ← 요거만 추가해주면 끝
+    });
   });
 </script>
+
 
 <!-- End video carousel -->
 
@@ -735,17 +743,11 @@
       });
     });
 
-    // 각 캐러셀 활성화
-    bulmaCarousel.attach('#option-carousel', {
-      slidesToScroll: 1,
-      slidesToShow: 1,
-      infinite: false
-    });
 
     bulmaCarousel.attach('#style-carousel', {
       slidesToScroll: 1,
       slidesToShow: 1,
-      infinite: false
+      infinite: true
     });
   });
 </script>
