@@ -65,7 +65,7 @@
                 <span class="author-block">
                   <a href="https://minimini-1.github.io/" target="_blank">Jongmin Gim</a><sup>*</sup>,</span>
                   <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Kyoungmin Lee</a><sup>*</sup>,</span>
+                    <a href="https://cvlab.dgist.ac.kr/members/kyungmin-lee/" target="_blank">Kyoungmin Lee</a><sup>*</sup>,</span>
                     <span class="author-block">
                     <a href="https://seung-hun-lee.github.io/" target="_blank">Seunghun Lee</a>,</span>
                     <span class="author-block">
@@ -352,9 +352,15 @@
 </section>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // 이미지 변경 로직
-    const buttons = document.querySelectorAll(".option-button");
+    // 🔁 캐러셀 초기화
+    bulmaCarousel.attach('#option-carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      infinite: false
+    });
 
+    // 🖼️ 이미지 변경 로직
+    const buttons = document.querySelectorAll(".option-button");
     buttons.forEach(button => {
       button.addEventListener("click", function (e) {
         e.preventDefault();
