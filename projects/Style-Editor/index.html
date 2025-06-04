@@ -67,7 +67,7 @@
                   <span class="author-block">
                     <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Kyoungmin Lee</a><sup>*</sup>,</span>
                     <span class="author-block">
-                    <a href="https://seung-hun-lee.github.io/" target="_blank">Seunghun Lee</a><sup>*</sup>,</span>
+                    <a href="https://seung-hun-lee.github.io/" target="_blank">Seunghun Lee</a>,</span>
                     <span class="author-block">
                     <a href="https://sunghoonim.github.io/" target="_blank">Sunghoon Im</a><sup>†</sup>,</span>
                   </span>
@@ -302,33 +302,56 @@
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
+      <h2 class="title is-3">Style Option Carousel</h2>
+      <div id="style-option-carousel" class="carousel results-carousel">
+        
+        <!-- 슬라이드 1 -->
+        <div class="item">
+          <div class="columns is-vcentered">
+            <div class="column is-one-third">
+              <div class="menu">
+                <p class="menu-label">Choose a style:</p>
+                <ul class="menu-list">
+                  <li><a href="#" class="option-button" data-target="img1" data-img="static/asset/image_results/teaser/src4.png">Source image</a></li>
+                  <li><a href="#" class="option-button" data-target="img1" data-img="static/asset/image_results/teaser/4-1.png">strawberry → frozen strawberry</a></li>
+                  <li><a href="#" class="option-button" data-target="img1" data-img="static/asset/image_results/teaser/4-2.png">wooden board → marble style</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="column has-text-centered">
+              <figure class="image">
+                <img id="img1" src="static/asset/image_results/teaser/src4.png" style="max-height: 400px;">
+              </figure>
+            </div>
+          </div>
         </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
+
+        <!-- 슬라이드 2 -->
+        <div class="item">
+          <div class="columns is-vcentered">
+            <div class="column is-one-third">
+              <div class="menu">
+                <p class="menu-label">Choose a style:</p>
+                <ul class="menu-list">
+                  <li><a href="#" class="option-button" data-target="img2" data-img="static/asset/image_results/teaser/src5.png">Original</a></li>
+                  <li><a href="#" class="option-button" data-target="img2" data-img="static/asset/image_results/teaser/5-1.png">tea set → ceramic style</a></li>
+                  <li><a href="#" class="option-button" data-target="img2" data-img="static/asset/image_results/teaser/5-2.png">background → pastel blur</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="column has-text-centered">
+              <figure class="image">
+                <img id="img2" src="static/asset/image_results/teaser/src5.png" style="max-height: 400px;">
+              </figure>
+            </div>
+          </div>
         </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
+
       </div>
     </div>
   </div>
 </section>
+
 <!-- End video carousel -->
 
 
