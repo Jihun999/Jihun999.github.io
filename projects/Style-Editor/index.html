@@ -65,7 +65,7 @@
                 <span class="author-block">
                   <a href="https://minimini-1.github.io/" target="_blank">Jongmin Gim</a><sup>*</sup>,</span>
                   <span class="author-block">
-                    <a href="https://cvlab.dgist.ac.kr/members/kyungmin-lee/" target="_blank">Kyoungmin Lee</a><sup>*</sup>,</span>
+                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Kyoungmin Lee</a><sup>*</sup>,</span>
                     <span class="author-block">
                     <a href="https://seung-hun-lee.github.io/" target="_blank">Seunghun Lee</a>,</span>
                     <span class="author-block">
@@ -167,7 +167,7 @@
           <figure>
             <img src="static/images/main_arch_mask.png" alt="MY ALT TEXT"/>
             <figcaption style="font-size: 0.9rem; font-style: italic; text-align: justify; margin-top: 0.5em; line-height: 1.4;">
-              <b>(Left)</b> Overall pipeline of our <i>Style-Editor</i> consisting of a style editing network (StyleNet), 
+              <b>[Left]</b> Overall pipeline of our <i>Style-Editor</i> consisting of a style editing network (StyleNet), 
               Pre-fixed Region Selection (PRS), Text-Matched Patch Selection (TMPS) module, and pretrained CLIP encoders.
               The StyleNet takes a source image \(I^{\text{src}}\) and generates an object-wise stylized image \(I^{\text{out}}\).
               The TMPS module identifies patches that best match \(T^{\text{src}}\) within the foreground regions detected by PRS.
@@ -175,8 +175,24 @@
               in the CLIP embedding space using the Patch-wise Co-Directional (PCD) loss \(\mathcal{L}_{\text{pcd}}\). The target text \(T^{\text{tgt}}\)
               is derived through central word selection. Additional losses include the content loss \(\mathcal{L}_{\text{c}}\), 
               Adaptive Background Preservation loss \(\mathcal{L}_{\text{abp}}\), and total variation loss \(\mathcal{L}_{\text{tv}}\).
-              <b>(Right)</b> Illustration of the PCD loss \(\mathcal{L}_{\text{pcd}}\) in feature space, which consists of the 
+              <b>[Right]</b> Illustration of the PCD loss \(\mathcal{L}_{\text{pcd}}\) in feature space, which consists of the 
               patch-wise directional loss \(\mathcal{L}_{\text{dir}}\) and patch distribution consistency loss \(\mathcal{L}_{\text{con}}\).
+            </figcaption>
+          </figure>
+        </br>
+          <h2 class="title is-4">PRS module</h2>
+          <figure>
+            <img src="static/images/PRS.png" alt="Pre-fixed Region Selection (PRS) module"/>
+            <figcaption style="font-size: 0.9rem; font-style: italic; text-align: justify; margin-top: 0.5em; line-height: 1.4;">
+              <b>Overview of Pre-fixed Region Selection (PRS) module.</b> PRS works in the early iterations to find areas of the foreground that match the source text and the areas of the background.
+            </figcaption>
+          </figure>
+        </br>        
+          <h2 class="title is-4">TMPS module</h2>
+          <figure>
+            <img src="static/images/TMPS.png" alt="TMPS module"/>
+            <figcaption style="font-size: 0.9rem; font-style: italic; text-align: justify; margin-top: 0.5em; line-height: 1.4;">
+              <b>Overview of TMPS module.</b> TMPS module utilizes CLIP’s text and image encoders to select patches from \(I^{\text{src}}\) that contain the object we want to stylize.
             </figcaption>
           </figure>
         </div>
@@ -299,7 +315,7 @@
 <!-- Video carousel -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-3 has-text-centered">Style Option Carousel</h2>
+    <h2 class="title is-3 has-text-centered">Multiple Content</h2>
 
     <!-- 캐러셀 시작 -->
     <div id="option-carousel" class="carousel results-carousel">
@@ -311,20 +327,20 @@
             <div class="menu">
               <p class="menu-label">Choose a style:</p>
               <ul class="menu-list">
-                <li><a href="#" class="option-button" data-target="image1" data-img="static/asset/image_results/teaser/src4.png">Source image</a></li>
-                <li><a href="#" class="option-button" data-target="image1" data-img="static/asset/image_results/teaser/4-1.png">strawberry → frozen strawberry</a></li>
-                <li><a href="#" class="option-button" data-target="image1" data-img="static/asset/image_results/teaser/4-2.png">wooden board → marble style</a></li>
+                <li><a href="#" class="option-button" data-target="image1" data-img="static/asset/image_results/teaser/src1.png">Source image</a></li>
+                <li><a href="#" class="option-button" data-target="image1" data-img="static/asset/image_results/teaser/1-1.png">Butterfly → Stained glass</a></li>
+                <li><a href="#" class="option-button" data-target="image1" data-img="static/asset/image_results/teaser/1-2.png">Red flower → yellow</a></li>
               </ul>
             </div>
           </div>
           <div class="column has-text-centered">
             <figure class="image is-3by3">
-              <img id="image1" src="static/asset/image_results/teaser/src4.png" style="max-height: 400px; margin: auto;">
+              <img id="image1" src="static/asset/image_results/teaser/src1.png" style="max-height: 400px; margin: auto;">
             </figure>
           </div>
         </div>
       </div>
-
+      
       <!-- 슬라이드 2 -->
       <div class="item">
         <div class="columns is-vcentered">
@@ -332,35 +348,113 @@
             <div class="menu">
               <p class="menu-label">Choose a style:</p>
               <ul class="menu-list">
-                <li><a href="#" class="option-button" data-target="image2" data-img="static/asset/image_results/teaser/src5.png">Original</a></li>
-                <li><a href="#" class="option-button" data-target="image2" data-img="static/asset/image_results/teaser/5-1.png">tea set → ceramic style</a></li>
-                <li><a href="#" class="option-button" data-target="image2" data-img="static/asset/image_results/teaser/5-2.png">background → pastel blur</a></li>
+                <li><a href="#" class="option-button" data-target="image2" data-img="static/asset/image_results/teaser/src2.png">Source image</a></li>
+                <li><a href="#" class="option-button" data-target="image2" data-img="static/asset/image_results/teaser/2-1.png">Barn → Snowy</a></li>
+                <li><a href="#" class="option-button" data-target="image2" data-img="static/asset/image_results/teaser/2-2.png">Mountain → Lava</a></li>
               </ul>
             </div>
           </div>
           <div class="column has-text-centered">
             <figure class="image is-3by3">
-              <img id="image2" src="static/asset/image_results/teaser/src5.png" style="max-height: 400px; margin: auto;">
+              <img id="image2" src="static/asset/image_results/teaser/src2.png" style="max-height: 400px; margin: auto;">
+            </figure>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 슬라이드 3 -->
+      <div class="item">
+        <div class="columns is-vcentered">
+          <div class="column is-one-third">
+            <div class="menu">
+              <p class="menu-label">Choose a style:</p>
+              <ul class="menu-list">
+                <li><a href="#" class="option-button" data-target="image3" data-img="static/asset/image_results/teaser/src3.png">Source image</a></li>
+                <li><a href="#" class="option-button" data-target="image3" data-img="static/asset/image_results/teaser/3-1.png">Rock → Crystal</a></li>
+                <li><a href="#" class="option-button" data-target="image3" data-img="static/asset/image_results/teaser/3-2.png">Tree → Autumn style</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="column has-text-centered">
+            <figure class="image is-3by3">
+              <img id="image3" src="static/asset/image_results/teaser/src3.png" style="max-height: 400px; margin: auto;">
             </figure>
           </div>
         </div>
       </div>
 
-    </div>
+      <!-- 슬라이드 4 -->
+      <div class="item">
+        <div class="columns is-vcentered">
+          <div class="column is-one-third">
+            <div class="menu">
+              <p class="menu-label">Choose a style:</p>
+              <ul class="menu-list">
+                <li><a href="#" class="option-button" data-target="image4" data-img="static/asset/image_results/teaser/src4.png">Source image</a></li>
+                <li><a href="#" class="option-button" data-target="image4" data-img="static/asset/image_results/teaser/4-1.png">Strawberry → Frozen</a></li>
+                <li><a href="#" class="option-button" data-target="image4" data-img="static/asset/image_results/teaser/4-2.png">Wooden board → Marble style</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="column has-text-centered">
+            <figure class="image is-3by3">
+              <img id="image4" src="static/asset/image_results/teaser/src4.png" style="max-height: 400px; margin: auto;">
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- 슬라이드 5 -->
+      <div class="item">
+        <div class="columns is-vcentered">
+          <div class="column is-one-third">
+            <div class="menu">
+              <p class="menu-label">Choose a style:</p>
+              <ul class="menu-list">
+                <li><a href="#" class="option-button" data-target="image5" data-img="static/asset/image_results/teaser/src5.png">Original</a></li>
+                <li><a href="#" class="option-button" data-target="image5" data-img="static/asset/image_results/teaser/5-1.png">Cookie → Red velvet</a></li>
+                <li><a href="#" class="option-button" data-target="image5" data-img="static/asset/image_results/teaser/5-2.png">Blue tableware → White marble style</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="column has-text-centered">
+            <figure class="image is-3by3">
+              <img id="image5" src="static/asset/image_results/teaser/src5.png" style="max-height: 400px; margin: auto;">
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- 슬라이드 6 -->
+      <div class="item">
+        <div class="columns is-vcentered">
+          <div class="column is-one-third">
+            <div class="menu">
+              <p class="menu-label">Choose a style:</p>
+              <ul class="menu-list">
+                <li><a href="#" class="option-button" data-target="image6" data-img="static/asset/image_results/teaser/src6.jpg">Original</a></li>
+                <li><a href="#" class="option-button" data-target="image6" data-img="static/asset/image_results/teaser/6-1.png">Door → Stone wall</a></li>
+                <li><a href="#" class="option-button" data-target="image6" data-img="static/asset/image_results/teaser/6-2.png">Plant → Golden</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="column has-text-centered">
+            <figure class="image is-3by3">
+              <img id="image6" src="static/asset/image_results/teaser/src6.jpg" style="max-height: 400px; margin: auto;">
+            </figure>
+          </div>
+        </div>
+      </div>
+
+    
     <!-- 캐러셀 끝 -->
   </div>
 </section>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    // 🔁 캐러셀 초기화
-    bulmaCarousel.attach('#option-carousel', {
-      slidesToScroll: 1,
-      slidesToShow: 1,
-      infinite: false
-    });
-
-    // 🖼️ 이미지 변경 로직
+    // 이미지 변경 로직
     const buttons = document.querySelectorAll(".option-button");
+
     buttons.forEach(button => {
       button.addEventListener("click", function (e) {
         e.preventDefault();
