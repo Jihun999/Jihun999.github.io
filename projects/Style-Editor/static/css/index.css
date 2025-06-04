@@ -133,7 +133,13 @@ body {
   font-size: smaller;
 }
 
-
+#style-carousel img {
+  aspect-ratio: 1 / 1;
+  width: auto;
+  max-height: 400px;
+  object-fit: contain;
+  margin: auto;
+}
 
 .juxtapose {
   max-width: 100%;
