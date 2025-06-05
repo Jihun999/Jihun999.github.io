@@ -364,42 +364,80 @@
   });
 </script> -->
   <!-- (END) 이미지 text 옵션 선택 비교 -->
+  
+  <!-- Video Carousel Section -->
+  <section class="hero is-light">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <!-- <h2 class="title is-3 has-text-centered">Visualization of Proposed Losses</h2> -->
+        <h2 class="title is-3 has-text-centered">Proposed method visualization</h2>
+      </div>
+    </div>
+  </section>
+  <section class="section pt-0 pb-6">
+    <div class="container is-max-desktop">
+      <!-- <h2 class="title is-3 has-text-centered">Visualization of Proposed Losses</h2> -->
+      
+      <div id="video-carousel" class="carousel results-carousel">
+        
+        <div class="item has-text-centered">
+          <h3 class="title is-5">Text-Matched Patch Selection</h3>
+          <img src="static/asset/proposed/tmps_w_alg.png" alt="Text-Matched Patch Selection"
+          style="max-width: 100%; height: auto;">
+        </div>
+        
+        <div class="item has-text-centered">
+          <h3 class="title is-5">Pre-fixed Region Selection</h3>
+          <img src="static/asset/proposed/prs_w_alg.png" alt="Pre-fixed Region Selection"
+          style="max-width: 100%; height: auto;">
+        </div>
+        
+        
+        <!-- Slide 1 -->
+        <div class="item has-text-centered">
+          <h3 class="title is-5">Patch-wise directional loss (\(\mathcal{L}_{\text{dir}}\)) from
+            \(\mathcal{L}_{\text{pcd}}\)</h3>
+            <video controls autoplay loop muted style="max-width: 100%; height: auto;">
+              <source src="static/asset/proposed/l_dir_unisize.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          
+          <!-- Slide 2 -->
+          <div class="item has-text-centered">
+            <h3 class="title is-5">Patch distribution consistency loss (\(\mathcal{L}_{\text{con}}\)) from
+              \(\mathcal{L}_{\text{pcd}}\)</h3>
+              <video controls autoplay loop muted style="max-width: 100%; height: auto;">
+                <source src="static/asset/proposed/l_con_unisize.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="item has-text-centered">
+              <h3 class="title is-5">Adaptive background preservation loss (\(\mathcal{L}_{\text{abp}}\))</h3>
+              <video controls autoplay loop muted style="max-width: 100%; height: auto;">
+                <source src="static/asset/proposed/l_abp_unisize.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            
+          </div>
+        </div>
+      </section>
+      
+      <!-- bulmaCarousel 초기화 -->
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          bulmaCarousel.attach('#video-carousel', {
+            slidesToScroll: 1,
+            slidesToShow: 1,
+            infinite: true
+          });
+        });
+        </script>
 
 <!-- 이미지 슬라이딩 비교 -->
-<!-- <section class="section hero is-light">
-  <div class="container is-max-desktop has-text-centered">
-    <h2 class="title is-3">Image Comparison Slider 1</h2>
-    <div id="slider1" class="juxtapose" style="width: 512px; height: 512px; margin: auto;"></div>
-  </div>
-</section>
-
-
-<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    new juxtapose.JXSlider('#slider1',
-      [
-        {
-          src: 'static/asset/image_results/teaser/src4.png',
-          label: 'Source'
-        },
-        {
-          src: 'static/asset/image_results/teaser/4-1.png',
-          label: 'Stylized'
-        }
-      ],
-      {
-        animate: true,
-        showLabels: true,
-        showCredits: false,
-        startingPosition: "20",
-        makeResponsive: true
-      }
-    );
-
-
-  });
-</script> -->
 
 <section class="hero is-light">
   <div class="hero-body">
@@ -409,38 +447,108 @@
   </div>
 </section>
 
+<style>
+  .comparison-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: auto; /* 조절 가능 */
+    text-align: center;
+  }
+
+  .comparison-caption {
+    min-height: 3em; /* 1~2줄 확보 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    margin-bottom: 1.2rem;
+  }
+
+  .comparison-slider-wrapper {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .juxtapose {
+    max-width: 512px;
+    width: 100%;
+    height: 512px;
+  }
+</style>
+
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-multiline is-centered is-mobile">
 
-      <div class="column is-one-third has-text-centered">
-        <h3 class="title is-5">Blue car → Iron man style</h3>
-        <div id="slider1" class="juxtapose" style="width: 100%; max-width: 512px; height: 512px; margin: auto;"></div>
+      <div class="column is-one-third">
+        <div class="comparison-block">
+          <div class="comparison-caption">
+            <h3 class="title is-6">Couch → Silky</h3>
+          </div>
+          <div class="comparison-slider-wrapper">
+            <div id="slider1" class="juxtapose"></div>
+          </div>
+        </div>
       </div>
 
-      <div class="column is-one-third has-text-centered">
-        <h3 class="title is-5">Brown jacket → Fauvism style painting</h3>
-        <div id="slider2" class="juxtapose" style="width: 100%; max-width: 512px; height: 512px; margin: auto;"></div>
+      <div class="column is-one-third">
+        <div class="comparison-block">
+          <div class="comparison-caption">
+            <h3 class="title is-6">Blue car → Iron man style</h3>
+          </div>
+          <div class="comparison-slider-wrapper">
+            <div id="slider2" class="juxtapose"></div>
+          </div>
+        </div>
       </div>
 
-      <div class="column is-one-third has-text-centered">
-        <h3 class="title is-5">Couch → Silky</h3>
-        <div id="slider3" class="juxtapose" style="width: 100%; max-width: 512px; height: 512px; margin: auto;"></div>
+      <div class="column is-one-third">
+        <div class="comparison-block">
+          <div class="comparison-caption">
+            <h3 class="title is-6">Brown jacket → Fauvism style painting</h3>
+          </div>
+          <div class="comparison-slider-wrapper">
+            <div id="slider3" class="juxtapose"></div>
+          </div>
+        </div>
       </div>
 
-      <div class="column is-one-third has-text-centered">
-        <h3 class="title is-5">Yellow dress → The great wave off Kanagawa by Hokusai</h3>
-        <div id="slider4" class="juxtapose" style="width: 100%; max-width: 512px; height: 512px; margin: auto;"></div>
+      <div class="column is-one-third">
+        <div class="comparison-block">
+          <div class="comparison-caption">
+            <h3 class="title is-6">Wooden floor → Red carpet</h3>
+          </div>
+          <div class="comparison-slider-wrapper">
+            <div id="slider4" class="juxtapose"></div>
+          </div>
+        </div>
       </div>
 
-      <div class="column is-one-third has-text-centered">
-        <h3 class="title is-5">Wooden floor → Red carpet</h3>
-        <div id="slider5" class="juxtapose" style="width: 100%; max-width: 512px; height: 512px; margin: auto;"></div>
+      <div class="column is-one-third">
+        <div class="comparison-block">
+          <div class="comparison-caption">
+            <h3 class="title is-6">Red car → Graffiti</h3>
+          </div>
+          <div class="comparison-slider-wrapper">
+            <div id="slider5" class="juxtapose"></div>
+          </div>
+        </div>
       </div>
 
-      <div class="column is-one-third has-text-centered">
-        <h3 class="title is-5">Red car → Graffiti</h3>
-        <div id="slider6" class="juxtapose" style="width: 100%; max-width: 512px; height: 512px; margin: auto;"></div>
+      <div class="column is-one-third">
+        <div class="comparison-block">
+          <div class="comparison-caption">
+            <h3 class="title is-6">Yellow dress → The great wave off Kanagawa by Hokusai</h3>
+          </div>
+          <div class="comparison-slider-wrapper">
+            <div id="slider6" class="juxtapose"></div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -448,17 +556,18 @@
 </section>
 
 
+
 <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     // Juxtapose 슬라이더 각각 생성
     const comparisons = [
-      ['slider1', 'static/asset/image_results/industry/car1.png', 'static/asset/image_results/industry/car1s.png'],
-      ['slider2', 'static/asset/image_results/industry/clo1.png', 'static/asset/image_results/industry/clo1s.png'],
-      ['slider3', 'static/asset/image_results/industry/fur1.png', 'static/asset/image_results/industry/fur1s.png'],
-      ['slider4', 'static/asset/image_results/industry/car2.png', 'static/asset/image_results/industry/car2s.png'],
-      ['slider5', 'static/asset/image_results/industry/clo2.png', 'static/asset/image_results/industry/clo2s.png'],
-      ['slider6', 'static/asset/image_results/industry/fur2.png', 'static/asset/image_results/industry/fur2s.png'],
+      ['slider1', 'static/asset/image_results/industry/fur1.png', 'static/asset/image_results/industry/fur1s.png'],
+      ['slider2', 'static/asset/image_results/industry/car1.png', 'static/asset/image_results/industry/car1s.png'],
+      ['slider3', 'static/asset/image_results/industry/clo1.png', 'static/asset/image_results/industry/clo1s.png'],
+      ['slider4', 'static/asset/image_results/industry/fur2.png', 'static/asset/image_results/industry/fur2s.png'],
+      ['slider5', 'static/asset/image_results/industry/car2.png', 'static/asset/image_results/industry/car2s.png'],
+      ['slider6', 'static/asset/image_results/industry/clo2.png', 'static/asset/image_results/industry/clo2s.png'],
     ];
 
     comparisons.forEach(([id, before, after]) => {
@@ -478,88 +587,16 @@
 
   <!-- (END) 이미지 슬라이딩 비교 -->
 
-  <!-- Video Carousel Section -->
-  <section class="hero is-light">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <!-- <h2 class="title is-3 has-text-centered">Visualization of Proposed Losses</h2> -->
-        <h2 class="title is-3 has-text-centered">Proposed method visualization</h2>
-      </div>
-    </div>
-  </section>
-  <section class="section pt-0 pb-6">
+<!-- Video carousel -->
+<section class="hero is-light">
+  <div class="hero-body">
     <div class="container is-max-desktop">
-      <!-- <h2 class="title is-3 has-text-centered">Visualization of Proposed Losses</h2> -->
-
-      <div id="video-carousel" class="carousel results-carousel">
-
-        <div class="item has-text-centered">
-          <h3 class="title is-5">Text-Matched Patch Selection</h3>
-          <img src="static/asset/proposed/tmps_w_alg.png" alt="Text-Matched Patch Selection"
-            style="max-width: 100%; height: auto;">
-        </div>
-
-        <div class="item has-text-centered">
-          <h3 class="title is-5">Pre-fixed Region Selection</h3>
-          <img src="static/asset/proposed/prs_w_alg.png" alt="Pre-fixed Region Selection"
-            style="max-width: 100%; height: auto;">
-        </div>
-
-
-        <!-- Slide 1 -->
-        <div class="item has-text-centered">
-          <h3 class="title is-5">Patch-wise directional loss (\(\mathcal{L}_{\text{dir}}\)) from
-            \(\mathcal{L}_{\text{pcd}}\)</h3>
-          <video controls autoplay loop muted style="max-width: 100%; height: auto;">
-            <source src="static/asset/proposed/l_dir_unisize.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-
-        <!-- Slide 2 -->
-        <div class="item has-text-centered">
-          <h3 class="title is-5">Patch distribution consistency loss (\(\mathcal{L}_{\text{con}}\)) from
-            \(\mathcal{L}_{\text{pcd}}\)</h3>
-          <video controls autoplay loop muted style="max-width: 100%; height: auto;">
-            <source src="static/asset/proposed/l_con_unisize.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="item has-text-centered">
-          <h3 class="title is-5">Adaptive background preservation loss (\(\mathcal{L}_{\text{abp}}\))</h3>
-          <video controls autoplay loop muted style="max-width: 100%; height: auto;">
-            <source src="static/asset/proposed/l_abp_unisize.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-
-      </div>
+      <h2 class="title is-3 has-text-centered">Multiple Contents</h2>
     </div>
-  </section>
-
-  <!-- bulmaCarousel 초기화 -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      bulmaCarousel.attach('#video-carousel', {
-        slidesToScroll: 1,
-        slidesToShow: 1,
-        infinite: true
-      });
-    });
-  </script>
-
-  <!-- Video carousel -->
-  <section class="hero is-light">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <h2 class="title is-3 has-text-centered">Multiple Contents</h2>
-      </div>
-    </div>
-  </section>   
-  <section class="section">
-    <div class="container is-max-desktop">
+  </div>
+</section>   
+<section class="section">
+  <div class="container is-max-desktop">
       <!-- <h2 class="title is-3 has-text-centered">Multiple Contents</h2> -->
 
       <!-- 캐러셀 시작 -->
