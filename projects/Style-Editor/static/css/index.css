@@ -156,3 +156,9 @@ body {
   aspect-ratio: 1 / 1; /* 또는 원하는 비율 */
   margin: auto;
 }
+
+.option-button.is-active {
+  background-color: #8dacdf;
+  color: white;
+  font-weight: bold;
+}

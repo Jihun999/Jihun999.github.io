@@ -279,7 +279,7 @@
   </section>
 
   <!-- 캐로셀 영역 (is-light 배경) -->
-  <section class="section">
+  <section class="section pt-0">
     <div class="container is-max-desktop">
       <div id="png-carousel" class="carousel results-carousel">
 
@@ -431,7 +431,7 @@
       </div>
     </div>
   </section>
-  <section class="section">
+  <section class="section pt-0 pb-6">
     <div class="container is-max-desktop">
       <!-- <h2 class="title is-3 has-text-centered">Visualization of Proposed Losses</h2> -->
 
@@ -503,7 +503,7 @@
               <div class="menu">
                 <p class="menu-label">Choose a style:</p>
                 <ul class="menu-list">
-                  <li><a href="#" class="option-button" data-target="image1"
+                  <li><a href="#" class="option-button is-active" data-target="image1"
                       data-img="static/asset/image_results/teaser/src1.png">Source image</a></li>
                   <li><a href="#" class="option-button" data-target="image1"
                       data-img="static/asset/image_results/teaser/1-1.png">Butterfly → Stained glass</a></li>
@@ -528,7 +528,7 @@
               <div class="menu">
                 <p class="menu-label">Choose a style:</p>
                 <ul class="menu-list">
-                  <li><a href="#" class="option-button" data-target="image2"
+                  <li><a href="#" class="option-button is-active" data-target="image2"
                       data-img="static/asset/image_results/teaser/src2.png">Source image</a></li>
                   <li><a href="#" class="option-button" data-target="image2"
                       data-img="static/asset/image_results/teaser/2-1.png">Barn → Snowy</a></li>
@@ -553,7 +553,7 @@
               <div class="menu">
                 <p class="menu-label">Choose a style:</p>
                 <ul class="menu-list">
-                  <li><a href="#" class="option-button" data-target="image3"
+                  <li><a href="#" class="option-button is-active" data-target="image3"
                       data-img="static/asset/image_results/teaser/src3.png">Source image</a></li>
                   <li><a href="#" class="option-button" data-target="image3"
                       data-img="static/asset/image_results/teaser/3-1.png">Rock → Crystal</a></li>
@@ -578,7 +578,7 @@
               <div class="menu">
                 <p class="menu-label">Choose a style:</p>
                 <ul class="menu-list">
-                  <li><a href="#" class="option-button" data-target="image4"
+                  <li><a href="#" class="option-button is-active" data-target="image4"
                       data-img="static/asset/image_results/teaser/src4.png">Source image</a></li>
                   <li><a href="#" class="option-button" data-target="image4"
                       data-img="static/asset/image_results/teaser/4-1.png">Strawberry → Frozen</a></li>
@@ -603,7 +603,7 @@
               <div class="menu">
                 <p class="menu-label">Choose a style:</p>
                 <ul class="menu-list">
-                  <li><a href="#" class="option-button" data-target="image5"
+                  <li><a href="#" class="option-button is-active" data-target="image5"
                       data-img="static/asset/image_results/teaser/src5.png">Original</a></li>
                   <li><a href="#" class="option-button" data-target="image5"
                       data-img="static/asset/image_results/teaser/5-1.png">Cookie → Red velvet</a></li>
@@ -628,7 +628,7 @@
               <div class="menu">
                 <p class="menu-label">Choose a style:</p>
                 <ul class="menu-list">
-                  <li><a href="#" class="option-button" data-target="image6"
+                  <li><a href="#" class="option-button is-active" data-target="image6"
                       data-img="static/asset/image_results/teaser/src6.jpg">Original</a></li>
                   <li><a href="#" class="option-button" data-target="image6"
                       data-img="static/asset/image_results/teaser/6-1.png">Door → Stone wall</a></li>
@@ -652,12 +652,19 @@
   </section>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
-      // 이미지 변경 로직
       const buttons = document.querySelectorAll(".option-button");
 
       buttons.forEach(button => {
         button.addEventListener("click", function (e) {
           e.preventDefault();
+
+          // 🔹 하이라이트 처리: 모든 버튼에서 is-active 제거
+          buttons.forEach(btn => btn.classList.remove("is-active"));
+
+          // 🔹 현재 클릭된 버튼에 is-active 추가
+          this.classList.add("is-active");
+
+          // 🔹 이미지 교체
           const imgPath = this.dataset.img;
           const targetId = this.dataset.target;
           const imageElement = document.getElementById(targetId);
