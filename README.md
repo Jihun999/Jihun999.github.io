@@ -8,7 +8,7 @@ I am a student researcher, particular emphasis on solving **generative models**,
 
 ### 🎨 [Style-Editor CVPR 2025 highlight]
 
-Visit the [project page](https://jihun999.github.io/projects/Style-Editor/) for:
+Visit the [Style-Editor](https://jihun999.github.io/projects/Style-Editor/) project page for:
 - Paper and supplementary materials
 - Demo results
 - Code and reproducibility instructions
