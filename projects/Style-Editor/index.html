@@ -39,13 +39,14 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
   <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
-
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
+
 </head>
 
 <body>
@@ -301,6 +302,12 @@
     </div>
   </section> -->
 
+
+
+
+
+
+  
   <!-- Carousel Init Script -->
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -315,70 +322,7 @@
 
 
 
-  <!-- 이미지 슬라이딩 비교 -->
-  <!-- <section class="section hero is-light">
-  <div class="container is-max-desktop has-text-centered">
-    <h2 class="title is-3">Image Comparison Slider 1</h2>
-    <div id="slider1" class="juxtapose" style="width: 512px; height: 512px; margin: auto;"></div>
-  </div>
-</section>
 
-<section class="section hero is-light">
-  <div class="container is-max-desktop has-text-centered">
-    <h2 class="title is-3">Image Comparison Slider 2</h2>
-    <div id="slider2" class="juxtapose" style="width: 512px; height: 512px; margin: auto;"></div>
-  </div>
-</section>
-
-<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    new juxtapose.JXSlider('#slider1',
-      [
-        {
-          src: 'static/asset/image_results/teaser/src4.png',
-          label: 'Source'
-        },
-        {
-          src: 'static/asset/image_results/teaser/4-1.png',
-          label: 'Stylized'
-        }
-      ],
-      {
-        animate: true,
-        showLabels: true,
-        showCredits: false,
-        startingPosition: "20",
-        makeResponsive: true
-      }
-    );
-
-    new juxtapose.JXSlider('#slider2',
-      [
-        {
-          src: 'static/asset/image_results/teaser/src5.png',
-          label: 'Source'
-        },
-        {
-          src: 'static/asset/image_results/teaser/5-1.png',
-          label: 'Stylized'
-        }
-      ],
-      {
-        animate: true,
-        showLabels: true,
-        showCredits: false,
-        startingPosition: "50",
-        makeResponsive: true
-      }
-    );
-  });
-</script> -->
-
-
-
-
-  <!-- (END) 이미지 슬라이딩 비교 -->
 
   <!-- 이미지 text 옵션 선택 비교 -->
   <!-- <section class="section">
@@ -421,7 +365,135 @@
 </script> -->
   <!-- (END) 이미지 text 옵션 선택 비교 -->
 
+<!-- 이미지 슬라이딩 비교 -->
+<!-- <section class="section hero is-light">
+  <div class="container is-max-desktop has-text-centered">
+    <h2 class="title is-3">Image Comparison Slider 1</h2>
+    <div id="slider1" class="juxtapose" style="width: 512px; height: 512px; margin: auto;"></div>
+  </div>
+</section>
 
+
+<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    new juxtapose.JXSlider('#slider1',
+      [
+        {
+          src: 'static/asset/image_results/teaser/src4.png',
+          label: 'Source'
+        },
+        {
+          src: 'static/asset/image_results/teaser/4-1.png',
+          label: 'Stylized'
+        }
+      ],
+      {
+        animate: true,
+        showLabels: true,
+        showCredits: false,
+        startingPosition: "20",
+        makeResponsive: true
+      }
+    );
+
+
+  });
+</script> -->
+
+<section class="hero is-light">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Image Comparison Carousel</h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div id="juxtapose-carousel" class="carousel results-carousel">
+
+      <!-- 8개의 슬라이더를 각각 item으로 -->
+      <div class="item has-text-centered">
+        <h3 class="title is-5">Comparison 1</h3>
+        <div id="slider1" class="juxtapose" style="width: 512px; height: 512px; margin: auto;"></div>
+      </div>
+
+      <div class="item has-text-centered">
+        <h3 class="title is-5">Comparison 2</h3>
+        <div id="slider2" class="juxtapose" style="width: 512px; height: 512px; margin: auto;"></div>
+      </div>
+
+      <div class="item has-text-centered">
+        <h3 class="title is-5">Comparison 3</h3>
+        <div id="slider3" class="juxtapose" style="width: 512px; height: 512px; margin: auto;"></div>
+      </div>
+
+      <div class="item has-text-centered">
+        <h3 class="title is-5">Comparison 4</h3>
+        <div id="slider4" class="juxtapose" style="width: 512px; height: 512px; margin: auto;"></div>
+      </div>
+
+      <div class="item has-text-centered">
+        <h3 class="title is-5">Comparison 5</h3>
+        <div id="slider5" class="juxtapose" style="width: 512px; height: 512px; margin: auto;"></div>
+      </div>
+
+      <div class="item has-text-centered">
+        <h3 class="title is-5">Comparison 6</h3>
+        <div id="slider6" class="juxtapose" style="width: 512px; height: 512px; margin: auto;"></div>
+      </div>
+
+      <div class="item has-text-centered">
+        <h3 class="title is-5">Comparison 7</h3>
+        <div id="slider7" class="juxtapose" style="width: 512px; height: 512px; margin: auto;"></div>
+      </div>
+
+      <div class="item has-text-centered">
+        <h3 class="title is-5">Comparison 8</h3>
+        <div id="slider8" class="juxtapose" style="width: 512px; height: 512px; margin: auto;"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // 캐러셀 초기화
+    bulmaCarousel.attach('#juxtapose-carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      infinite: true
+    });
+
+    // Juxtapose 슬라이더 각각 생성
+    const comparisons = [
+      ['slider1', 'static/asset/image_results/industry/car1.png', 'static/asset/image_results/industry/car1s.png'],
+      ['slider2', 'static/asset/image_results/industry/car2.png', 'static/asset/image_results/industry/car2s.png'],
+      ['slider3', 'static/asset/image_results/industry/clo1.png', 'static/asset/image_results/industry/clo1s.png'],
+      ['slider4', 'static/asset/image_results/industry/clo2.png', 'static/asset/image_results/industry/clo2s.png'],
+      ['slider5', 'static/asset/image_results/industry/fur1.png', 'static/asset/image_results/industry/fur1ㄴ.png'],
+      ['slider6', 'static/asset/image_results/teaser/src6.jpg', 'static/asset/image_results/teaser/6-1.png'],
+    ];
+
+    comparisons.forEach(([id, before, after]) => {
+      new juxtapose.JXSlider('#' + id, [
+        { src: before, label: 'Source' },
+        { src: after, label: 'Stylized' }
+      ], {
+        animate: true,
+        showLabels: true,
+        showCredits: false,
+        startingPosition: "50",
+        makeResponsive: true
+      });
+    });
+  });
+</script>
+
+  <!-- (END) 이미지 슬라이딩 비교 -->
 
   <!-- Video Carousel Section -->
   <section class="hero is-light">
