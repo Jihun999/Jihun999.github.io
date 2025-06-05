@@ -658,10 +658,14 @@
         button.addEventListener("click", function (e) {
           e.preventDefault();
 
-          // 🔹 하이라이트 처리: 모든 버튼에서 is-active 제거
-          buttons.forEach(btn => btn.classList.remove("is-active"));
+          // 🔹 슬라이드 영역 기준으로 가장 가까운 부모(menu-list) 기준에서만 처리
+          const parentMenu = this.closest(".menu-list");
+          const siblingButtons = parentMenu.querySelectorAll(".option-button");
 
-          // 🔹 현재 클릭된 버튼에 is-active 추가
+          // 🔹 해당 슬라이드 내 모든 버튼에서 is-active 제거
+          siblingButtons.forEach(btn => btn.classList.remove("is-active"));
+
+          // 🔹 클릭한 버튼에 is-active 추가
           this.classList.add("is-active");
 
           // 🔹 이미지 교체
