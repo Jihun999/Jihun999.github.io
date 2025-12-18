@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="DESCRIPTION META TAG">
+  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
+  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
+  <meta property="og:url" content="URL OF THE WEBSITE"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
+  <meta property="og:image" content="static/image/your_banner_image.png" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
+  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
+  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
+  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <title>Style-Editor: Text-driven Object-centric Style Editing</title>
+  <link rel="icon" type="image/x-icon" href="static/images/cvlabLOGO.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+  <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Style-Editor: Text-driven Object-centric Style Editing</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://jihun999.github.io/" target="_blank">Jihun Park</a><sup>*</sup>,</span>
+                <span class="author-block">
+                  <a href="https://minimini-1.github.io/" target="_blank">Jongmin Gim</a><sup>*</sup>,</span>
+                  <span class="author-block">
+                    <a href="https://cvlab.dgist.ac.kr/members/kyungmin-lee/" target="_blank">Kyoungmin Lee</a><sup>*</sup>,</span>
+                    <span class="author-block">
+                    <a href="https://seung-hun-lee.github.io/" target="_blank">Seunghun Lee</a>,</span>
+                    <span class="author-block">
+                    <a href="https://sunghoonim.github.io/" target="_blank">Sunghoon Im</a><sup>†</sup>,</span>
+                  </span>
+                  </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block">DGIST<br><strong>CVPR 2025 Hightlight</strong></span>
+                    <span class="eql-cntrb"><small><br><sup>*</sup>Equal Contribution, <sup>†</sup>Corresponding Author</small></span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="https://arxiv.org/abs/2408.08461" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                    <!-- Supplementary PDF link -->
+                    <span class="link-block">
+                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Supplementary</span>
+                    </a>
+                  </span>
+
+                  <!-- Github link -->
+                  <span class="link-block">
+                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Soon!</span>
+                  </a>
+                </span>
+
+                <!-- ArXiv abstract Link -->
+                <!-- <span class="link-block">
+                  <a href="https://arxiv.org/abs/2408.08461" target="_blank"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Single Video Section -->
+<section class="section">
+  <div class="container is-max-desktop has-text-centered">
+    <!-- <h2 class="title is-3">Demo Video</h2> -->
+    <video autoplay muted controls loop style="max-width: 100%; height: auto;">
+      <source src="static/asset/teaser_chat.mov" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+          We present Text-driven object-centric style editing model named Style-Editor, 
+          a novel method that guides style editing at an object-centric level using textual inputs. 
+          The core of Style-Editor is our Patch-wise Co-Directional (PCD) loss, meticulously designed for precise object-centric editing that are closely aligned with the input text. 
+          This loss combines a patch directional loss for text-guided style direction and a patch distribution consistency loss for even CLIP embedding distribution across object regions. 
+          It ensures a seamless and harmonious style editing across object regions.Key to our method are the Text-Matched Patch Selection (TMPS) and Pre-fixed Region Selection (PRS) modules for identifying object locations via text, eliminating the need for segmentation masks. Lastly, we introduce an Adaptive Background Preservation (ABP) loss to maintain the original style and structural essence of the image's background. 
+          This loss is applied to dynamically identified background areas. Extensive experiments underline the effectiveness of our approach in creating visually coherent and textually aligned style editing.          
+        </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+
+<!-- Method -->
+<section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Method Overview</h2>
+          <figure>
+            <img src="static/images/main_arch_mask.png" alt="MY ALT TEXT"/>
+            <figcaption style="font-size: 0.9rem; font-style: italic; text-align: justify; margin-top: 0.5em; line-height: 1.4;">
+              <b>[Left]</b> Overall pipeline of our <i>Style-Editor</i> consisting of a style editing network (StyleNet), 
+              Pre-fixed Region Selection (PRS), Text-Matched Patch Selection (TMPS) module, and pretrained CLIP encoders.
+              The StyleNet takes a source image \(I^{\text{src}}\) and generates an object-wise stylized image \(I^{\text{out}}\).
+              The TMPS module identifies patches that best match \(T^{\text{src}}\) within the foreground regions detected by PRS.
+              These selected and augmented patches, \(\mathbf{P}^{\text{src}}, \mathbf{P}^{\text{out}}\), are aligned with \(T^{\text{src}}, T^{\text{tgt}}\)
+              in the CLIP embedding space using the Patch-wise Co-Directional (PCD) loss \(\mathcal{L}_{\text{pcd}}\). The target text \(T^{\text{tgt}}\)
+              is derived through central word selection. Additional losses include the content loss \(\mathcal{L}_{\text{c}}\), 
+              Adaptive Background Preservation loss \(\mathcal{L}_{\text{abp}}\), and total variation loss \(\mathcal{L}_{\text{tv}}\).
+              <b>[Right]</b> Illustration of the PCD loss \(\mathcal{L}_{\text{pcd}}\) in feature space, which consists of the 
+              patch-wise directional loss \(\mathcal{L}_{\text{dir}}\) and patch distribution consistency loss \(\mathcal{L}_{\text{con}}\).
+            </figcaption>
+          </figure>
+        </br>
+          <!-- <h2 class="title is-4">PRS module</h2>
+          <figure>
+            <img src="static/images/PRS.png" alt="Pre-fixed Region Selection (PRS) module"/>
+            <figcaption style="font-size: 0.9rem; font-style: italic; text-align: justify; margin-top: 0.5em; line-height: 1.4;">
+              <b>Overview of Pre-fixed Region Selection (PRS) module.</b> PRS works in the early iterations to find areas of the foreground that match the source text and the areas of the background.
+            </figcaption>
+          </figure>
+        </br>        
+          <h2 class="title is-4">TMPS module</h2>
+          <figure>
+            <img src="static/images/TMPS.png" alt="TMPS module"/>
+            <figcaption style="font-size: 0.9rem; font-style: italic; text-align: justify; margin-top: 0.5em; line-height: 1.4;">
+              <b>Overview of TMPS module.</b> TMPS module utilizes CLIP’s text and image encoders to select patches from \(I^{\text{src}}\) that contain the object we want to stylize.
+            </figcaption>
+          </figure> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PDF Carousel Section -->
+ <!-- PDF 미리보기가 안돼서 우선 아래 png로 해두었습니다 -->
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">PDF Carousel</h2>
+
+    <div id="pdf-carousel" class="carousel results-carousel">
+      
+      <div class="item has-text-centered">
+        <h3 class="title is-5">Paper 1</h3>
+        <iframe src="static/asset/proposed/tmps_w_alg.pdf" width="100%" height="600px" style="border: 1px solid #ccc;"></iframe>
+      </div>
+      
+      <div class="item has-text-centered">
+        <h3 class="title is-5">Paper 2</h3>
+        <iframe src="static/asset/proposed/prs_w_alg.pdf" width="100%" height="600px" style="border: 1px solid #ccc;"></iframe>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    bulmaCarousel.attach('#pdf-carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      infinite: true
+    });
+  });
+</script> -->
+
+<!-- Proposed Modules Carousel Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Proposed Modules</h2>
+
+    <div id="png-carousel" class="carousel results-carousel">
+      
+      <!-- Slide 1 -->
+      <div class="item has-text-centered">
+        <h3 class="title is-5">Text-Matched Patch Selection</h3>
+        <img src="static/asset/proposed/tmps_w_alg.png" alt="Text-Matched Patch Selection" style="max-width: 100%; height: auto;">
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="item has-text-centered">
+        <h3 class="title is-5">Pre-fixed Region Selection</h3>
+        <img src="static/asset/proposed/prs_w_alg.png" alt="Pre-fixed Region Selection" style="max-width: 100%; height: auto;">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Carousel Init Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    bulmaCarousel.attach('#png-carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      infinite: true
+    });
+  });
+</script>
+
+
+
+
+<!-- 이미지 슬라이딩 비교 -->
+<!-- <section class="section hero is-light">
+  <div class="container is-max-desktop has-text-centered">
+    <h2 class="title is-3">Image Comparison Slider 1</h2>
+    <div id="slider1" class="juxtapose" style="width: 512px; height: 512px; margin: auto;"></div>
+  </div>
+</section>
+
+<section class="section hero is-light">
+  <div class="container is-max-desktop has-text-centered">
+    <h2 class="title is-3">Image Comparison Slider 2</h2>
+    <div id="slider2" class="juxtapose" style="width: 512px; height: 512px; margin: auto;"></div>
+  </div>
+</section>
+
+<script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    new juxtapose.JXSlider('#slider1',
+      [
+        {
+          src: 'static/asset/image_results/teaser/src4.png',
+          label: 'Source'
+        },
+        {
+          src: 'static/asset/image_results/teaser/4-1.png',
+          label: 'Stylized'
+        }
+      ],
+      {
+        animate: true,
+        showLabels: true,
+        showCredits: false,
+        startingPosition: "20",
+        makeResponsive: true
+      }
+    );
+
+    new juxtapose.JXSlider('#slider2',
+      [
+        {
+          src: 'static/asset/image_results/teaser/src5.png',
+          label: 'Source'
+        },
+        {
+          src: 'static/asset/image_results/teaser/5-1.png',
+          label: 'Stylized'
+        }
+      ],
+      {
+        animate: true,
+        showLabels: true,
+        showCredits: false,
+        startingPosition: "50",
+        makeResponsive: true
+      }
+    );
+  });
+</script> -->
+
+
+
+
+<!-- (END) 이미지 슬라이딩 비교 -->
+
+<!-- 이미지 text 옵션 선택 비교 -->
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Style Options</h2>
+    <div class="columns is-vcentered">
+      <div class="column is-one-third">
+        <div class="menu">
+          <p class="menu-label">Choose a style:</p>
+          <ul class="menu-list">
+            <li><a href="#" class="option-button" data-img="static/asset/image_results/teaser/src4.png">Source image</a></li>
+            <li><a href="#" class="option-button" data-img="static/asset/image_results/teaser/4-1.png">strawberry → frozen strawberry</a></li>
+            <li><a href="#" class="option-button" data-img="static/asset/image_results/teaser/4-2.png">wooden board → marble style</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="column has-text-centered">
+        <figure class="image is-3by3">
+          <img id="option-image" src="static/asset/image_results/teaser/src4.png" alt="Selected style image" style="max-height: 400px; margin: auto;">
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const buttons = document.querySelectorAll(".option-button");
+    const image = document.getElementById("option-image");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", function (e) {
+        e.preventDefault();
+        const imgPath = this.dataset.img;
+        image.src = imgPath;
+      });
+    });
+  });
+</script> -->
+<!-- (END) 이미지 text 옵션 선택 비교 -->
+
+
+
+<!-- Video Carousel Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Visualization of Proposed Losses</h2>
+
+    <div id="video-carousel" class="carousel results-carousel">
+      
+      <!-- Slide 1 -->
+      <div class="item has-text-centered">
+        <h3 class="title is-5">Patch-wise directional loss (\(\mathcal{L}_{\text{dir}}\)) from \(\mathcal{L}_{\text{pcd}}\)</h3>
+        <video controls autoplay loop muted style="max-width: 100%; height: auto;">
+          <source src="static/asset/proposed/l_dir_unisize.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      
+      <!-- Slide 2 -->
+      <div class="item has-text-centered">
+        <h3 class="title is-5">Patch distribution consistency loss (\(\mathcal{L}_{\text{con}}\)) from \(\mathcal{L}_{\text{pcd}}\)</h3>
+        <video controls autoplay loop muted style="max-width: 100%; height: auto;">
+          <source src="static/asset/proposed/l_con_unisize.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="item has-text-centered">
+        <h3 class="title is-5">Adaptive background preservation loss (\(\mathcal{L}_{\text{abp}}\))</h3>
+        <video controls autoplay loop muted style="max-width: 100%; height: auto;">
+          <source src="static/asset/proposed/l_abp_unisize.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- bulmaCarousel 초기화 -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    bulmaCarousel.attach('#video-carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      infinite: true
+    });
+  });
+</script>
+
+<!-- Video carousel -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Multiple Contents</h2>
+
+    <!-- 캐러셀 시작 -->
+    <div id="option-carousel" class="carousel results-carousel">
+      
+      <!-- 슬라이드 1 -->
+      <div class="item">
+        <div class="columns is-vcentered">
+          <div class="column is-one-third">
+            <div class="menu">
+              <p class="menu-label">Choose a style:</p>
+              <ul class="menu-list">
+                <li><a href="#" class="option-button" data-target="image1" data-img="static/asset/image_results/teaser/src1.png">Source image</a></li>
+                <li><a href="#" class="option-button" data-target="image1" data-img="static/asset/image_results/teaser/1-1.png">Butterfly → Stained glass</a></li>
+                <li><a href="#" class="option-button" data-target="image1" data-img="static/asset/image_results/teaser/1-2.png">Red flower → yellow</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="column has-text-centered">
+            <figure class="image is-3by3">
+              <img id="image1" src="static/asset/image_results/teaser/src1.png" style="max-height: 400px; margin: auto;">
+            </figure>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 슬라이드 2 -->
+      <div class="item">
+        <div class="columns is-vcentered">
+          <div class="column is-one-third">
+            <div class="menu">
+              <p class="menu-label">Choose a style:</p>
+              <ul class="menu-list">
+                <li><a href="#" class="option-button" data-target="image2" data-img="static/asset/image_results/teaser/src2.png">Source image</a></li>
+                <li><a href="#" class="option-button" data-target="image2" data-img="static/asset/image_results/teaser/2-1.png">Barn → Snowy</a></li>
+                <li><a href="#" class="option-button" data-target="image2" data-img="static/asset/image_results/teaser/2-2.png">Mountain → Lava</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="column has-text-centered">
+            <figure class="image is-3by3">
+              <img id="image2" src="static/asset/image_results/teaser/src2.png" style="max-height: 400px; margin: auto;">
+            </figure>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 슬라이드 3 -->
+      <div class="item">
+        <div class="columns is-vcentered">
+          <div class="column is-one-third">
+            <div class="menu">
+              <p class="menu-label">Choose a style:</p>
+              <ul class="menu-list">
+                <li><a href="#" class="option-button" data-target="image3" data-img="static/asset/image_results/teaser/src3.png">Source image</a></li>
+                <li><a href="#" class="option-button" data-target="image3" data-img="static/asset/image_results/teaser/3-1.png">Rock → Crystal</a></li>
+                <li><a href="#" class="option-button" data-target="image3" data-img="static/asset/image_results/teaser/3-2.png">Tree → Autumn style</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="column has-text-centered">
+            <figure class="image is-3by3">
+              <img id="image3" src="static/asset/image_results/teaser/src3.png" style="max-height: 400px; margin: auto;">
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- 슬라이드 4 -->
+      <div class="item">
+        <div class="columns is-vcentered">
+          <div class="column is-one-third">
+            <div class="menu">
+              <p class="menu-label">Choose a style:</p>
+              <ul class="menu-list">
+                <li><a href="#" class="option-button" data-target="image4" data-img="static/asset/image_results/teaser/src4.png">Source image</a></li>
+                <li><a href="#" class="option-button" data-target="image4" data-img="static/asset/image_results/teaser/4-1.png">Strawberry → Frozen</a></li>
+                <li><a href="#" class="option-button" data-target="image4" data-img="static/asset/image_results/teaser/4-2.png">Wooden board → Marble style</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="column has-text-centered">
+            <figure class="image is-3by3">
+              <img id="image4" src="static/asset/image_results/teaser/src4.png" style="max-height: 400px; margin: auto;">
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- 슬라이드 5 -->
+      <div class="item">
+        <div class="columns is-vcentered">
+          <div class="column is-one-third">
+            <div class="menu">
+              <p class="menu-label">Choose a style:</p>
+              <ul class="menu-list">
+                <li><a href="#" class="option-button" data-target="image5" data-img="static/asset/image_results/teaser/src5.png">Original</a></li>
+                <li><a href="#" class="option-button" data-target="image5" data-img="static/asset/image_results/teaser/5-1.png">Cookie → Red velvet</a></li>
+                <li><a href="#" class="option-button" data-target="image5" data-img="static/asset/image_results/teaser/5-2.png">Blue tableware → White marble style</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="column has-text-centered">
+            <figure class="image is-3by3">
+              <img id="image5" src="static/asset/image_results/teaser/src5.png" style="max-height: 400px; margin: auto;">
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- 슬라이드 6 -->
+      <div class="item">
+        <div class="columns is-vcentered">
+          <div class="column is-one-third">
+            <div class="menu">
+              <p class="menu-label">Choose a style:</p>
+              <ul class="menu-list">
+                <li><a href="#" class="option-button" data-target="image6" data-img="static/asset/image_results/teaser/src6.jpg">Original</a></li>
+                <li><a href="#" class="option-button" data-target="image6" data-img="static/asset/image_results/teaser/6-1.png">Door → Stone wall</a></li>
+                <li><a href="#" class="option-button" data-target="image6" data-img="static/asset/image_results/teaser/6-2.png">Plant → Golden</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="column has-text-centered">
+            <figure class="image is-3by3">
+              <img id="image6" src="static/asset/image_results/teaser/src6.jpg" style="max-height: 400px; margin: auto;">
+            </figure>
+          </div>
+        </div>
+      </div>
+
+    
+    <!-- 캐러셀 끝 -->
+  </div>
+</section>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // 이미지 변경 로직
+    const buttons = document.querySelectorAll(".option-button");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", function (e) {
+        e.preventDefault();
+        const imgPath = this.dataset.img;
+        const targetId = this.dataset.target;
+        const imageElement = document.getElementById(targetId);
+        if (imageElement) {
+          imageElement.src = imgPath;
+        }
+      });
+    });
+
+    // 캐러셀 설정 (Loop 활성화)
+    bulmaCarousel.attach('#option-carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      infinite: true  // ← 요거만 추가해주면 끝
+    });
+  });
+</script>
+
+
+<!-- End video carousel -->
+
+
+<!-- Multiple Style Section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Multiple Styles</h2>
+    <div id="style-carousel" class="carousel results-carousel">
+
+      <!-- Slide 1 -->
+      <div class="item">
+        <div class="columns is-vcentered">
+          <div class="column is-one-third">
+            <div class="menu">
+              <p class="src-name">Content:</p>
+              <ul class="menu-list">
+                <li><a href="#" class="option-button" data-target="styleImage1" data-img="static/asset/image_results/fig-only/beanie/y_beanie_512.jpg">Yellow beanie</a></li>
+                <p class="menu-label">Choose a style:</p>
+                <li><a href="#" class="option-button" data-target="styleImage1" data-img="static/asset/image_results/fig-only/beanie/burningbeanie_yellowbeanie_y_beanie.png">Burning</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage1" data-img="static/asset/image_results/fig-only/beanie/denimbeanie_yellowbeanie_y_beanie.png">Denim</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage1" data-img="static/asset/image_results/fig-only/beanie/frozenbeanie_yellowbeanie_y_beanie.png">Frozen</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage1" data-img="static/asset/image_results/fig-only/beanie/grass_beanie_yellow_beanie_y_beanie.png">Grass</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="column has-text-centered">
+            <figure class="image is-3by3">
+              <img id="styleImage1" src="static/asset/image_results/fig-only/beanie/y_beanie_512.jpg" style="max-height: 400px; margin: auto;">
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="item">
+        <div class="columns is-vcentered">
+          <div class="column is-one-third">
+            <div class="menu">
+              <p class="src-name">Content:</p>
+              <ul class="menu-list">
+                <li><a href="#" class="option-button" data-target="styleImage2" data-img="static/asset/image_results/fig-only/bird/bird_512.jpg">Blue bird</a></li>
+                <p class="menu-label">Choose a style:</p>
+                <li><a href="#" class="option-button" data-target="styleImage2" data-img="static/asset/image_results/fig-only/bird/tropicalstylebird_bluebird_bird.png">Tropical style</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage2" data-img="static/asset/image_results/fig-only/bird/autumnstylebird_bluebird_bird.png">Autumn style</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage2" data-img="static/asset/image_results/fig-only/bird/christmasstylebird_bluebird_bird.png">Christmas style</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage2" data-img="static/asset/image_results/fig-only/bird/blackandwhitebird_bluebird_bird.png">Black and white</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="column has-text-centered">
+            <figure class="image is-3by3">
+              <img id="styleImage2" src="static/asset/image_results/fig-only/bird/bird_512.jpg" style="max-height: 400px; margin: auto;">
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="item">
+        <div class="columns is-vcentered">
+          <div class="column is-one-third">
+            <div class="menu">
+              <p class="src-name">Content:</p>
+              <ul class="menu-list">
+                <li><a href="#" class="option-button" data-target="styleImage3" data-img="static/asset/image_results/fig-only/cookie/cookie1.png">Cookie</a></li>
+                <p class="menu-label">Choose a style:</p>
+                <li><a href="#" class="option-button" data-target="styleImage3" data-img="static/asset/image_results/fig-only/cookie/matcha_cookie_chocolate_cookie_cookie1.png">Matcha</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage3" data-img="static/asset/image_results/fig-only/cookie/red_velvet_cookie_chocolate_cookie_cookie1.png">Red velvet</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage3" data-img="static/asset/image_results/fig-only/cookie/coalcookie_chocolate_cookie_cookie1.png">Coal</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage3" data-img="static/asset/image_results/fig-only/cookie/diamondcookie_chocolate_cookie_cookie1.png">Diamond</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="column has-text-centered">
+            <figure class="image is-3by3">
+              <img id="styleImage3" src="static/asset/image_results/fig-only/cookie/cookie1.png" style="max-height: 400px; margin: auto;">
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="item">
+        <div class="columns is-vcentered">
+          <div class="column is-one-third">
+            <div class="menu">
+              <p class="src-name">Content:</p>
+              <ul class="menu-list">
+                <li><a href="#" class="option-button" data-target="styleImage4" data-img="static/asset/image_results/fig-only/door/door1_512.jpg">Cookie</a></li>
+                <p class="menu-label">Choose a style:</p>
+                <li><a href="#" class="option-button" data-target="styleImage4" data-img="static/asset/image_results/fig-only/door/spiderwebdoor_bluedoor_door1.png">Spider web</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage4" data-img="static/asset/image_results/fig-only/door/snowydoor_bluedoor_door1.png">Snowy</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage4" data-img="static/asset/image_results/fig-only/door/sunflowerbyvincentvangoghdoor_bluedoor_door1.png">Sunflower by Vincent Van Gogh</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage4" data-img="static/asset/image_results/fig-only/door/andromedagalaxydoor_bluedoor_door1.png">Andromeda galaxy</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="column has-text-centered">
+            <figure class="image is-3by3">
+              <img id="styleImage4" src="static/asset/image_results/fig-only/door/door1_512.jpg" style="max-height: 400px; margin: auto;">
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="item">
+        <div class="columns is-vcentered">
+          <div class="column is-one-third">
+            <div class="menu">
+              <p class="src-name">Content:</p>
+              <ul class="menu-list">
+                <li><a href="#" class="option-button" data-target="styleImage5" data-img="static/asset/image_results/fig-only/flower/pink_flower.png">Pink flower</a></li>
+                <p class="menu-label">Choose a style:</p>
+                <li><a href="#" class="option-button" data-target="styleImage5" data-img="static/asset/image_results/fig-only/flower/yellow_flower_pink_flower_pink_flower.png">yellow</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage5" data-img="static/asset/image_results/fig-only/flower/aurora_style_flower_pink_flower_pink_flower.png">Aurora style</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage5" data-img="static/asset/image_results/fig-only/flower/fauvism_style_painting_flower_pink_flower_pink_flower.png">Fauvism style</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage5" data-img="static/asset/image_results/fig-only/flower/crystal_flower_pinkflower_pink_flower.png">Crystal</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="column has-text-centered">
+            <figure class="image is-3by3">
+              <img id="styleImage5" src="static/asset/image_results/fig-only/flower/pink_flower.png" style="max-height: 400px; margin: auto;">
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6 -->
+      <div class="item">
+        <div class="columns is-vcentered">
+          <div class="column is-one-third">
+            <div class="menu">
+              <p class="src-name">Content:</p>
+              <ul class="menu-list">
+                <li><a href="#" class="option-button" data-target="styleImage6" data-img="static/asset/image_results/fig-only/hair/hair3_512.jpg">Blonde hair</a></li>
+                <p class="menu-label">Choose a style:</p>
+                <li><a href="#" class="option-button" data-target="styleImage6" data-img="static/asset/image_results/fig-only/hair/brownhair_blondehair_hair3.png">Brown</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage6" data-img="static/asset/image_results/fig-only/hair/ashpinkhair_blondehair_hair3.png">Ash pink</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage6" data-img="static/asset/image_results/fig-only/hair/redhair_blondehair_hair3.png">Red</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage6" data-img="static/asset/image_results/fig-only/hair/lavenderhair_blondehair_hair3.png">Lavender</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="column has-text-centered">
+            <figure class="image is-3by3">
+              <img id="styleImage6" src="static/asset/image_results/fig-only/hair/hair3_512.jpg" style="max-height: 400px; margin: auto;">
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7 -->
+      <div class="item">
+        <div class="columns is-vcentered">
+          <div class="column is-one-third">
+            <div class="menu">
+              <p class="src-name">Content:</p>
+              <ul class="menu-list">
+                <li><a href="#" class="option-button" data-target="styleImage7" data-img="static/asset/image_results/fig-only/stool/room12.png">Wooden stool</a></li>
+                <p class="menu-label">Choose a style:</p>
+                <li><a href="#" class="option-button" data-target="styleImage7" data-img="static/asset/image_results/fig-only/stool/matte_black_stool_wooden_stool_room12.png">Matte black</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage7" data-img="static/asset/image_results/fig-only/stool/neonlight_stool_wooden_stool_room12.png">Neonlight</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage7" data-img="static/asset/image_results/fig-only/stool/stained_glass_stool_wooden_stool_room12.png">Stained glass</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage7" data-img="static/asset/image_results/fig-only/stool/stonestool_wooden_stool_room12.png">Stone</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="column has-text-centered">
+            <figure class="image is-3by3">
+              <img id="styleImage7" src="static/asset/image_results/fig-only/stool/room12.png" style="max-height: 400px; margin: auto;">
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8 -->
+      <div class="item">
+        <div class="columns is-vcentered">
+          <div class="column is-one-third">
+            <div class="menu">
+              <p class="src-name">Content:</p>
+              <ul class="menu-list">
+                <li><a href="#" class="option-button" data-target="styleImage8" data-img="static/asset/image_results/fig-only/towel/towel.png">Green towel</a></li>
+                <p class="menu-label">Choose a style:</p>
+                <li><a href="#" class="option-button" data-target="styleImage8" data-img="static/asset/image_results/fig-only/towel/metallictowel_greentowel_towel.png">Metallic</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage8" data-img="static/asset/image_results/fig-only/towel/MilkyWayGalaxynightskytowel_towel_towel_512.png">Milky way</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage8" data-img="static/asset/image_results/fig-only/towel/sunlighttowel_greentowel_towel.png">Sunlight</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage8" data-img="static/asset/image_results/fig-only/towel/rainbow_supernova_towel_green_towel_towel.png">Rainbow supernova</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="column has-text-centered">
+            <figure class="image is-3by3">
+              <img id="styleImage8" src="static/asset/image_results/fig-only/towel/towel.png" style="max-height: 400px; margin: auto;">
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9 -->
+      <div class="item">
+        <div class="columns is-vcentered">
+          <div class="column is-one-third">
+            <div class="menu">
+              <p class="src-name">Content:</p>
+              <ul class="menu-list">
+                <li><a href="#" class="option-button" data-target="styleImage9" data-img="static/asset/image_results/fig-only/waffle/waffle1.png">Waffle</a></li>
+                <p class="menu-label">Choose a style:</p>
+                <li><a href="#" class="option-button" data-target="styleImage9" data-img="static/asset/image_results/fig-only/waffle/burnt_waffle_waffle_waffle1.png">Burnt</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage9" data-img="static/asset/image_results/fig-only/waffle/cheese_waffle_waffle_waffle1.png">Cheese</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage9" data-img="static/asset/image_results/fig-only/waffle/chocolate_coated_waffle_waffle_waffle1.png">Chocolate coated</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage9" data-img="static/asset/image_results/fig-only/waffle/sugar_powder_waffle_waffle_waffle1.png">Sugar powder</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="column has-text-centered">
+            <figure class="image is-3by3">
+              <img id="styleImage9" src="static/asset/image_results/fig-only/waffle/waffle1.png" style="max-height: 400px; margin: auto;">
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10 -->
+      <div class="item">
+        <div class="columns is-vcentered">
+          <div class="column is-one-third">
+            <div class="menu">
+              <p class="src-name">Content:</p>
+              <ul class="menu-list">
+                <li><a href="#" class="option-button" data-target="styleImage10" data-img="static/asset/image_results/fig-only/yellow_car/yellow_sports_car.png">Bright yellow car</a></li>
+                <p class="menu-label">Choose a style:</p>
+                <li><a href="#" class="option-button" data-target="styleImage10" data-img="static/asset/image_results/fig-only/yellow_car/captainamericastylecar_brightyellowcar_car.png">Captain america style</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage10" data-img="static/asset/image_results/fig-only/yellow_car/goldenbaroquestylecar_brightyellowcar_car.png">Golden baroque style</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage10" data-img="static/asset/image_results/fig-only/yellow_car/Stormtrooperstylecar_brightyellowcar_car.png">Stormtrooper style</a></li>
+                <li><a href="#" class="option-button" data-target="styleImage10" data-img="static/asset/image_results/fig-only/yellow_car/sunsetcar_brightyellowcar_car77.png">Sunset style</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="column has-text-centered">
+            <figure class="image is-3by3">
+              <img id="styleImage10" src="static/asset/image_results/fig-only/yellow_car/yellow_sports_car.png" style="max-height: 400px; margin: auto;">
+            </figure>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // 옵션 클릭 시 이미지 교체
+    document.querySelectorAll(".option-button").forEach(button => {
+      button.addEventListener("click", function (e) {
+        e.preventDefault();
+        const img = document.getElementById(this.dataset.target);
+        if (img) {
+          img.src = this.dataset.img;
+        }
+      });
+    });
+
+    // 각 캐러셀 활성화
+
+    bulmaCarousel.attach('#style-carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      infinite: true
+    });
+  });
+</script>
+<!-- (END) Multiple Style Section -->
+
+
+
+
+
+<!-- Paper poster -->
+<!-- <section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Poster</h2>
+
+      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
+          </iframe>
+        
+      </div>
+    </div>
+  </section> -->
+<!--End paper poster -->
+
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>
+      @misc{park2025styleeditortextdrivenobjectcentricstyle,
+      title={Style-Editor: Text-driven object-centric style editing}, 
+      author={Jihun Park and Jongmin Gim and Kyoungmin Lee and Seunghun Lee and Sunghoon Im},
+      year={2025},
+      eprint={2408.08461},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2408.08461}, 
+}</code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
