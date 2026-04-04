@@ -53,6 +53,11 @@
       transform: scale(1.05);
       transition: transform 0.3s ease-in-out;
     }
+
+    /* Publication 구분선 */
+    .pub-table tr + tr {
+      border-top: 1px solid #e0e0e0;
+    }
   </style>
 </head>
 
@@ -198,17 +203,16 @@
             </tbody>
           </table>
 
-          <table
-            style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-            <tbody></tbody>
-
+          <table class="pub-table"
+            style="width:100%;border:0px;border-spacing:0px;border-collapse:collapse;margin-right:auto;margin-left:auto;">
+            <tbody>
 
             <tr>
               <td style="padding:20px;width:30%;max-width:30%" align="center">
                 <img class="responsive-img" src="images/SPL2026_cascadeocc.gif">
               </td>
               <td width="75%" valign="center">
-                <papertitle>CascadeOcc: Rethinking 3D Occupancy World Models with Cascaded VQ Representations</papertitle>
+                <papertitle>[10] CascadeOcc: Rethinking 3D Occupancy World Models with Cascaded VQ Representations</papertitle>
                 <br>
                 Kyumin Hwang*, Wonhyeok Choi*, Jaeyeul Kim, <strong><u>Jihun Park</u></strong>, Daehee Park<sup>†</sup>, Sunghoon Im<sup>†</sup>
                 <br>
@@ -225,7 +229,7 @@
                 <img class="responsive-img" src="images/cvpr26_taskforce.png">
               </td>
               <td width="75%" valign="center">
-                <papertitle>TaskForce: Cooperative Multi-agent Reinforcement Learning for Multi-task Optimization</papertitle>
+                <papertitle>[9] TaskForce: Cooperative Multi-agent Reinforcement Learning for Multi-task Optimization</papertitle>
                 <br>
                 Wonhyeok Choi, Kyumin Hwang, <strong><u>Jihun Park</u></strong>, Kyoungmin Lee, Seunghun Lee, Jaeyeul Kim, Minwoo Choi, Sunghoon Im<sup>†</sup>
                 <br>
@@ -240,7 +244,7 @@
                 <img class="responsive-img" src="images/style_personalization_teaser.png">
               </td>
               <td width="75%" valign="center">
-                <papertitle>A Training-Free Style-Personalization via SVD-Based Feature Decomposition</papertitle>
+                <papertitle>[8] A Training-Free Style-Personalization via SVD-Based Feature Decomposition</papertitle>
                 <br>
                 Kyoungmin Lee*, <strong><u>Jihun Park*</u></strong>, Jongmin Gim*, Wonhyeok Choi, Kyumin Hwang, Jaeyeul
                 Kim, Sunghoon Im<sup>†</sup>
@@ -256,7 +260,7 @@
                 <img class="responsive-img" src="images/freestyle_cvpr.png">
               </td>
               <td width="75%" valign="center">
-                <papertitle>FREESTYLE: An Anchor-Free Mechanism for Training-Free Style-Aligned Image Generation</papertitle>
+                <papertitle>[7] FREESTYLE: An Anchor-Free Mechanism for Training-Free Style-Aligned Image Generation</papertitle>
                 <br>
                 Minseok Oh*, <strong><u>Jihun Park*</u></strong>, Jongmin Gim, Minwoo Choi, Kyoungmin Lee, Ferdinando Fioretto<sup>†</sup>, Sunghoon Im<sup>†</sup>
                 <br>
@@ -271,7 +275,7 @@
                 <img class="responsive-img" src="images/ICCV_teaser.png" alt="ICCV25">
               </td>
               <td width="75%" valign="center">
-                <papertitle>A Training-Free Style-aligned Image Generation with Scale-wise Autoregressive Model</font>
+                <papertitle>[6] A Training-Free Style-aligned Image Generation with Scale-wise Autoregressive Model</font>
                 </papertitle>
                 <br>
                 <strong><u>Jihun Park*</u></strong>, Jongmin Gim*, Kyoungmin Lee*, Minseok Oh, Minwoo Choi, Jaeyeul Kim,
@@ -289,7 +293,7 @@
                   </td>
                   <td width="75%" valign="center">
                     <papertitle>
-                      Bridging Geometric and Semantic Foundation Models for Generalized Monocular Depth Estimation
+                      [5] Bridging Geometric and Semantic Foundation Models for Generalized Monocular Depth Estimation
                     </papertitle>
                     <br>
                     Sanggyun Ma*, Wonjoon Choi*, <strong><u>Jihun Park*</u></strong>, Jaeyeul Kim, Seunghun Lee, Jiwan Seo,
@@ -308,7 +312,7 @@
                 <img class="responsive-img" src="images/infinite_story_teaser.png" alt="ICCV25">
               </td>
               <td width="75%" valign="center">
-                <papertitle>Infinite-Story: A Training-Free Consistent Text-to-Image Generation</font> <em><span style='color: rgb(184, 11, 31)'><b>(Oral paper)</b></span></a></b></span></em>
+                <papertitle>[4] Infinite-Story: A Training-Free Consistent Text-to-Image Generation</font> <em><span style='color: rgb(184, 11, 31)'><b>(Oral paper)</b></span></a></b></span></em>
                   <font color="darkgoldenrod">
                   <br>
                     <strong>(Encouragement Prize in 32nd HumanTech Paper Award)</strong>
@@ -331,7 +335,7 @@
                 <img class="responsive-img" src="images/Semantic_Enhanced_Monocular_Depth_Estimation.png" alt="bmvc25">
               </td>
               <td width="75%" valign="center">
-                <papertitle>Semantic-Enhanced Monocular Depth Estimation via Fusion and Distillation of Foundation
+                <papertitle>[3] Semantic-Enhanced Monocular Depth Estimation via Fusion and Distillation of Foundation
                   Models
                   </font>
                 </papertitle>
@@ -346,7 +350,7 @@
                 <img class="responsive-img" src="images/CVPR_teaser.png" alt="CVPR teaser">
               </td>
               <td width="75%" valign="center">
-                <papertitle>Style-Editor: Text-driven object-centric style editing <font color="darkgoldenrod"><em><span style='color: rgb(184, 11, 31)'><b>(Highlight paper, Top 3.7%)</b></span></a></b></span></em>
+                <papertitle>[2] Style-Editor: Text-driven object-centric style editing <font color="darkgoldenrod"><em><span style='color: rgb(184, 11, 31)'><b>(Highlight paper, Top 3.7%)</b></span></a></b></span></em>
                   <br>
                     <strong>(Encouragement Prize in 30th HumanTech Paper Award)</strong>
                   </font>
@@ -371,7 +375,7 @@
 
               </td>
               <td width="75%" valign="center">
-                <papertitle>Content-Adaptive Style Transfer: A Training-Free Approach with VQ Autoencoders
+                <papertitle>[1] Content-Adaptive Style Transfer: A Training-Free Approach with VQ Autoencoders
                   <font color="darkgoldenrod"></font>
                 </papertitle>
                 <br>
@@ -384,8 +388,7 @@
               </td>
             </tr>
 
-
-
+            </tbody>
             <br>
             <br>
           </table>
