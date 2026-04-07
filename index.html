@@ -506,10 +506,35 @@
       color: var(--theme-color);
     }
 
-    .clustrmaps-wrap {
+    .footer-globe-row {
+      position: relative;
       display: flex;
       justify-content: center;
       margin: 16px 0;
+    }
+
+    .footer-credits {
+      position: absolute;
+      right: 0;
+      top: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+      font-size: 12px;
+    }
+
+    .footer-credits a {
+      color: var(--muted);
+    }
+
+    .footer-credits a:hover {
+      color: var(--theme-color);
+    }
+
+    .clustrmaps-wrap {
+      display: flex;
+      justify-content: center;
     }
 
     .clustrmaps-wrap>div {
@@ -1069,14 +1094,19 @@
 
     <!-- Footer -->
     <footer class="footer">
-      <div class="clustrmaps-wrap">
-        <div>
-          <script type="text/javascript" id="clstr_globe"
-            src="//clustrmaps.com/globe.js?d=pCESZWyzWfjTcFTsnWkErgYoy1ceXRA6qClPQ62_NWg"></script>
+      <div class="footer-globe-row">
+        <div class="clustrmaps-wrap">
+          <div>
+            <script type="text/javascript" id="clstr_globe"
+              src="//clustrmaps.com/globe.js?d=pCESZWyzWfjTcFTsnWkErgYoy1ceXRA6qClPQ62_NWg"></script>
+          </div>
+        </div>
+        <div class="footer-credits">
+          <span>Design inspired by</span>
+          <span><a href="https://github.com/alshedivat/al-folio">al-folio</a> / <a href="https://jonbarron.info/">Jon Barron</a></span>
         </div>
       </div>
       <p>&copy; Jihun Park | Last updated: Apr. 2026</p>
-      <p>Design inspired by <a href="https://github.com/alshedivat/al-folio">al-folio</a> and <a href="https://jonbarron.info/">Jon Barron</a></p>
     </footer>
   </div>
 
