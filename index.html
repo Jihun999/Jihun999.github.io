@@ -340,11 +340,17 @@
       color: var(--muted);
       cursor: pointer;
       background: none;
-      font-family: inherit;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 300;
       transition: all .2s;
       line-height: 1.4;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
       text-align: center;
+      text-decoration: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
     }
 
     .pub-links a:hover,
@@ -846,8 +852,7 @@
             (ICEIC), 2026</div>
           <div class="pub-links">
             <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
-            <a href="https://arxiv.org/abs/2505.23400">Paper</a>
-            <a href="https://ieeexplore.ieee.org/abstract/document/11386238">IEEE</a>
+            <a href="https://ieeexplore.ieee.org/abstract/document/11386238">Paper</a>
           </div>
           <div class="pub-abstract">We present Bridging Geometric and Semantic (BriGeS), an effective method that fuses
             geometric and semantic information within foundation models to enhance Monocular Depth Estimation (MDE).
