@@ -8,7 +8,9 @@
   <meta name="author" content="Jihun Park">
   <link rel="icon" type="image/png" href="images/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <style>
@@ -20,8 +22,17 @@
       --divider: #e8e8e8;
       --bg: #fff;
     }
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Roboto', sans-serif;
       font-size: 16px;
@@ -32,512 +43,1042 @@
       margin: 0;
       -webkit-font-smoothing: antialiased;
     }
-    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
-    a { color: var(--theme-color); text-decoration: none; transition: color .2s; }
-    a:hover { color: #2a5db0; }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    a {
+      color: var(--theme-color);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    a:hover {
+      color: #2a5db0;
+    }
 
     /* Navbar */
     .navbar {
       border-bottom: 1px solid var(--divider);
       padding: 14px 0;
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(255,255,255,.92);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, .92);
       backdrop-filter: blur(10px);
     }
-    .navbar .container { display: flex; align-items: center; justify-content: space-between; }
-    .navbar-brand { font-weight: 500; font-size: 18px; color: var(--heading-color); text-decoration: none; }
-    .navbar-brand:hover { color: var(--theme-color); }
-    .nav-links { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; }
-    .nav-links a { color: var(--text-color); font-size: 14px; font-weight: 400; }
-    .nav-links a:hover { color: var(--theme-color); }
+
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .navbar-brand {
+      font-weight: 500;
+      font-size: 18px;
+      color: var(--heading-color);
+      text-decoration: none;
+    }
+
+    .navbar-brand:hover {
+      color: var(--theme-color);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-links a {
+      color: var(--text-color);
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .nav-links a:hover {
+      color: var(--theme-color);
+    }
 
     /* Profile */
-    .profile { display: flex; align-items: flex-start; gap: 40px; padding: 60px 0 40px; }
-    .profile-img-wrap { flex-shrink: 0; }
-    .profile-img-box {
-      position: relative; width: 200px; height: 200px;
-      border-radius: 50%; overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0,0,0,.08); cursor: pointer;
+    .profile {
+      display: flex;
+      align-items: flex-start;
+      gap: 40px;
+      padding: 60px 0 40px;
     }
-    .profile-img-box img { width: 100%; height: 100%; object-fit: cover; transition: opacity .3s; }
-    .profile-img-box .hover-img { position: absolute; top: 0; left: 0; opacity: 0; }
-    .profile-img-box:hover .main-img { opacity: 0; }
-    .profile-img-box:hover .hover-img { opacity: 1; }
-    .profile-text h1 { font-size: 36px; font-weight: 500; margin: 0 0 14px; color: var(--heading-color); }
-    .profile-text p { margin: 0 0 10px; font-size: 15px; line-height: 1.8; }
+
+    .profile-img-wrap {
+      flex-shrink: 0;
+    }
+
+    .profile-img-box {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, .08);
+      cursor: pointer;
+    }
+
+    .profile-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity .3s;
+    }
+
+    .profile-img-box .hover-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+
+    .profile-img-box:hover .main-img {
+      opacity: 0;
+    }
+
+    .profile-img-box:hover .hover-img {
+      opacity: 1;
+    }
+
+    .profile-text h1 {
+      font-size: 36px;
+      font-weight: 500;
+      margin: 0 0 14px;
+      color: var(--heading-color);
+    }
+
+    .profile-text p {
+      margin: 0 0 10px;
+      font-size: 15px;
+      line-height: 1.8;
+    }
 
     /* Social */
-    .social { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+    .social {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
     .social a {
-      display: inline-flex; align-items: center; gap: 6px;
-      color: var(--muted); font-size: 13px; padding: 5px 12px;
-      border: 1px solid var(--divider); border-radius: 5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      padding: 5px 12px;
+      border: 1px solid var(--divider);
+      border-radius: 5px;
       transition: all .2s;
     }
-    .social a:hover { color: var(--theme-color); border-color: var(--theme-color); background: rgba(66,133,244,.04); }
-    .social a i { font-size: 15px; }
+
+    .social a:hover {
+      color: var(--theme-color);
+      border-color: var(--theme-color);
+      background: rgba(66, 133, 244, .04);
+    }
+
+    .social a i {
+      font-size: 15px;
+    }
 
     /* Section */
-    section { padding: 28px 0; }
+    section {
+      padding: 28px 0;
+    }
+
     .sec-title {
-      font-size: 22px; font-weight: 500; color: var(--heading-color);
-      margin: 0 0 18px; padding-bottom: 6px;
-      border-bottom: 2px solid var(--theme-color); display: inline-block;
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--heading-color);
+      margin: 0 0 18px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--theme-color);
+      display: inline-block;
     }
 
     /* News */
-    .news-year { font-size: 16px; font-weight: 500; color: var(--heading-color); margin: 18px 0 6px; }
-    .news-year:first-child { margin-top: 0; }
-    .news-list { list-style: none; padding: 0; margin: 0; }
-    .news-list li { display: flex; gap: 14px; padding: 6px 0; font-size: 14px; line-height: 1.6; border-bottom: 1px solid #f0f0f0; }
-    .news-list li:last-child { border-bottom: none; }
-    .news-date { flex-shrink: 0; min-width: 72px; font-family: 'Roboto Mono', monospace; font-size: 13px; font-weight: 500; color: var(--theme-color); }
+    .news-year {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--heading-color);
+      margin: 18px 0 6px;
+    }
+
+    .news-year:first-child {
+      margin-top: 0;
+    }
+
+    .news-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .news-list li {
+      display: flex;
+      gap: 14px;
+      padding: 6px 0;
+      font-size: 14px;
+      line-height: 1.6;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .news-list li:last-child {
+      border-bottom: none;
+    }
+
+    .news-date {
+      flex-shrink: 0;
+      min-width: 72px;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--theme-color);
+    }
 
     /* Publications */
-    .pub-note { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
-    .pub { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid var(--divider); align-items: flex-start; }
-    .pub:last-child { border-bottom: none; }
-    /* Image with overlay badge */
-    .pub-img { flex-shrink: 0; width: 200px; position: relative; }
-    .pub-img img { width: 100%; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,.06); display: block; }
-    .pub-img .badge {
-      position: absolute; top: 0; left: 0;
-      background: rgba(147, 112, 219, 0.75); color: #fff;
-      font-size: 9px; font-weight: 600; letter-spacing: 0.2px;
-      padding: 2px 6px; border-radius: 4px 0 4px 0;
+    .pub-note {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 20px;
     }
-    .pub-img .badge a { color: #fff; text-decoration: none; }
-    .pub-body { flex: 1; }
-    .pub-title { font-size: 15px; font-weight: 500; color: var(--heading-color); margin: 0 0 4px; line-height: 1.4; }
-    .pub-authors { font-size: 14px; margin: 0 0 3px; }
-    .pub-venue { font-size: 14px; color: var(--muted); font-style: italic; margin: 0 0 6px; }
-    .pub-links { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; align-items: center; }
-    .pub-links a, .pub-links .abs-btn {
-      font-size: 12px; padding: 3px 10px; border-radius: 4px;
-      border: 1px solid var(--divider); color: var(--muted);
-      cursor: pointer; background: none; font-family: inherit;
-      transition: all .2s; line-height: 1.4; display: inline-block;
+
+    .pub {
+      display: flex;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--divider);
+      align-items: flex-start;
+    }
+
+    .pub:last-child {
+      border-bottom: none;
+    }
+
+    /* Image with overlay badge */
+    .pub-img {
+      flex-shrink: 0;
+      width: 200px;
+      position: relative;
+    }
+
+    .pub-img img {
+      width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
+      display: block;
+    }
+
+    .pub-img .badge {
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(147, 112, 219, 0.75);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.2px;
+      padding: 2px 6px;
+      border-radius: 4px 0 4px 0;
+    }
+
+    .pub-img .badge a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .pub-body {
+      flex: 1;
+    }
+
+    .pub-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--heading-color);
+      margin: 0 0 4px;
+      line-height: 1.4;
+    }
+
+    .pub-authors {
+      font-size: 14px;
+      margin: 0 0 3px;
+    }
+
+    .pub-venue {
+      font-size: 14px;
+      color: var(--muted);
+      font-style: italic;
+      margin: 0 0 6px;
+    }
+
+    .pub-links {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 6px;
+      align-items: center;
+    }
+
+    .pub-links a,
+    .pub-links .abs-btn {
+      font-size: 12px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      border: 1px solid var(--divider);
+      color: var(--muted);
+      cursor: pointer;
+      background: none;
+      font-family: inherit;
+      transition: all .2s;
+      line-height: 1.4;
+      display: inline-block;
       text-align: center;
     }
-    .pub-links a:hover, .pub-links .abs-btn:hover { color: var(--theme-color); border-color: var(--theme-color); }
+
+    .pub-links a:hover,
+    .pub-links .abs-btn:hover {
+      color: var(--theme-color);
+      border-color: var(--theme-color);
+    }
+
     .pub-abstract {
-      display: none; margin-top: 10px; padding: 12px 14px;
-      background: #f8f6ff; border-left: 3px solid #9370db;
-      border-radius: 0 6px 6px 0; font-size: 13px; line-height: 1.7;
+      display: none;
+      margin-top: 10px;
+      padding: 12px 14px;
+      background: #f8f6ff;
+      border-left: 3px solid #9370db;
+      border-radius: 0 6px 6px 0;
+      font-size: 13px;
+      line-height: 1.7;
       color: #444;
     }
-    .pub-abstract.open { display: block; }
-    .pub-award { color: #b8860b; font-weight: 500; font-size: 13px; }
-    .pub-highlight { color: #c62828; font-weight: 700; font-size: 13px; }
-    .pub-intern {
-      display: inline-flex; align-items: center; gap: 5px;
-      font-size: 12px; font-weight: 400; font-style: italic;
-      color: #6a5acd; margin-top: 6px;
+
+    .pub-abstract.open {
+      display: block;
     }
-    .pub-intern i { font-size: 13px; }
+
+    .pub-award {
+      color: #b8860b;
+      font-weight: 500;
+      font-size: 13px;
+    }
+
+    .pub-highlight {
+      color: #c62828;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .pub-intern {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 400;
+      font-style: italic;
+      color: #6a5acd;
+      margin-top: 6px;
+    }
+
+    .pub-intern i {
+      font-size: 13px;
+    }
 
     /* Experience */
-    .exp { display: flex; gap: 24px; padding: 14px 0; align-items: center; border-bottom: 1px solid #f0f0f0; }
-    .exp:last-child { border-bottom: none; }
-    .exp-logo { flex-shrink: 0; width: 100px; display: flex; align-items: center; justify-content: center; }
-    .exp-logo img { max-width: 100%; max-height: 75px; object-fit: contain; }
-    .exp-text { flex: 1; }
-    .exp-text .title { font-size: 15px; font-weight: 500; color: var(--heading-color); margin: 0; }
-    .exp-text .detail { font-size: 14px; margin: 0; }
-    .exp-text .date { font-size: 13px; color: var(--muted); margin: 0; }
+    .exp {
+      display: flex;
+      gap: 24px;
+      padding: 14px 0;
+      align-items: center;
+      border-bottom: 1px solid #f0f0f0;
+    }
+
+    .exp:last-child {
+      border-bottom: none;
+    }
+
+    .exp-logo {
+      flex-shrink: 0;
+      width: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .exp-logo img {
+      max-width: 100%;
+      max-height: 75px;
+      object-fit: contain;
+    }
+
+    .exp-text {
+      flex: 1;
+    }
+
+    .exp-text .title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--heading-color);
+      margin: 0;
+    }
+
+    .exp-text .detail {
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .exp-text .date {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 0;
+    }
 
     /* Activities */
-    .act-cat { font-size: 16px; font-weight: 500; color: var(--heading-color); margin: 22px 0 8px; }
-    .act-cat:first-child { margin-top: 0; }
-    .act-list { list-style: none; padding: 0; margin: 0; }
-    .act-list li { padding: 4px 0; font-size: 14px; line-height: 1.6; padding-left: 16px; position: relative; }
-    .act-list li::before { content: '•'; position: absolute; left: 0; color: var(--theme-color); }
+    .act-cat {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--heading-color);
+      margin: 22px 0 8px;
+    }
+
+    .act-cat:first-child {
+      margin-top: 0;
+    }
+
+    .act-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .act-list li {
+      padding: 4px 0;
+      font-size: 14px;
+      line-height: 1.6;
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .act-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--theme-color);
+    }
 
     /* Footer */
-    .footer { border-top: 1px solid var(--divider); padding: 28px 0; margin-top: 40px; text-align: center; }
-    .footer p { font-size: 13px; color: var(--muted); margin: 3px 0; }
-    .footer a { color: var(--muted); }
-    .footer a:hover { color: var(--theme-color); }
-    .clustrmaps-wrap { display: flex; justify-content: center; margin: 16px 0; }
-    .clustrmaps-wrap > div { width: 60px; }
+    .footer {
+      border-top: 1px solid var(--divider);
+      padding: 28px 0;
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 13px;
+      color: var(--muted);
+      margin: 3px 0;
+    }
+
+    .footer a {
+      color: var(--muted);
+    }
+
+    .footer a:hover {
+      color: var(--theme-color);
+    }
+
+    .clustrmaps-wrap {
+      display: flex;
+      justify-content: center;
+      margin: 16px 0;
+    }
+
+    .clustrmaps-wrap>div {
+      width: 60px;
+    }
 
     /* Responsive */
     @media (max-width: 768px) {
-      .profile { flex-direction: column; align-items: center; text-align: center; gap: 24px; padding: 40px 0 30px; }
-      .profile-img-box { width: 160px; height: 160px; }
-      .profile-text h1 { font-size: 28px; }
-      .social { justify-content: center; }
-      .pub { flex-direction: column; gap: 14px; }
-      .pub-img { width: 100%; max-width: 280px; }
-      .exp { flex-direction: column; text-align: center; gap: 10px; }
-      .news-list li { flex-direction: column; gap: 2px; }
-      .nav-links { gap: 14px; }
+      .profile {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 24px;
+        padding: 40px 0 30px;
+      }
+
+      .profile-img-box {
+        width: 160px;
+        height: 160px;
+      }
+
+      .profile-text h1 {
+        font-size: 28px;
+      }
+
+      .social {
+        justify-content: center;
+      }
+
+      .pub {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .pub-img {
+        width: 100%;
+        max-width: 280px;
+      }
+
+      .exp {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+
+      .news-list li {
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<!-- Navbar -->
-<nav class="navbar">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="#">Jihun Park</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="documents/Jihun_Park_resume_0331.pdf" target="_blank">CV</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Profile / About -->
   <div class="container">
-    <a class="navbar-brand" href="#">Jihun Park</a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#news">News</a></li>
-      <li><a href="#publications">Publications</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="documents/Jihun_Park_resume_0331.pdf" target="_blank">CV</a></li>
-    </ul>
+    <div class="profile" id="about">
+      <div class="profile-img-wrap">
+        <div class="profile-img-box">
+          <img class="main-img" src="images/JihunPark.jpg" alt="Jihun Park">
+          <img class="hover-img" src="images/jihun_park_smile.jpeg" alt="Jihun Park">
+        </div>
+      </div>
+      <div class="profile-text">
+        <h1>Jihun Park</h1>
+        <p>
+          I'm a M.S.-Ph.D. integrated course student at the Department of Artificial Intelligence at
+          <a href="https://www.dgist.ac.kr/">DGIST</a>, South Korea, working under the supervision of
+          <a href="https://sunghoonim.github.io/">Prof. Sunghoon Im</a> at the
+          <a href="https://cvlab.dgist.ac.kr/">DGIST Computer Vision Lab</a>.
+        </p>
+        <p>
+          Previously, I earned a B.S. degree from the Department of Mechanical Engineering,
+          <a href="https://www.zju.edu.cn/english/">Zhejiang University</a>, in 2022.
+          My research interests include computer vision and deep learning, focusing on
+          <b>Image/Video Generation (Autoregressive, Diffusion)</b>, <b>Style Transfer</b>, and <b>Vision-Language
+            Tasks</b>.
+        </p>
+        <div class="social">
+          <a href="mailto:pjh2857@dgist.ac.kr"><i class="fas fa-envelope"></i> Email</a>
+          <a href="https://scholar.google.com/citations?user=OPboq9YAAAAJ&hl=ko"><i class="ai ai-google-scholar"></i>
+            Scholar</a>
+          <a href="https://github.com/Jihun999"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://www.linkedin.com/in/jihun-park-a26b8b245/"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="https://openreview.net/profile?id=~Jihun_Park4"><i class="ai ai-openreview"></i> OpenReview</a>
+          <a href="documents/Jihun_Park_resume_0331.pdf" target="_blank"><i class="fas fa-file-pdf"></i> CV</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- News -->
+    <section id="news">
+      <h2 class="sec-title">News</h2>
+
+      <div class="news-year">2026</div>
+      <ul class="news-list">
+        <li><span class="news-date">Mar 2026</span><span>One paper accepted to <a
+              href="https://signalprocessingsociety.org/publications-resources/ieee-signal-processing-letters"><b>IEEE
+                Signal Processing Letters (SPL)</b></a>.</span></li>
+        <li><span class="news-date">Feb 2026</span><span>Two papers accepted to <a
+              href="https://cvpr.thecvf.com/"><b>CVPR 2026</b></a> and one paper accepted to <a
+              href="https://cvpr.thecvf.com/"><b>CVPR 2026 Findings</b></a>.</span></li>
+        <li><span class="news-date">Feb 2026</span><span>Our team received the <span class="pub-award">Encouragement
+              Prize</span> from the <a href="https://humantech.samsung.com/saitext/index.jsp"><b>32nd Samsung Human-Tech
+                Paper Award</b></a>.</span></li>
+      </ul>
+
+      <div class="news-year">2025</div>
+      <ul class="news-list">
+        <li><span class="news-date">Dec 2025</span><span>Started a <span class="pub-award">Generative Model Research
+              Intern</span> position at <a href="https://ir.baidu.com/"><b>Baidu Inc.</b></a> Global Business Unit (3
+            months).</span></li>
+        <li><span class="news-date">Nov 2025</span><span>AI-driven artworks by our research team exhibited at <a
+              href="https://cvlab.dgist.ac.kr/ai-created-artworks-by-our-team-exhibited-at-dgist-gallery/"><b>DGIST
+                Gallery</b></a>. <a href="https://curation.dgist.ac.kr/curation/p/cUuglc1MaUs2MU">View the
+              curation</a></span></li>
+        <li><span class="news-date">Nov 2025</span><span>One paper accepted to <a
+              href="https://aaai.org/Conferences/AAAI-26/"><b>AAAI 2026</b></a> as an <span class="pub-highlight">oral
+              paper</span>.</span></li>
+        <li><span class="news-date">Oct 2025</span><span>Received the <span class="pub-award">Best Oral Presentation
+              Award</span> from DGIST EECS/AI.</span></li>
+        <li><span class="news-date">Jul 2025</span><span>One paper accepted to <a
+              href="https://e2e3d.github.io/"><b>ICCV 2025 Workshop</b></a>.</span></li>
+        <li><span class="news-date">Jul 2025</span><span>Attended <a
+              href="https://icvss.dmi.unict.it/icvss2025/Home"><b>ICVSS 2025</b></a> in Sicily, Italy.</span></li>
+        <li><span class="news-date">Feb 2025</span><span>One paper accepted to <a
+              href="https://cvpr.thecvf.com/"><b>CVPR 2025</b></a> as a <span class="pub-highlight">highlight paper (Top
+              3.7%)</span>.</span></li>
+      </ul>
+
+      <div class="news-year">2024</div>
+      <ul class="news-list">
+        <li><span class="news-date">Oct 2024</span><span>One paper accepted to <a href="https://accv2024.org/"><b>ACCV
+                2024</b></a>.</span></li>
+        <li><span class="news-date">Feb 2024</span><span>Our team received the <span class="pub-award">Encouragement
+              Prize</span> from the <a href="https://humantech.samsung.com/saitext/index.jsp"><b>30th Samsung Human-Tech
+                Paper Award</b></a>.</span></li>
+      </ul>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+      <h2 class="sec-title">Publications</h2>
+      <p class="pub-note">* indicates equal contribution. † indicates the corresponding author.</p>
+
+      <!-- arXiv 2025 — Work done during internship at Baidu -->
+      <div class="pub">
+        <div class="pub-img">
+          <div class="badge">arXiv 2025</div>
+          <img src="images/ICCV_teaser.png" alt="Scale-wise AR">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title">A Training-Free Style-aligned Image Generation with Scale-wise Autoregressive Model
+          </div>
+          <div class="pub-authors"><b><u>Jihun Park</u></b>, Jongmin Gim, Kyoungmin Lee, Minseok Oh, Minwoo Choi,
+            Jaeyeul Kim, Woochool Park, Yan Zhang, Zhenpeng Zhan, Sunghoon Im†</div>
+          <div class="pub-venue">arXiv, 2025</div>
+          <div class="pub-intern"><i class="fas fa-briefcase"></i> Work done during internship at Baidu Global Business
+            Unit, Shenzhen, China</div>
+          <div class="pub-links">
+            <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
+            <a href="https://arxiv.org/abs/2504.06144">Paper</a>
+          </div>
+          <div class="pub-abstract">We present a training-free style-aligned image generation method that leverages a
+            scale-wise autoregressive model. While large-scale text-to-image (T2I) models, particularly diffusion-based
+            methods, have demonstrated impressive generation quality, they often suffer from style misalignment across
+            generated image sets and slow inference speeds, limiting their practical usability. To address these issues,
+            we propose three key components: initial feature replacement to ensure consistent background appearance,
+            pivotal feature interpolation to align object placement, and dynamic style injection, which reinforces style
+            consistency using a schedule function. Unlike previous methods requiring fine-tuning or additional training,
+            our approach maintains fast inference while preserving individual content details. Extensive experiments
+            show that our method achieves generation quality comparable to competing approaches, significantly improves
+            style alignment, and delivers inference speeds over six times faster than the fastest model.</div>
+        </div>
+      </div>
+
+      <!-- SPL 2026 -->
+      <div class="pub">
+        <div class="pub-img">
+          <div class="badge">SPL 2026</div>
+          <img src="images/SPL2026_cascadeocc.gif" alt="CascadeOcc">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title">CascadeOcc: Rethinking 3D Occupancy World Models with Cascaded VQ Representations</div>
+          <div class="pub-authors">Kyumin Hwang*, Wonhyeok Choi*, Jaeyeul Kim, <b><u>Jihun Park</u></b>, Daehee Park†,
+            Sunghoon Im†</div>
+          <div class="pub-venue">IEEE Signal Processing Letters (SPL, IF: 3.9), 2026</div>
+          <div class="pub-links">
+            <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
+            <a href="https://ieeexplore.ieee.org/document/11474772">Paper</a>
+          </div>
+          <div class="pub-abstract">This letter proposes CascadeOcc, a novel occupancy world model that prioritizes
+            intrinsic structural hierarchy over extrinsic auxiliary modalities for autonomous driving. Occupancy world
+            models—forecasting the future driving environment and planning the driving trajectory—effectively bridge
+            perception and planning, but current approaches often heavily rely on external modalities or large language
+            models, failing to fully exploit the inherent structural potential of occupancy representations themselves.
+            To enhance representational capacity for complex 3D scenes, we integrate a cascaded Vector Quantized (VQ)
+            mechanism into an autoregressive framework. Following a coarse-to-fine principle, CascadeOcc progressively
+            refines fine-grained details from global structures through a multi-scale architecture. Additionally, we
+            incorporate a TimeMixer to capture multi-scale temporal dependencies, establishing a dual-hierarchy
+            mechanism in both space and time. Experimental results on 4D occupancy forecasting and motion planning
+            benchmarks demonstrate that CascadeOcc achieves superior performance among vision-centric approaches,
+            validating that optimizing inherent representations is a powerful alternative to relying on external
+            foundation models.</div>
+
+        </div>
+      </div>
+
+      <!-- CVPR 2026 - TaskForce -->
+      <div class="pub">
+        <div class="pub-img">
+          <div class="badge">CVPR 2026</div>
+          <img src="images/cvpr26_taskforce.png" alt="TaskForce">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title">TaskForce: Cooperative Multi-agent Reinforcement Learning for Multi-task Optimization
+          </div>
+          <div class="pub-authors">Wonhyeok Choi, Kyumin Hwang, <b><u>Jihun Park</u></b>, Kyoungmin Lee, Seunghun Lee,
+            Jaeyeul Kim, Minwoo Choi, Sunghoon Im†</div>
+          <div class="pub-venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026</div>
+          <div class="pub-links">
+            <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
+            <a href="">Paper</a>
+          </div>
+          <div class="pub-abstract">Multi-task learning (MTL) involves the simultaneous optimization of multiple
+            task-specific losses, often leading to gradient conflicts and scale imbalances that result in negative
+            transfer. While existing multi-task optimization methods attempt to mitigate these challenges, they either
+            lack the stochasticity needed to escape poor local minima or fail to explicitly address conflicts at the
+            gradient level. In this work, we propose TaskForce, a novel multi-task optimization framework incorporating
+            cooperative multi-agent reinforcement learning (MARL), where agents learn to find an effective joint
+            optimization strategy based on their respective task gradients and losses. To keep the optimization process
+            compact yet informative, agents observe a summary of the training dynamics that consists of the gradient
+            Gram matrix---capturing both gradient magnitudes and pairwise alignments---and task loss values. Each agent
+            then predicts the balancing parameters that determine the weight of their contribution to the final gradient
+            update. Crucially, we design a hybrid reward function that incorporates both gradient-based signals and loss
+            improvement dynamics, enabling agents to effectively resolve gradient conflicts and avoid poor convergence
+            by considering both direct gradient information and the resulting impact on loss reduction. TaskForce
+            achieves consistent improvements over state-of-the-art MTL baselines on NYU-v2, Cityscapes, and QM9,
+            demonstrating the promise of cooperative MARL in complex multi-task scenarios.</div>
+        </div>
+      </div>
+
+      <!-- CVPR 2026 - Style Personalization -->
+      <div class="pub">
+        <div class="pub-img">
+          <div class="badge">CVPR 2026</div>
+          <img src="images/style_personalization_teaser.png" alt="Style Personalization">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title">A Training-Free Style-Personalization via SVD-Based Feature Decomposition</div>
+          <div class="pub-authors">Kyoungmin Lee*, <b><u>Jihun Park*</u></b>, Jongmin Gim*, Wonhyeok Choi, Kyumin Hwang,
+            Jaeyeul Kim, Sunghoon Im†</div>
+          <div class="pub-venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026</div>
+          <div class="pub-links">
+            <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
+            <a href="https://arxiv.org/abs/2507.04482">Paper</a>
+          </div>
+          <div class="pub-abstract">We present a training-free framework for style-personalized image generation that
+            operates during inference using a scale-wise autoregressive model. Our method generates a stylized image
+            guided by a single reference style while preserving semantic consistency and mitigating content leakage.
+            Through a detailed step-wise analysis of the generation process, we identify a pivotal step where the
+            dominant singular values of the internal feature encode style-related components. Building upon this
+            insight, we introduce two lightweight control modules: Principal Feature Blending, which enables precise
+            modulation of style through SVD-based feature reconstruction, and Structural Attention Correction, which
+            stabilizes structural consistency by leveraging content-guided attention correction across fine stages.
+            Without any additional training, extensive experiments demonstrate that our method achieves competitive
+            style fidelity and prompt fidelity compared to fine-tuned baselines, while offering faster inference and
+            greater deployment flexibility.</div>
+        </div>
+      </div>
+
+      <!-- CVPR Findings 2026 - FREESTYLE -->
+      <div class="pub">
+        <div class="pub-img">
+          <div class="badge">CVPR-F 2026</div>
+          <img src="images/freestyle_cvpr.png" alt="FREESTYLE">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title">FREESTYLE: An Anchor-Free Mechanism for Training-Free Style-Aligned Image Generation
+          </div>
+          <div class="pub-authors">Minseok Oh*, <b><u>Jihun Park*</u></b>, Jongmin Gim, Minwoo Choi, Kyoungmin Lee,
+            Ferdinando Fioretto†, Sunghoon Im†</div>
+          <div class="pub-venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition Findings (CVPR
+            Findings), 2026</div>
+          <div class="pub-links">
+            <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
+            <a href="">Paper</a>
+          </div>
+          <div class="pub-abstract">Text-to-Image (T2I) generation models have become central to creative workflows,
+            where producing style-consistent image sets is crucial for applications such as visual identity design,
+            illustration, and asset creation. While recent training-free methods have enabled efficient style-aligned
+            synthesis, they commonly rely on anchor-dependent propagation, where style features from a single reference
+            image are shared across the batch. This dependency often leads to inconsistent results: when the anchor
+            fails to capture the intended reference style, its unintended artifacts are propagated to all samples, and
+            excessive feature sharing further causes content leakage and semantic distortion. To overcome these
+            limitations, we propose FREESTYLE, a training-free and anchor-free framework for robust style alignment
+            within a scale-wise autoregressive generation paradigm. Our method integrates three core components—Majority
+            Voting (MV), which aggregates dominant style cues across the batch to form a representative style feature;
+            Majority Style Injection (MSI), which adaptively injects these aggregated features to enforce global style
+            coherence; and Set-Based Projection (SBP), which refines local object regions by projecting them onto a
+            shared style manifold for context-aware adaptation. Extensive experiments demonstrate that, without any
+            retraining or parameter updates, FREESTYLE achieves state-of-the-art performance in both style consistency
+            and content preservation, while maintaining real-time inference efficiency.</div>
+        </div>
+      </div>
+
+      <!-- ICEIC 2026 -->
+      <div class="pub">
+        <div class="pub-img">
+          <div class="badge">ICEIC 2026</div>
+          <img src="images/briges_main.png" alt="BriGeS">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title">Bridging Geometric and Semantic Foundation Models for Generalized Monocular Depth
+            Estimation</div>
+          <div class="pub-authors">Sanggyun Ma*, Wonjoon Choi*, <b><u>Jihun Park*</u></b>, Jaeyeul Kim, Seunghun Lee,
+            Jiwan Seo, Sunghoon Im†</div>
+          <div class="pub-venue">The 25th International Conference on Electronics, Information, and Communication
+            (ICEIC), 2026</div>
+          <div class="pub-links">
+            <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
+            <a href="https://arxiv.org/abs/2505.23400">Paper</a>
+            <a href="https://ieeexplore.ieee.org/abstract/document/11386238">IEEE</a>
+          </div>
+          <div class="pub-abstract">We present Bridging Geometric and Semantic (BriGeS), an effective method that fuses
+            geometric and semantic information within foundation models to enhance Monocular Depth Estimation (MDE).
+            Central to BriGeS is the Bridging Gate, which integrates the complementary strengths of depth and
+            segmentation foundation models. This integration is further refined by our Attention Temperature Scaling
+            technique. It finely adjusts the focus of the attention mechanisms to prevent over-concentration on specific
+            features, thus ensuring balanced performance across diverse inputs. BriGeS capitalizes on pretrained
+            foundation models and adopts a strategy that focuses on training only the Bridging Gate. This method
+            significantly reduces resource demands and training time while maintaining the model's ability to generalize
+            effectively. Extensive experiments across multiple challenging datasets demonstrate that BriGeS outperforms
+            state-of-the-art methods in MDE for complex scenes, effectively handling intricate structures and
+            overlapping objects.</div>
+        </div>
+      </div>
+
+      <!-- AAAI 2026 -->
+      <div class="pub">
+        <div class="pub-img">
+          <div class="badge">AAAI 2026</div>
+          <img src="images/infinite_story_teaser.png" alt="Infinite-Story">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title">Infinite-Story: A Training-Free Consistent Text-to-Image Generation</div>
+          <div class="pub-authors"><b><u>Jihun Park*</u></b>, Kyoungmin Lee*, Jongmin Gim*, Hyeonseo Jo, Minseok Oh,
+            Wonhyeok Choi, Kyumin Hwang, Jaeyeul Kim, Minwoo Choi, Sunghoon Im†</div>
+          <div class="pub-venue">The 40th Annual AAAI Conference on Artificial Intelligence (AAAI), 2026</div>
+          <span class="pub-highlight">Oral Paper</span> · <span class="pub-award">Encouragement Prize, 32nd HumanTech
+            Paper Award</span>
+          <div class="pub-links">
+            <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
+            <a href="https://arxiv.org/abs/2511.13002">Paper</a>
+            <a href="https://jihun999.github.io/projects/Infinite-Story/">Project</a>
+            <a href="https://github.com/Jihun999/Infinite_story">Code</a>
+          </div>
+          <div class="pub-abstract">We present Infinite-Story, a training-free framework for consistent text-to-image
+            (T2I) generation tailored for multi-prompt storytelling scenarios. Built upon a scale-wise autoregressive
+            model, our method addresses two key challenges in consistent T2I generation: identity inconsistency and
+            style inconsistency. To overcome these issues, we introduce three complementary techniques: Identity Prompt
+            Replacement, which mitigates context bias in text encoders to align identity attributes across prompts; and
+            a unified attention guidance mechanism comprising Adaptive Style Injection and Synchronized Guidance
+            Adaptation, which jointly enforce global style and identity appearance consistency while preserving prompt
+            fidelity. Unlike prior diffusion-based approaches that require fine-tuning or suffer from slow inference,
+            Infinite-Story operates entirely at test time, delivering high identity and style consistency across diverse
+            prompts. Extensive experiments demonstrate that our method achieves state-of-the-art generation performance,
+            while offering over 6X faster inference (1.72 seconds per image) than the existing fastest consistent T2I
+            models, highlighting its effectiveness and practicality for real-world visual storytelling.</div>
+        </div>
+      </div>
+
+      <!-- ICCVw 2025 -->
+      <div class="pub">
+        <div class="pub-img">
+          <div class="badge">ICCVw 2025</div>
+          <img src="images/Semantic_Enhanced_Monocular_Depth_Estimation.png" alt="Semantic Depth">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title">Semantic-Enhanced Monocular Depth Estimation via Fusion and Distillation of Foundation
+            Models</div>
+          <div class="pub-authors">Sanggyun Ma*, Wonjoon Choi*, <b><u>Jihun Park</u></b>, Jaeyeul Kim, Sunghoon Im†
+          </div>
+          <div class="pub-venue">International Conference on Computer Vision Workshop (ICCVw), 2025 / ICEIC 2026</div>
+          <div class="pub-links">
+            <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
+            <a href="https://ieeexplore.ieee.org/abstract/document/11385908">Paper</a>
+          </div>
+          <div class="pub-abstract">We present Bridging Geometric and Semantic (BriGeS), an effective method that fuses
+            geometric and semantic information within foundation models to enhance Monocular Depth Estimation (MDE).
+            Central to BriGeS is the Bridging Gate, which integrates the complementary strengths of depth and
+            segmentation foundation models. This integration is further refined by our Attention Temperature Scaling
+            technique. It finely adjusts the focus of the attention mechanisms to prevent over-concentration on specific
+            features, thus ensuring balanced performance across diverse inputs. BriGeS capitalizes on pretrained
+            foundation models and adopts a strategy that focuses on training only the Bridging Gate. This method
+            significantly reduces resource demands and training time while maintaining the model's ability to generalize
+            effectively. Extensive experiments across multiple challenging datasets demonstrate that BriGeS outperforms
+            state-of-the-art methods in MDE for complex scenes, effectively handling intricate structures and
+            overlapping objects.</div>
+        </div>
+      </div>
+
+      <!-- CVPR 2025 -->
+      <div class="pub">
+        <div class="pub-img">
+          <div class="badge">CVPR 2025</div>
+          <img src="images/CVPR_teaser.png" alt="Style-Editor">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title">Style-Editor: Text-driven Object-centric Style Editing</div>
+          <div class="pub-authors"><b><u>Jihun Park*</u></b>, Jongmin Gim*, Kyoungmin Lee*, Seunghun Lee, Sunghoon Im†
+          </div>
+          <div class="pub-venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2025</div>
+          <span class="pub-highlight">Highlight Paper (Top 3.7%)</span> · <span class="pub-award">Encouragement Prize,
+            30th HumanTech Paper Award</span>
+          <div class="pub-links">
+            <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
+            <a
+              href="https://openaccess.thecvf.com/content/CVPR2025/html/Park_Style-Editor_Text-driven_Object-centric_Style_Editing_CVPR_2025_paper.html">Paper</a>
+            <a href="https://jihun999.github.io/projects/Style-Editor/">Project</a>
+            <a href="https://github.com/Jihun999/Style-Editor">Code</a>
+          </div>
+          <div class="pub-abstract">We present Text-driven object-centric style editing model named Style-Editor, a
+            novel method that guides style editing at an object-centric level using textual inputs. The core of
+            Style-Editor is our Patch-wise Co-Directional (PCD) loss, meticulously designed for precise object-centric
+            editing that are closely aligned with the input text. This loss combines a patch directional loss for
+            text-guided style direction and a patch distribution consistency loss for even CLIP embedding distribution
+            across object regions. It ensures a seamless and harmonious style editing across object regions. Key to our
+            method are the Text-Matched Patch Selection (TMPS) and Pre-fixed Region Selection (PRS) modules for
+            identifying object locations via text, eliminating the need for segmentation masks. Lastly, we introduce an
+            Adaptive Background Preservation (ABP) loss to maintain the original style and structural essence of the
+            image's background. This loss is applied to dynamically identified background areas. Extensive experiments
+            underline the effectiveness of our approach in creating visually coherent and textually aligned style
+            editing.</div>
+        </div>
+      </div>
+
+      <!-- ACCV 2024 -->
+      <div class="pub">
+        <div class="pub-img">
+          <div class="badge">ACCV 2024</div>
+          <img src="images/ACCV_teaser.png" alt="ACCV">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title">Content-Adaptive Style Transfer: A Training-Free Approach with VQ Autoencoders</div>
+          <div class="pub-authors">Jongmin Gim*, <b><u>Jihun Park*</u></b>, Kyoungmin Lee*, Sunghoon Im†</div>
+          <div class="pub-venue">17th Asian Conference on Computer Vision (ACCV), 2024</div>
+          <div class="pub-links">
+            <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
+            <a
+              href="https://openaccess.thecvf.com/content/ACCV2024/html/Gim_Content-Adaptive_Style_Transfer__A_Training-Free_Approach_with_VQ_Autoencoders_ACCV_2024_paper.html">Paper</a>
+          </div>
+          <div class="pub-abstract">We introduce Content-Adaptive Style Transfer (CAST), a novel training-free approach
+            for arbitrary style transfer that enhances visual fidelity using vector quantized-based pretrained
+            autoencoder. Our method systematically applies coherent stylization to corresponding content regions. It
+            starts by capturing the global structure of images through vector quantization, then refines local details
+            using our style-injected decoder. CAST consists of three main components: a content-consistent style
+            injection module, which tailors stylization to unique image regions; an adaptive style refinement module,
+            which fine-tunes stylization intensity; and a content refinement module, which ensures content integrity
+            through interpolation and feature distribution maintenance. Experimental results indicate that CAST
+            outperforms existing generative-based and traditional style transfer models in both quantitative and
+            qualitative measures.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Experience -->
+    <section id="experience">
+      <h2 class="sec-title">Education & Experience</h2>
+
+      <div class="exp">
+        <div class="exp-logo"><img src="images/baidu.png" alt="Baidu" style="max-height:100px"></div>
+        <div class="exp-text">
+          <p class="title">Generative Model Research Intern (Advisor: Yan Zhang)</p>
+          <p class="detail">Baidu Global Business Unit, Shenzhen, China</p>
+          <p class="date">Dec. 2025 – Mar. 2026</p>
+        </div>
+      </div>
+
+      <div class="exp">
+        <div class="exp-logo"><img src="images/dgist_logo.jpg" alt="DGIST" style="max-height:70px"></div>
+        <div class="exp-text">
+          <p class="title">M.S.-Ph.D. Integrated Course (Advisor: Sunghoon Im)</p>
+          <p class="detail">Department of Artificial Intelligence, DGIST, South Korea</p>
+          <p class="date">Mar. 2023 – Present</p>
+        </div>
+      </div>
+
+      <div class="exp">
+        <div class="exp-logo"><img src="images/zhejiang_university.png" alt="ZJU" style="max-height:90px"></div>
+        <div class="exp-text">
+          <p class="title">Bachelor's Degree</p>
+          <p class="detail">Department of Mechanical Engineering, Zhejiang University, China</p>
+          <p class="date">Sep. 2018 – Jul. 2022</p>
+        </div>
+      </div>
+
+      <div class="exp">
+        <div class="exp-logo"><img src="images/samsung_logo.png" alt="Samsung" style="max-height:90px"></div>
+        <div class="exp-text">
+          <p class="detail">Chungnam Samsung Academy, South Korea</p>
+          <p class="date">Mar. 2015 – Feb. 2018</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Academic Activities -->
+    <section>
+      <h2 class="sec-title">Academic Activities</h2>
+
+      <div class="act-cat">Honors & Awards</div>
+      <ul class="act-list">
+        <li>Encouragement Prize, 32nd HumanTech Paper Award, Samsung Electronics Co., Ltd, Feb. 2026</li>
+        <li>Best Oral Presentation Award, DGIST EECS/AI Student Conference, Oct. 2025</li>
+        <li>Encouragement Prize, 30th HumanTech Paper Award, Samsung Electronics Co., Ltd, Feb. 2024</li>
+      </ul>
+
+      <div class="act-cat">Reviewer</div>
+      <ul class="act-list">
+        <li>The Association for the Advancement of Artificial Intelligence (AAAI), 2026</li>
+      </ul>
+
+      <div class="act-cat">Teaching</div>
+      <ul class="act-list">
+        <li>Invited Speaker of DGIST Generative AI Integrated Seminar, Oct. 2024</li>
+        <li>Teaching Assistant (TA), Advanced Deep Learning, Mar–Jun 2024</li>
+      </ul>
+
+      <div class="act-cat">Other Experiences</div>
+      <ul class="act-list">
+        <li>Exhibition of our team's research on AI-driven art at DGIST, Nov. 2025 – Feb. 2026</li>
+        <li>Attended International Computer Vision Summer School (ICVSS 2025) in Sicily, Italy, Jul. 2025</li>
+        <li>Selected to represent DGIST at the official institutional booth during the 2025 Korea Science Festival, Apr.
+          2025</li>
+      </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="clustrmaps-wrap">
+        <div>
+          <script type="text/javascript" id="clstr_globe"
+            src="//clustrmaps.com/globe.js?d=pCESZWyzWfjTcFTsnWkErgYoy1ceXRA6qClPQ62_NWg"></script>
+        </div>
+      </div>
+      <p>&copy; Jihun Park | Last updated: Feb 23, 2026</p>
+      <p>Powered by <a href="https://github.com/alshedivat/al-folio">al-folio</a> style</p>
+    </footer>
   </div>
-</nav>
 
-<!-- Profile / About -->
-<div class="container">
-  <div class="profile" id="about">
-    <div class="profile-img-wrap">
-      <div class="profile-img-box">
-        <img class="main-img" src="images/JihunPark.jpg" alt="Jihun Park">
-        <img class="hover-img" src="images/jihun_park_smile.jpeg" alt="Jihun Park">
-      </div>
-    </div>
-    <div class="profile-text">
-      <h1>Jihun Park</h1>
-      <p>
-        I'm a M.S.-Ph.D. integrated course student at the Department of Artificial Intelligence at
-        <a href="https://www.dgist.ac.kr/">DGIST</a>, South Korea, working under the supervision of
-        <a href="https://sunghoonim.github.io/">Prof. Sunghoon Im</a> at the
-        <a href="https://cvlab.dgist.ac.kr/">DGIST Computer Vision Lab</a>.
-      </p>
-      <p>
-        Previously, I earned a B.S. degree from the Department of Mechanical Engineering,
-        <a href="https://www.zju.edu.cn/english/">Zhejiang University</a>, in 2022.
-        My research interests include computer vision and deep learning, focusing on
-        <b>Image/Video Generation (Autoregressive, Diffusion)</b>, <b>Style Transfer</b>, and <b>Vision-Language Tasks</b>.
-      </p>
-      <div class="social">
-        <a href="mailto:pjh2857@dgist.ac.kr"><i class="fas fa-envelope"></i> Email</a>
-        <a href="https://scholar.google.com/citations?user=OPboq9YAAAAJ&hl=ko"><i class="ai ai-google-scholar"></i> Scholar</a>
-        <a href="https://github.com/Jihun999"><i class="fab fa-github"></i> GitHub</a>
-        <a href="https://www.linkedin.com/in/jihun-park-a26b8b245/"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a href="https://openreview.net/profile?id=~Jihun_Park4"><i class="ai ai-openreview"></i> OpenReview</a>
-        <a href="documents/Jihun_Park_resume_0331.pdf" target="_blank"><i class="fas fa-file-pdf"></i> CV</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- News -->
-  <section id="news">
-    <h2 class="sec-title">News</h2>
-
-    <div class="news-year">2026</div>
-    <ul class="news-list">
-      <li><span class="news-date">Mar 2026</span><span>One paper accepted to <a href="https://signalprocessingsociety.org/publications-resources/ieee-signal-processing-letters"><b>IEEE Signal Processing Letters (SPL)</b></a>.</span></li>
-      <li><span class="news-date">Feb 2026</span><span>Two papers accepted to <a href="https://cvpr.thecvf.com/"><b>CVPR 2026</b></a> and one paper accepted to <a href="https://cvpr.thecvf.com/"><b>CVPR 2026 Findings</b></a>.</span></li>
-      <li><span class="news-date">Feb 2026</span><span>Our team received the <span class="pub-award">Encouragement Prize</span> from the <a href="https://humantech.samsung.com/saitext/index.jsp"><b>32nd Samsung Human-Tech Paper Award</b></a>.</span></li>
-    </ul>
-
-    <div class="news-year">2025</div>
-    <ul class="news-list">
-      <li><span class="news-date">Dec 2025</span><span>Started a <span class="pub-award">Generative Model Research Intern</span> position at <a href="https://ir.baidu.com/"><b>Baidu Inc.</b></a> Global Business Unit (3 months).</span></li>
-      <li><span class="news-date">Nov 2025</span><span>AI-driven artworks by our research team exhibited at <a href="https://cvlab.dgist.ac.kr/ai-created-artworks-by-our-team-exhibited-at-dgist-gallery/"><b>DGIST Gallery</b></a>. <a href="https://curation.dgist.ac.kr/curation/p/cUuglc1MaUs2MU">View the curation</a></span></li>
-      <li><span class="news-date">Nov 2025</span><span>One paper accepted to <a href="https://aaai.org/Conferences/AAAI-26/"><b>AAAI 2026</b></a> as an <span class="pub-highlight">oral paper</span>.</span></li>
-      <li><span class="news-date">Oct 2025</span><span>Received the <span class="pub-award">Best Oral Presentation Award</span> from DGIST EECS/AI.</span></li>
-      <li><span class="news-date">Jul 2025</span><span>One paper accepted to <a href="https://e2e3d.github.io/"><b>ICCV 2025 Workshop</b></a>.</span></li>
-      <li><span class="news-date">Jul 2025</span><span>Attended <a href="https://icvss.dmi.unict.it/icvss2025/Home"><b>ICVSS 2025</b></a> in Sicily, Italy.</span></li>
-      <li><span class="news-date">Feb 2025</span><span>One paper accepted to <a href="https://cvpr.thecvf.com/"><b>CVPR 2025</b></a> as a <span class="pub-highlight">highlight paper (Top 3.7%)</span>.</span></li>
-    </ul>
-
-    <div class="news-year">2024</div>
-    <ul class="news-list">
-      <li><span class="news-date">Oct 2024</span><span>One paper accepted to <a href="https://accv2024.org/"><b>ACCV 2024</b></a>.</span></li>
-      <li><span class="news-date">Feb 2024</span><span>Our team received the <span class="pub-award">Encouragement Prize</span> from the <a href="https://humantech.samsung.com/saitext/index.jsp"><b>30th Samsung Human-Tech Paper Award</b></a>.</span></li>
-    </ul>
-  </section>
-
-  <!-- Publications -->
-  <section id="publications">
-    <h2 class="sec-title">Publications</h2>
-    <p class="pub-note">* indicates equal contribution. † indicates the corresponding author.</p>
-
-    <!-- arXiv 2025 — Work done during internship at Baidu -->
-    <div class="pub">
-      <div class="pub-img">
-        <div class="badge">arXiv 2025</div>
-        <img src="images/ICCV_teaser.png" alt="Scale-wise AR">
-      </div>
-      <div class="pub-body">
-        <div class="pub-title">A Training-Free Style-aligned Image Generation with Scale-wise Autoregressive Model</div>
-        <div class="pub-authors"><b><u>Jihun Park</u></b>, Jongmin Gim, Kyoungmin Lee, Minseok Oh, Minwoo Choi, Jaeyeul Kim, Woochool Park, Yan Zhang, Zhenpeng Zhan, Sunghoon Im†</div>
-        <div class="pub-venue">arXiv, 2025</div>
-        <div class="pub-intern"><i class="fas fa-briefcase"></i> Work done during internship at Baidu Global Business Unit, Shenzhen, China</div>
-        <div class="pub-links">
-          <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
-          <a href="https://arxiv.org/abs/2504.06144">Paper</a>
-        </div>
-        <div class="pub-abstract">We present a training-free style-aligned image generation method that leverages a scale-wise autoregressive model. While large-scale text-to-image (T2I) models, particularly diffusion-based methods, have demonstrated impressive generation quality, they often suffer from style misalignment across generated image sets and slow inference speeds, limiting their practical usability. To address these issues, we propose three key components: initial feature replacement to ensure consistent background appearance, pivotal feature interpolation to align object placement, and dynamic style injection, which reinforces style consistency using a schedule function. Unlike previous methods requiring fine-tuning or additional training, our approach maintains fast inference while preserving individual content details. Extensive experiments show that our method achieves generation quality comparable to competing approaches, significantly improves style alignment, and delivers inference speeds over six times faster than the fastest model.</div>
-      </div>
-    </div>
-
-    <!-- SPL 2026 -->
-    <div class="pub">
-      <div class="pub-img">
-        <div class="badge">SPL 2026</div>
-        <img src="images/SPL2026_cascadeocc.gif" alt="CascadeOcc">
-      </div>
-      <div class="pub-body">
-        <div class="pub-title">CascadeOcc: Rethinking 3D Occupancy World Models with Cascaded VQ Representations</div>
-        <div class="pub-authors">Kyumin Hwang*, Wonhyeok Choi*, Jaeyeul Kim, <b><u>Jihun Park</u></b>, Daehee Park†, Sunghoon Im†</div>
-        <div class="pub-venue">IEEE Signal Processing Letters (SPL, IF: 3.9), 2026</div>
-        <div class="pub-links">
-          <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
-          <a href="https://ieeexplore.ieee.org/document/11474772">Paper</a>
-        </div>
-        <div class="pub-abstract">This letter proposes CascadeOcc, a novel occupancy world model that prioritizes intrinsic structural hierarchy over extrinsic auxiliary modalities for autonomous driving. Occupancy world models—forecasting the future driving environment and planning the driving trajectory—effectively bridge perception and planning, but current approaches often heavily rely on external modalities or large language models, failing to fully exploit the inherent structural potential of occupancy representations themselves. To enhance representational capacity for complex 3D scenes, we integrate a cascaded Vector Quantized (VQ) mechanism into an autoregressive framework. Following a coarse-to-fine principle, CascadeOcc progressively refines fine-grained details from global structures through a multi-scale architecture. Additionally, we incorporate a TimeMixer to capture multi-scale temporal dependencies, establishing a dual-hierarchy mechanism in both space and time. Experimental results on 4D occupancy forecasting and motion planning benchmarks demonstrate that CascadeOcc achieves superior performance among vision-centric approaches, validating that optimizing inherent representations is a powerful alternative to relying on external foundation models.</div>
-
-      </div>
-    </div>
-
-    <!-- CVPR 2026 - TaskForce -->
-    <div class="pub">
-      <div class="pub-img">
-        <div class="badge">CVPR 2026</div>
-        <img src="images/cvpr26_taskforce.png" alt="TaskForce">
-      </div>
-      <div class="pub-body">
-        <div class="pub-title">TaskForce: Cooperative Multi-agent Reinforcement Learning for Multi-task Optimization</div>
-        <div class="pub-authors">Wonhyeok Choi, Kyumin Hwang, <b><u>Jihun Park</u></b>, Kyoungmin Lee, Seunghun Lee, Jaeyeul Kim, Minwoo Choi, Sunghoon Im†</div>
-        <div class="pub-venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026</div>
-        <div class="pub-links">
-          <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
-          <a href="">Paper</a>
-        </div>
-        <div class="pub-abstract">Multi-task learning (MTL) involves the simultaneous optimization of multiple task-specific losses, often leading to gradient conflicts and scale imbalances that result in negative transfer. While existing multi-task optimization methods attempt to mitigate these challenges, they either lack the stochasticity needed to escape poor local minima or fail to explicitly address conflicts at the gradient level. In this work, we propose TaskForce, a novel multi-task optimization framework incorporating cooperative multi-agent reinforcement learning (MARL), where agents learn to find an effective joint optimization strategy based on their respective task gradients and losses. To keep the optimization process compact yet informative, agents observe a summary of the training dynamics that consists of the gradient Gram matrix---capturing both gradient magnitudes and pairwise alignments---and task loss values. Each agent then predicts the balancing parameters that determine the weight of their contribution to the final gradient update. Crucially, we design a hybrid reward function that incorporates both gradient-based signals and loss improvement dynamics, enabling agents to effectively resolve gradient conflicts and avoid poor convergence by considering both direct gradient information and the resulting impact on loss reduction. TaskForce achieves consistent improvements over state-of-the-art MTL baselines on NYU-v2, Cityscapes, and QM9, demonstrating the promise of cooperative MARL in complex multi-task scenarios.</div>
-      </div>
-    </div>
-
-    <!-- CVPR 2026 - Style Personalization -->
-    <div class="pub">
-      <div class="pub-img">
-        <div class="badge">CVPR 2026</div>
-        <img src="images/style_personalization_teaser.png" alt="Style Personalization">
-      </div>
-      <div class="pub-body">
-        <div class="pub-title">A Training-Free Style-Personalization via SVD-Based Feature Decomposition</div>
-        <div class="pub-authors">Kyoungmin Lee*, <b><u>Jihun Park*</u></b>, Jongmin Gim*, Wonhyeok Choi, Kyumin Hwang, Jaeyeul Kim, Sunghoon Im†</div>
-        <div class="pub-venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026</div>
-        <div class="pub-links">
-          <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
-          <a href="https://arxiv.org/abs/2507.04482">Paper</a>
-        </div>
-        <div class="pub-abstract">We present a training-free framework for style-personalized image generation that operates during inference using a scale-wise autoregressive model. Our method generates a stylized image guided by a single reference style while preserving semantic consistency and mitigating content leakage. Through a detailed step-wise analysis of the generation process, we identify a pivotal step where the dominant singular values of the internal feature encode style-related components. Building upon this insight, we introduce two lightweight control modules: Principal Feature Blending, which enables precise modulation of style through SVD-based feature reconstruction, and Structural Attention Correction, which stabilizes structural consistency by leveraging content-guided attention correction across fine stages. Without any additional training, extensive experiments demonstrate that our method achieves competitive style fidelity and prompt fidelity compared to fine-tuned baselines, while offering faster inference and greater deployment flexibility.</div>
-      </div>
-    </div>
-
-    <!-- CVPR Findings 2026 - FREESTYLE -->
-    <div class="pub">
-      <div class="pub-img">
-        <div class="badge">CVPR-F 2026</div>
-        <img src="images/freestyle_cvpr.png" alt="FREESTYLE">
-      </div>
-      <div class="pub-body">
-        <div class="pub-title">FREESTYLE: An Anchor-Free Mechanism for Training-Free Style-Aligned Image Generation</div>
-        <div class="pub-authors">Minseok Oh*, <b><u>Jihun Park*</u></b>, Jongmin Gim, Minwoo Choi, Kyoungmin Lee, Ferdinando Fioretto†, Sunghoon Im†</div>
-        <div class="pub-venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition Findings (CVPR Findings), 2026</div>
-        <div class="pub-links">
-          <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
-          <a href="">Paper</a>
-        </div>
-        <div class="pub-abstract">Text-to-Image (T2I) generation models have become central to creative workflows, where producing style-consistent image sets is crucial for applications such as visual identity design, illustration, and asset creation. While recent training-free methods have enabled efficient style-aligned synthesis, they commonly rely on anchor-dependent propagation, where style features from a single reference image are shared across the batch. This dependency often leads to inconsistent results: when the anchor fails to capture the intended reference style, its unintended artifacts are propagated to all samples, and excessive feature sharing further causes content leakage and semantic distortion. To overcome these limitations, we propose FREESTYLE, a training-free and anchor-free framework for robust style alignment within a scale-wise autoregressive generation paradigm. Our method integrates three core components—Majority Voting (MV), which aggregates dominant style cues across the batch to form a representative style feature; Majority Style Injection (MSI), which adaptively injects these aggregated features to enforce global style coherence; and Set-Based Projection (SBP), which refines local object regions by projecting them onto a shared style manifold for context-aware adaptation. Extensive experiments demonstrate that, without any retraining or parameter updates, FREESTYLE achieves state-of-the-art performance in both style consistency and content preservation, while maintaining real-time inference efficiency.</div>
-      </div>
-    </div>
-
-    <!-- ICEIC 2026 -->
-    <div class="pub">
-      <div class="pub-img">
-        <div class="badge">ICEIC 2026</div>
-        <img src="images/briges_main.png" alt="BriGeS">
-      </div>
-      <div class="pub-body">
-        <div class="pub-title">Bridging Geometric and Semantic Foundation Models for Generalized Monocular Depth Estimation</div>
-        <div class="pub-authors">Sanggyun Ma*, Wonjoon Choi*, <b><u>Jihun Park*</u></b>, Jaeyeul Kim, Seunghun Lee, Jiwan Seo, Sunghoon Im†</div>
-        <div class="pub-venue">The 25th International Conference on Electronics, Information, and Communication (ICEIC), 2026</div>
-        <div class="pub-links">
-          <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
-          <a href="https://arxiv.org/abs/2505.23400">Paper</a>
-          <a href="https://ieeexplore.ieee.org/abstract/document/11386238">IEEE</a>
-        </div>
-        <div class="pub-abstract">We present Bridging Geometric and Semantic (BriGeS), an effective method that fuses geometric and semantic information within foundation models to enhance Monocular Depth Estimation (MDE). Central to BriGeS is the Bridging Gate, which integrates the complementary strengths of depth and segmentation foundation models. This integration is further refined by our Attention Temperature Scaling technique. It finely adjusts the focus of the attention mechanisms to prevent over-concentration on specific features, thus ensuring balanced performance across diverse inputs. BriGeS capitalizes on pretrained foundation models and adopts a strategy that focuses on training only the Bridging Gate. This method significantly reduces resource demands and training time while maintaining the model's ability to generalize effectively. Extensive experiments across multiple challenging datasets demonstrate that BriGeS outperforms state-of-the-art methods in MDE for complex scenes, effectively handling intricate structures and overlapping objects.</div>
-      </div>
-    </div>
-
-    <!-- AAAI 2026 -->
-    <div class="pub">
-      <div class="pub-img">
-        <div class="badge">AAAI 2026</div>
-        <img src="images/infinite_story_teaser.png" alt="Infinite-Story">
-      </div>
-      <div class="pub-body">
-        <div class="pub-title">Infinite-Story: A Training-Free Consistent Text-to-Image Generation</div>
-        <div class="pub-authors"><b><u>Jihun Park*</u></b>, Kyoungmin Lee*, Jongmin Gim*, Hyeonseo Jo, Minseok Oh, Wonhyeok Choi, Kyumin Hwang, Jaeyeul Kim, Minwoo Choi, Sunghoon Im†</div>
-        <div class="pub-venue">The 40th Annual AAAI Conference on Artificial Intelligence (AAAI), 2026</div>
-        <span class="pub-highlight">Oral Paper</span> · <span class="pub-award">Encouragement Prize, 32nd HumanTech Paper Award</span>
-        <div class="pub-links">
-          <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
-          <a href="https://arxiv.org/abs/2511.13002">Paper</a>
-          <a href="https://jihun999.github.io/projects/Infinite-Story/">Project</a>
-          <a href="https://github.com/Jihun999/Infinite_story">Code</a>
-        </div>
-        <div class="pub-abstract">We present Infinite-Story, a training-free framework for consistent text-to-image (T2I) generation tailored for multi-prompt storytelling scenarios. Built upon a scale-wise autoregressive model, our method addresses two key challenges in consistent T2I generation: identity inconsistency and style inconsistency. To overcome these issues, we introduce three complementary techniques: Identity Prompt Replacement, which mitigates context bias in text encoders to align identity attributes across prompts; and a unified attention guidance mechanism comprising Adaptive Style Injection and Synchronized Guidance Adaptation, which jointly enforce global style and identity appearance consistency while preserving prompt fidelity. Unlike prior diffusion-based approaches that require fine-tuning or suffer from slow inference, Infinite-Story operates entirely at test time, delivering high identity and style consistency across diverse prompts. Extensive experiments demonstrate that our method achieves state-of-the-art generation performance, while offering over 6X faster inference (1.72 seconds per image) than the existing fastest consistent T2I models, highlighting its effectiveness and practicality for real-world visual storytelling.</div>
-      </div>
-    </div>
-
-    <!-- ICCVw 2025 -->
-    <div class="pub">
-      <div class="pub-img">
-        <div class="badge">ICCVw 2025</div>
-        <img src="images/Semantic_Enhanced_Monocular_Depth_Estimation.png" alt="Semantic Depth">
-      </div>
-      <div class="pub-body">
-        <div class="pub-title">Semantic-Enhanced Monocular Depth Estimation via Fusion and Distillation of Foundation Models</div>
-        <div class="pub-authors">Sanggyun Ma*, Wonjoon Choi*, <b><u>Jihun Park</u></b>, Jaeyeul Kim, Sunghoon Im†</div>
-        <div class="pub-venue">International Conference on Computer Vision Workshop (ICCVw), 2025 / ICEIC 2026</div>
-        <div class="pub-links">
-          <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
-          <a href="https://ieeexplore.ieee.org/abstract/document/11385908">Paper</a>
-        </div>
-        <div class="pub-abstract">We present Bridging Geometric and Semantic (BriGeS), an effective method that fuses geometric and semantic information within foundation models to enhance Monocular Depth Estimation (MDE). Central to BriGeS is the Bridging Gate, which integrates the complementary strengths of depth and segmentation foundation models. This integration is further refined by our Attention Temperature Scaling technique. It finely adjusts the focus of the attention mechanisms to prevent over-concentration on specific features, thus ensuring balanced performance across diverse inputs. BriGeS capitalizes on pretrained foundation models and adopts a strategy that focuses on training only the Bridging Gate. This method significantly reduces resource demands and training time while maintaining the model's ability to generalize effectively. Extensive experiments across multiple challenging datasets demonstrate that BriGeS outperforms state-of-the-art methods in MDE for complex scenes, effectively handling intricate structures and overlapping objects.</div>
-      </div>
-    </div>
-
-    <!-- CVPR 2025 -->
-    <div class="pub">
-      <div class="pub-img">
-        <div class="badge">CVPR 2025</div>
-        <img src="images/CVPR_teaser.png" alt="Style-Editor">
-      </div>
-      <div class="pub-body">
-        <div class="pub-title">Style-Editor: Text-driven Object-centric Style Editing</div>
-        <div class="pub-authors"><b><u>Jihun Park*</u></b>, Jongmin Gim*, Kyoungmin Lee*, Seunghun Lee, Sunghoon Im†</div>
-        <div class="pub-venue">IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2025</div>
-        <span class="pub-highlight">Highlight Paper (Top 3.7%)</span> · <span class="pub-award">Encouragement Prize, 30th HumanTech Paper Award</span>
-        <div class="pub-links">
-          <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
-          <a href="https://openaccess.thecvf.com/content/CVPR2025/html/Park_Style-Editor_Text-driven_Object-centric_Style_Editing_CVPR_2025_paper.html">Paper</a>
-          <a href="https://jihun999.github.io/projects/Style-Editor/">Project</a>
-          <a href="https://github.com/Jihun999/Style-Editor">Code</a>
-        </div>
-        <div class="pub-abstract">We present Text-driven object-centric style editing model named Style-Editor, a novel method that guides style editing at an object-centric level using textual inputs. The core of Style-Editor is our Patch-wise Co-Directional (PCD) loss, meticulously designed for precise object-centric editing that are closely aligned with the input text. This loss combines a patch directional loss for text-guided style direction and a patch distribution consistency loss for even CLIP embedding distribution across object regions. It ensures a seamless and harmonious style editing across object regions. Key to our method are the Text-Matched Patch Selection (TMPS) and Pre-fixed Region Selection (PRS) modules for identifying object locations via text, eliminating the need for segmentation masks. Lastly, we introduce an Adaptive Background Preservation (ABP) loss to maintain the original style and structural essence of the image's background. This loss is applied to dynamically identified background areas. Extensive experiments underline the effectiveness of our approach in creating visually coherent and textually aligned style editing.</div>
-      </div>
-    </div>
-
-    <!-- ACCV 2024 -->
-    <div class="pub">
-      <div class="pub-img">
-        <div class="badge">ACCV 2024</div>
-        <img src="images/ACCV_teaser.png" alt="ACCV">
-      </div>
-      <div class="pub-body">
-        <div class="pub-title">Content-Adaptive Style Transfer: A Training-Free Approach with VQ Autoencoders</div>
-        <div class="pub-authors">Jongmin Gim*, <b><u>Jihun Park*</u></b>, Kyoungmin Lee*, Sunghoon Im†</div>
-        <div class="pub-venue">17th Asian Conference on Computer Vision (ACCV), 2024</div>
-        <div class="pub-links">
-          <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
-          <a href="https://openaccess.thecvf.com/content/ACCV2024/html/Gim_Content-Adaptive_Style_Transfer__A_Training-Free_Approach_with_VQ_Autoencoders_ACCV_2024_paper.html">Paper</a>
-        </div>
-        <div class="pub-abstract">We introduce Content-Adaptive Style Transfer (CAST), a novel training-free approach for arbitrary style transfer that enhances visual fidelity using vector quantized-based pretrained autoencoder. Our method systematically applies coherent stylization to corresponding content regions. It starts by capturing the global structure of images through vector quantization, then refines local details using our style-injected decoder. CAST consists of three main components: a content-consistent style injection module, which tailors stylization to unique image regions; an adaptive style refinement module, which fine-tunes stylization intensity; and a content refinement module, which ensures content integrity through interpolation and feature distribution maintenance. Experimental results indicate that CAST outperforms existing generative-based and traditional style transfer models in both quantitative and qualitative measures.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Education & Experience -->
-  <section id="experience">
-    <h2 class="sec-title">Education & Experience</h2>
-
-    <div class="exp">
-      <div class="exp-logo"><img src="images/baidu.png" alt="Baidu"></div>
-      <div class="exp-text">
-        <p class="title">Generative Model Research Intern (Advisor: Yan Zhang)</p>
-        <p class="detail">Baidu Global Business Unit, Shenzhen, China</p>
-        <p class="date">Dec. 2025 – Mar. 2026</p>
-      </div>
-    </div>
-
-    <div class="exp">
-      <div class="exp-logo"><img src="images/dgist_logo.jpg" alt="DGIST"></div>
-      <div class="exp-text">
-        <p class="title">M.S.-Ph.D. Integrated Course (Advisor: Sunghoon Im)</p>
-        <p class="detail">Department of Artificial Intelligence, DGIST, South Korea</p>
-        <p class="date">Mar. 2023 – Present</p>
-      </div>
-    </div>
-
-    <div class="exp">
-      <div class="exp-logo"><img src="images/zhejiang_university.png" alt="ZJU"></div>
-      <div class="exp-text">
-        <p class="title">Bachelor's Degree</p>
-        <p class="detail">Department of Mechanical Engineering, Zhejiang University, China</p>
-        <p class="date">Sep. 2018 – Jul. 2022</p>
-      </div>
-    </div>
-
-    <div class="exp">
-      <div class="exp-logo"><img src="images/samsung_logo.png" alt="Samsung"></div>
-      <div class="exp-text">
-        <p class="detail">Chungnam Samsung Academy, South Korea</p>
-        <p class="date">Mar. 2015 – Feb. 2018</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Academic Activities -->
-  <section>
-    <h2 class="sec-title">Academic Activities</h2>
-
-    <div class="act-cat">Honors & Awards</div>
-    <ul class="act-list">
-      <li>Encouragement Prize, 32nd HumanTech Paper Award, Samsung Electronics Co., Ltd, Feb. 2026</li>
-      <li>Best Oral Presentation Award, DGIST EECS/AI Student Conference, Oct. 2025</li>
-      <li>Encouragement Prize, 30th HumanTech Paper Award, Samsung Electronics Co., Ltd, Feb. 2024</li>
-    </ul>
-
-    <div class="act-cat">Reviewer</div>
-    <ul class="act-list">
-      <li>The Association for the Advancement of Artificial Intelligence (AAAI), 2026</li>
-    </ul>
-
-    <div class="act-cat">Teaching</div>
-    <ul class="act-list">
-      <li>Invited Speaker of DGIST Generative AI Integrated Seminar, Oct. 2024</li>
-      <li>Teaching Assistant (TA), Advanced Deep Learning, Mar–Jun 2024</li>
-    </ul>
-
-    <div class="act-cat">Other Experiences</div>
-    <ul class="act-list">
-      <li>Exhibition of our team's research on AI-driven art at DGIST, Nov. 2025 – Feb. 2026</li>
-      <li>Attended International Computer Vision Summer School (ICVSS 2025) in Sicily, Italy, Jul. 2025</li>
-      <li>Selected to represent DGIST at the official institutional booth during the 2025 Korea Science Festival, Apr. 2025</li>
-    </ul>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="clustrmaps-wrap">
-      <div>
-        <script type="text/javascript" id="clstr_globe"
-          src="//clustrmaps.com/globe.js?d=pCESZWyzWfjTcFTsnWkErgYoy1ceXRA6qClPQ62_NWg"></script>
-      </div>
-    </div>
-    <p>&copy; Jihun Park | Last updated: Feb 23, 2026</p>
-    <p>Powered by <a href="https://github.com/alshedivat/al-folio">al-folio</a> style</p>
-  </footer>
-</div>
-
-<script>
-function toggleAbstract(btn) {
-  var abs = btn.closest('.pub-body').querySelector('.pub-abstract');
-  if (abs) abs.classList.toggle('open');
-}
-</script>
+  <script>
+    function toggleAbstract(btn) {
+      var abs = btn.closest('.pub-body').querySelector('.pub-abstract');
+      if (abs) abs.classList.toggle('open');
+    }
+  </script>
 </body>
+
 </html>
