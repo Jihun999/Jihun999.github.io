@@ -652,6 +652,11 @@
 
       <div class="news-year">2026</div>
       <ul class="news-list">
+        <li><span class="news-date">Jul 2026</span><span>One paper accepted to <a
+              href="https://asia.siggraph.org/2026/"><b>SIGGRAPH Asia 2026</b></a>.</span></li>
+        <li><span class="news-date">Jul 2026</span><span>One paper accepted to <a
+              href="https://signalprocessingsociety.org/publications-resources/ieee-signal-processing-letters"><b>IEEE
+                Signal Processing Letters (SPL)</b></a>.</span></li>
         <li><span class="news-date">May 2026</span><span>One paper accepted to <a
               href="https://dl.acm.org/journal/tomm"><b>ACM Transactions on Multimedia Computing, Communications, and
                 Applications (TOMM)</b></a>.</span></li>
@@ -706,6 +711,76 @@
       <h2 class="sec-title">Publications</h2>
       <p class="pub-note">* indicates equal contribution. † indicates the corresponding author.</p>
 
+      <!-- SIGGRAPH Asia 2026 - CRAFT -->
+      <div class="pub">
+        <div class="pub-img">
+          <div class="badge">SIGGRAPH Asia 2026</div>
+          <img src="images/craft_teaser.jpg" alt="CRAFT">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title">CRAFT: Constrained Reward via Attention Fine-Tuning for Subject Personalization without
+            Composed Targets</div>
+          <div class="pub-authors"><b><u>Jihun Park</u></b>, Kyoungmin Lee, Jongmin Gim, Hyeonseo Jo, Jaeyeul Kim, Han
+            Zou, Zhenpeng Zhan, Yan Zhang†, Sunghoon Im†</div>
+          <div class="pub-venue">ACM SIGGRAPH Asia, 2026</div>
+          <div class="pub-intern"><i class="fas fa-briefcase"></i> Collaborated with Baidu Global Business Unit,
+            Shenzhen, China</div>
+          <div class="pub-links">
+            <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
+            <a href="">Paper</a>
+          </div>
+          <div class="pub-abstract">Subject-driven image personalization—generating new images that preserve the identity
+            of one or several reference subjects in novel scenes—is a foundational capability for modern visual content
+            creation. It is currently dominated by generalized methods that fine-tune a pretrained multimodal diffusion
+            transformer (MMDiT) on hundreds of thousands to millions of paired (reference, composed-target) examples,
+            where each composed target is a synthesized image of the subject in a novel scene. Producing such targets
+            demands a costly multi-stage curation pipeline—LLM-based prompt generation, T2I-based composed-target
+            synthesis, reference-subject extraction, VLM-based quality filtering, and correspondence labeling—and tightly
+            couples each method to a particular target synthesizer and curation choice. We introduce CRAFT (Constrained
+            Reward via Attention Fine-Tuning), a single-step ReFL framework that fine-tunes a pre-trained reference-aware
+            MMDiT via LoRA adapters using a compact reference-only data construction—10K reference images and subject
+            masks, with no composed-target supervision. CRAFT realizes a "Where to look" principle: attention-level
+            rewards align noise- and phrase-token attention with the correct reference subject, and the resulting
+            per-subject attention masks gate a pixel-level identity reward to keep image-space supervision consistent
+            with the learned attention routing. Applied to FLUX.2-klein-9B, CRAFT achieves state-of-the-art performance
+            on XVerseBench, surpassing prior generalized methods that use 150K to over 2M composed-target samples—a
+            15–200× reduction in training data. The same recipe transfers to other reference-aware backbones,
+            consistently improving performance.</div>
+        </div>
+      </div>
+
+      <!-- SPL 2026 - LiDAR-to-Radar -->
+      <div class="pub">
+        <div class="pub-img">
+          <div class="badge">SPL 2026</div>
+          <img src="images/lidar2radar_main.png" alt="Object-Centric LiDAR-to-Radar Distillation">
+        </div>
+        <div class="pub-body">
+          <div class="pub-title">Object-Centric LiDAR-to-Radar Distillation for 3D Object Detection</div>
+          <div class="pub-authors">Sungho Moon*, Jaeyeul Kim*, Wonhyeok Choi, <b><u>Jihun Park</u></b>, Ukcheol Shin†,
+            Sunghoon Im†</div>
+          <div class="pub-venue">IEEE Signal Processing Letters (SPL, IF: 3.9), 2026</div>
+          <div class="pub-links">
+            <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
+            <a href="">Paper</a>
+          </div>
+          <div class="pub-abstract">Radar is an essential sensor for autonomous driving due to its cost-effectiveness
+            and robustness under adverse weather conditions. However, 3D radar points are inherently sparse, noisy, and
+            lack elevation information. As a result, they provide much weaker geometric cues than LiDAR measurements,
+            making reliable representation learning fundamentally challenging. To address this issue, prior works have
+            explored LiDAR-to-radar distillation, enriching radar representations with dense LiDAR geometric priors.
+            However, the substantial modality gap between LiDAR and radar may make such fine-grained alignment
+            unnecessarily restrictive and limit the effectiveness of knowledge transfer. In this letter, we present an
+            object-centric distillation framework that emphasizes semantically meaningful object-level cues rather than
+            dense voxel-level matching. Specifically, we perform object-wise distillation by aggregating teacher and
+            student features within each object region using Gaussian-weighted pooling. We further introduce
+            density-aware curriculum weighting, which adaptively modulates the distillation strength according to the
+            radar point density of each object. Experimental results on the nuScenes dataset show that the proposed
+            method surpasses the existing state of the art by 32.1%, which validates the effectiveness of the proposed
+            framework.</div>
+        </div>
+      </div>
+
       <!-- arXiv 2025 — Work done during internship at Baidu -->
       <div class="pub">
         <div class="pub-img">
@@ -718,7 +793,8 @@
           <div class="pub-authors"><b><u>Jihun Park*</u></b>, Jongmin Gim*, Kyoungmin Lee*, Minseok Oh, Minwoo Choi,
             Jaeyeul Kim, Woochool Park, Yan Zhang, Zhenpeng Zhan, Sunghoon Im†</div>
           <div class="pub-venue">arXiv, 2025</div>
-          <!-- <div class="pub-intern"><i class="fas fa-briefcase"></i> Work done during internship at Baidu Global Business Unit, Shenzhen, China</div> -->
+          <div class="pub-intern"><i class="fas fa-briefcase"></i> Collaborated with Baidu Global Business Unit,
+            Shenzhen, China</div>
           <div class="pub-links">
             <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
             <a href="https://arxiv.org/abs/2504.06144">Paper</a>
@@ -747,11 +823,11 @@
             Self-Labeling</div>
           <div class="pub-authors">Jeonghoon Kim*, Hyeon Kang*, <b><u>Jihun Park</u></b>, Jinhwoi Kim, Jaeyeul Kim,
             Sunghoon Im†</div>
-          <div class="pub-venue">ACM Transactions on Multimedia Computing, Communications, and Applications (TOMM),
-            2026</div>
+          <div class="pub-venue">ACM Transactions on Multimedia Computing, Communications, and Applications (TOMM, IF:
+            6.1), 2026</div>
           <div class="pub-links">
             <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
-            <a href="">Paper</a>
+            <a href="https://dl.acm.org/doi/abs/10.1145/3827612">Paper</a>
           </div>
           <div class="pub-abstract">In video-text retrieval, addressing the noisy correspondence problem is crucial
             for achieving accurate retrieval performance. Recent methods address this challenge by either suppressing
@@ -1146,7 +1222,7 @@
               Barron</a></span>
         </div>
       </div>
-      <p>&copy; Jihun Park | Last updated: Apr. 2026</p>
+      <p>&copy; Jihun Park | Last updated: Jul. 2026</p>
     </footer>
   </div>
 
