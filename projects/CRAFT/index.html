@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+    content="CRAFT: Constrained Reward via Attention Fine-Tuning for Subject Personalization without Composed Targets (SIGGRAPH Asia 2026)">
+  <meta property="og:title" content="CRAFT: Subject Personalization without Composed Targets" />
+  <meta property="og:description"
+    content="A single-step ReFL framework that fine-tunes a reference-aware MMDiT with attention-level rewards, using only 10K reference-only samples and no composed-target supervision." />
+  <meta property="og:url" content="https://jihun999.github.io/projects/CRAFT/" />
+  <meta property="og:image" content="static/images/teaser.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+  <meta name="twitter:title" content="CRAFT: Subject Personalization without Composed Targets">
+  <meta name="twitter:description"
+    content="SIGGRAPH Asia 2026 — attention-level rewards for generalized subject-driven personalization, trained with only 10K reference-only samples.">
+  <meta name="twitter:image" content="static/images/teaser.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="keywords"
+    content="Subject-Driven Personalization, Reward Fine-Tuning, Multimodal Diffusion Transformer, Attention Constraints, ReFL, LoRA, FLUX.2">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>CRAFT: Constrained Reward via Attention Fine-Tuning for Subject Personalization without Composed Targets</title>
+  <link rel="icon" type="image/x-icon" href="static/images/cvlabLOGO.png">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+
+  <style>
+    .res-table {
+      overflow-x: auto;
+    }
+
+    .res-table table {
+      font-size: 0.82rem;
+      white-space: nowrap;
+      margin: auto;
+    }
+
+    .res-table table td,
+    .res-table table th {
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .res-table table td:first-child,
+    .res-table table th:first-child {
+      text-align: left;
+    }
+
+    .res-table tr.ours {
+      background-color: #f0f6ff;
+    }
+
+    .fig-caption {
+      font-size: 0.9rem;
+      font-style: italic;
+      text-align: justify;
+      margin-top: 0.6em;
+      line-height: 1.45;
+    }
+
+    .table-caption {
+      font-size: 0.9rem;
+      text-align: justify;
+      margin-bottom: 0.8em;
+      line-height: 1.45;
+      color: #4a4a4a;
+    }
+
+    .highlight-box {
+      background: #ffffff;
+      border-left: 4px solid #3273dc;
+      padding: 0.9rem 1.2rem;
+      margin-bottom: 1rem;
+      text-align: left;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Title / Authors / Links -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-2 publication-title">CRAFT: Constrained Reward via Attention Fine-Tuning for Subject
+              Personalization without Composed Targets</h1>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://jihun999.github.io/" target="_blank">Jihun Park</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://kyoungmiin.github.io/?v=__VERSION__" target="_blank">Kyoungmin
+                  Lee</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://minimini-1.github.io/" target="_blank">Jongmin Gim</a><sup>1</sup>,</span>
+              <span class="author-block">Hyeonseo Jo<sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://jykim94.github.io/" target="_blank">Jaeyeul Kim</a><sup>1</sup>,</span>
+              <span class="author-block">Han Zou<sup>2</sup>,</span>
+              <span class="author-block">Zhenpeng Zhan<sup>2</sup>,</span>
+              <span class="author-block">Yan Zhang<sup>2,†</sup>,</span>
+              <span class="author-block">
+                <a href="https://sunghoonim.github.io/" target="_blank">Sunghoon Im</a><sup>3,†</sup></span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>DGIST &nbsp;·&nbsp; <sup>2</sup>Baidu Global Business Unit,
+                Shenzhen, China &nbsp;·&nbsp; <sup>3</sup>KAIST</span>
+              <br>
+              <span class="author-block"><strong>🎉 ACM SIGGRAPH Asia 2026 🎉</strong></span>
+              <span class="eql-cntrb"><small><br><sup>†</sup>Corresponding Author</small></span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- Paper PDF — TODO: place the camera-ready at static/pdfs/CRAFT_SIGGRAPH_Asia_2026.pdf
+                     and restore the href + remove the disabled styling below -->
+                <span class="link-block">
+                  <a class="external-link button is-normal is-rounded is-dark" disabled
+                    style="pointer-events: none; opacity: 0.55;">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper (Coming Soon)</span>
+                  </a>
+                </span>
+
+                <!-- Code (TBA) -->
+                <span class="link-block">
+                  <a class="external-link button is-normal is-rounded is-dark" disabled
+                    style="pointer-events: none; opacity: 0.55;">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code (Coming Soon)</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaser -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body has-text-centered">
+        <img src="static/images/teaser.jpg" alt="CRAFT teaser" style="max-width: 100%; height: auto;">
+        <p class="fig-caption">
+          <b>Subject-driven personalization with CRAFT.</b> Given one or several reference subjects and a text prompt,
+          CRAFT generates new scenes that preserve each subject's identity while following the prompted interaction —
+          trained with only 10K reference images and subject masks, and <b>no composed-target supervision</b>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Abstract -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Subject-driven image personalization—generating new images that preserve the identity of one or several
+              reference subjects in novel scenes—is a foundational capability for modern visual content creation. It is
+              currently dominated by generalized methods that fine-tune a pretrained multimodal diffusion transformer
+              (MMDiT) on hundreds of thousands to millions of paired <i>(reference, composed-target)</i> examples, where
+              each composed target is a synthesized image of the subject in a novel scene. Producing such targets demands
+              a costly multi-stage curation pipeline—LLM-based prompt generation, T2I-based composed-target synthesis,
+              reference-subject extraction, VLM-based quality filtering, and correspondence labeling—and tightly couples
+              each method to a particular target synthesizer and curation choice. We introduce <b>CRAFT</b>
+              (<b>C</b>onstrained <b>R</b>eward via <b>A</b>ttention <b>F</b>ine-<b>T</b>uning), a single-step ReFL
+              framework that fine-tunes a pre-trained <i>reference-aware</i> MMDiT via LoRA adapters using a compact
+              reference-only data construction—10K reference images and subject masks, with no composed-target
+              supervision. CRAFT realizes a <i>Where to look</i> principle: attention-level rewards align noise- and
+              phrase-token attention with the correct reference subject, and the resulting per-subject attention masks
+              gate a pixel-level identity reward to keep image-space supervision consistent with the learned attention
+              routing. Applied to FLUX.2-klein-9B, CRAFT achieves state-of-the-art performance on XVerseBench while using
+              no composed-target supervision—only 10K reference-only samples, whereas prior generalized methods require
+              150K to over 2M composed-target pairs. The same recipe transfers to other reference-aware backbones,
+              consistently improving performance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End abstract -->
+
+  <!-- Method -->
+  <section class="hero is-dark">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">✨ Method Overview</h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+
+            <div class="highlight-box content">
+              <p style="margin-bottom: 0.4rem;"><b>Key observation.</b> Reference-aware MMDiTs, which jointly attend to
+                text, noise, and reference-image tokens, already produce subject-aligned attention patterns
+                <i>before</i> any fine-tuning. Rather than inducing this routing through large-scale composed-target
+                supervision, CRAFT shapes the existing routing directly with a lightweight reward signal.</p>
+              <p style="margin-bottom: 0;"><b><i>Where to look</i> principle.</b> At a small subset of (step, block)
+                coordinates, noise- and prompt-token attention should land on the correct reference subject region. The
+                supervision this requires is minimal — just reference images paired with subject masks.</p>
+            </div>
+
+            <figure>
+              <img src="static/images/pipeline.png" alt="Overall pipeline of CRAFT" />
+              <figcaption class="fig-caption">
+                <b>Overall pipeline of CRAFT.</b> The denoising prefix is rolled out without gradients up to the reward
+                step \(t^\ast\), where two forward passes are performed: the frozen backbone \(f_\text{base}\) produces
+                \(\mathbf{v}_\text{base}\), while the LoRA-adapted model \(f_\text{LoRA}\) produces
+                \(\mathbf{v}_\text{LoRA}\) together with the cross-modal attention sub-blocks \(\mathbf{A}_{N2R_k}\),
+                \(\mathbf{A}_{N2P_k}\), and \(\mathbf{A}_{P_k 2 R_k}\). Following the <i>Where to look</i> principle,
+                \(\mathcal{R}_\text{ref}\) and \(\mathcal{R}_\text{cons}\) shape noise- and phrase-token attention toward
+                each reference subject; the resulting per-subject mask \(\mathbf{m}^\text{noise}_k\) then gates the
+                pixel-level identity reward \(\mathcal{R}_\text{id}\) on the VAE-decoded pre-image \(\hat{\mathbf{I}}\).
+                Auxiliary terms \(\mathcal{R}_\text{CLIP-T}\), \(\mathcal{R}_\text{AES}\), and a velocity-space
+                regularizer \(\mathcal{L}_\text{anchor}\) are added for prompt fidelity, aesthetics, and stability. A
+                single backward pass updates only the LoRA parameters.
+              </figcaption>
+            </figure>
+
+            <br>
+
+            <div class="columns is-centered" style="margin-top: 1.5rem;">
+              <div class="column">
+                <div class="box" style="height: 100%;">
+                  <h3 class="title is-5">1. Reference-mask alignment \(\mathcal{R}_\text{ref}\)</h3>
+                  <p class="has-text-justified" style="font-size: 0.95rem;">
+                    Pulls both <i>noise</i> queries (\(\mathbf{A}_{N2R_k}\)) and subject-referring <i>phrase</i> queries
+                    (\(\mathbf{A}_{P_k 2 R_k}\)) toward the reference-token region \(\mathbf{m}^\text{ref}_k\), so the
+                    model extracts subject evidence from the correct part of the reference image.
+                  </p>
+                </div>
+              </div>
+              <div class="column">
+                <div class="box" style="height: 100%;">
+                  <h3 class="title is-5">2. Text–noise consistency \(\mathcal{R}_\text{cons}\)</h3>
+                  <p class="has-text-justified" style="font-size: 0.95rem;">
+                    Projects \(\mathbf{A}_{N2R_k}\) and \(\mathbf{A}_{N2P_k}\) onto the noise grid and maximizes their
+                    probabilistic soft IoU, so the two views of subject \(k\) localize at the same place — suppressing
+                    duplicated or misplaced subjects in multi-subject scenes.
+                  </p>
+                </div>
+              </div>
+              <div class="column">
+                <div class="box" style="height: 100%;">
+                  <h3 class="title is-5">3. Attention-gated identity \(\mathcal{R}_\text{id}\)</h3>
+                  <p class="has-text-justified" style="font-size: 0.95rem;">
+                    \(\mathbf{A}_{N2R_k}\) itself yields a per-subject noise-grid mask \(\mathbf{m}^\text{noise}_k\)
+                    (Gaussian smoothing + thresholding), which gates a DINOv2 identity reward on the decoded pre-image —
+                    no external segmentation of the generated image required.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="content has-text-justified" style="margin-top: 1rem;">
+              <p>
+                <b>Implementation.</b> CRAFT is built on <b>FLUX.2-klein-9B</b>, an MMDiT distilled to four denoising
+                steps, with the backbone frozen and LoRA adapters (rank \(r=64\)) attached to all attention layers.
+                Training runs at \(1024^2\) resolution for 3,000 optimizer steps on four NVIDIA B200 GPUs with AdamW
+                (lr \(2\times10^{-6}\)). A subject-routing analysis on the unmodified backbone fixes the reward locus at
+                \(t^\ast = 2\) and \(\mathcal{B}\) = {<code>single_1</code>, <code>single_9</code>,
+                <code>single_8</code>}.
+                Subject masks are used <b>only on the reward side during training</b> — the model never receives them,
+                so inference remains mask-free.
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End method -->
+
+  <!-- Attention analysis -->
+  <section class="section hero is-light">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-two-thirds">
+            <h2 class="title is-3">Why reference keys?</h2>
+            <figure>
+              <img src="static/images/attention_analysis.jpg" alt="Reference-key vs. text-key attention" />
+              <figcaption class="fig-caption">
+                Qualitative comparison of <em>raw</em> (un-thresholded) \(\mathbf{A}_{N2R}\) (noise-to-reference) and
+                \(\mathbf{A}_{N2P}\) (noise-to-prompt) attention heatmaps at \(t^\ast{=}2\), block
+                <code>single_1</code>, shown alongside the Grounded-SAM segmentation of the generated image. \(\mathbf{A}_{N2R}\) concentrates on the
+                actual subject region and aligns with the segmentation mask; \(\mathbf{A}_{N2P}\) is more diffuse and
+                frequently leaks outside the subject — which is why the attention-derived gate is built from the
+                reference-key attention.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results header -->
+  <section class="hero is-dark">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">📊 Results</h2>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main quantitative table -->
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-4 has-text-centered">Quantitative Comparison on XVerseBench</h2>
+          <p class="table-caption">
+            &ldquo;Target.&rdquo; marks composed-target supervision; &ldquo;#Data&rdquo; is the reported training-sample
+            count. <sup>†</sup> denotes results reproduced with official code; (<i>—</i>) denotes not reported.
+            Best/second-best in <b>bold</b>/<u>underlined</u>. <sup>*</sup> <i>CRAFT (mask-free)</i> operates on raw,
+            unsegmented references at inference and is reported for reference (not included in the ranking) — this is
+            CRAFT's intended inference mode, and it performs on par with or above the segmented-input configuration.
+          </p>
+          <div class="res-table">
+            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+              <thead>
+                <tr>
+                  <th rowspan="2">Method</th>
+                  <th rowspan="2">Target.</th>
+                  <th rowspan="2">#Data</th>
+                  <th colspan="5">Single subject (90 prompts)</th>
+                  <th colspan="5">Multi subject (210 prompts)</th>
+                  <th rowspan="2">Overall ↑</th>
+                </tr>
+                <tr>
+                  <th>DPG ↑</th>
+                  <th>ID ↑</th>
+                  <th>IP ↑</th>
+                  <th>AES ↑</th>
+                  <th>AVG ↑</th>
+                  <th>DPG ↑</th>
+                  <th>ID ↑</th>
+                  <th>IP ↑</th>
+                  <th>AES ↑</th>
+                  <th>AVG ↑</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>UNO</td>
+                  <td>✔</td>
+                  <td>245K</td>
+                  <td>89.65</td>
+                  <td>47.91</td>
+                  <td>80.40</td>
+                  <td>55.90</td>
+                  <td>68.47</td>
+                  <td>85.28</td>
+                  <td>31.82</td>
+                  <td>67.00</td>
+                  <td>54.24</td>
+                  <td>59.59</td>
+                  <td>64.03</td>
+                </tr>
+                <tr>
+                  <td>OmniGen</td>
+                  <td>✔</td>
+                  <td>6.5M</td>
+                  <td>83.90</td>
+                  <td>76.51</td>
+                  <td>78.46</td>
+                  <td>51.41</td>
+                  <td>72.57</td>
+                  <td>78.23</td>
+                  <td>55.53</td>
+                  <td>62.32</td>
+                  <td>49.84</td>
+                  <td>61.48</td>
+                  <td>67.03</td>
+                </tr>
+                <tr>
+                  <td>OmniGen2</td>
+                  <td>✔</td>
+                  <td>180K</td>
+                  <td>92.60</td>
+                  <td>62.41</td>
+                  <td>74.08</td>
+                  <td>52.34</td>
+                  <td>70.36</td>
+                  <td><b>91.55</b></td>
+                  <td>40.81</td>
+                  <td>67.15</td>
+                  <td>51.40</td>
+                  <td>62.73</td>
+                  <td>66.55</td>
+                </tr>
+                <tr>
+                  <td>DreamO</td>
+                  <td>✔</td>
+                  <td>150K</td>
+                  <td><b>96.93</b></td>
+                  <td>75.48</td>
+                  <td>70.84</td>
+                  <td>54.57</td>
+                  <td>74.46</td>
+                  <td>88.80</td>
+                  <td>50.24</td>
+                  <td>64.63</td>
+                  <td>52.47</td>
+                  <td>64.04</td>
+                  <td>69.25</td>
+                </tr>
+                <tr>
+                  <td>UMO<sup>†</sup></td>
+                  <td>✔</td>
+                  <td><i>—</i></td>
+                  <td>86.75</td>
+                  <td>77.36</td>
+                  <td>76.99</td>
+                  <td><b>61.71</b></td>
+                  <td>75.70</td>
+                  <td>87.18</td>
+                  <td>58.24</td>
+                  <td>60.52</td>
+                  <td><b>58.74</b></td>
+                  <td>66.17</td>
+                  <td>70.94</td>
+                </tr>
+                <tr>
+                  <td>XVerse</td>
+                  <td>✔</td>
+                  <td>2M+</td>
+                  <td>93.69</td>
+                  <td>79.48</td>
+                  <td>76.86</td>
+                  <td>56.84</td>
+                  <td>76.72</td>
+                  <td>88.26</td>
+                  <td><u>66.59</u></td>
+                  <td>71.48</td>
+                  <td>53.97</td>
+                  <td>70.08</td>
+                  <td>73.40</td>
+                </tr>
+                <tr>
+                  <td>MOSAIC</td>
+                  <td>✔</td>
+                  <td>1.2M</td>
+                  <td>96.55</td>
+                  <td><u>81.98</u></td>
+                  <td><u>80.92</u></td>
+                  <td>60.77</td>
+                  <td><u>80.05</u></td>
+                  <td><u>88.94</u></td>
+                  <td><b>69.90</b></td>
+                  <td><u>74.27</u></td>
+                  <td>55.02</td>
+                  <td><b>72.03</b></td>
+                  <td><u>76.04</u></td>
+                </tr>
+                <tr class="ours">
+                  <td><b>CRAFT (Ours)</b></td>
+                  <td>✘</td>
+                  <td><b>10K</b></td>
+                  <td><u>96.81</u></td>
+                  <td><b>84.22</b></td>
+                  <td><b>84.23</b></td>
+                  <td><u>61.24</u></td>
+                  <td><b>81.62</b></td>
+                  <td>88.71</td>
+                  <td>61.16</td>
+                  <td><b>77.25</b></td>
+                  <td><u>58.16</u></td>
+                  <td><u>71.32</u></td>
+                  <td><b>76.47</b></td>
+                </tr>
+                <tr class="ours">
+                  <td><i>CRAFT (mask-free, Ours)</i><sup>*</sup></td>
+                  <td>✘</td>
+                  <td><b>10K</b></td>
+                  <td><i>98.91</i></td>
+                  <td><i>87.67</i></td>
+                  <td><i>86.74</i></td>
+                  <td><i>62.58</i></td>
+                  <td><i>83.97</i></td>
+                  <td><i>89.12</i></td>
+                  <td><i>60.35</i></td>
+                  <td><i>77.28</i></td>
+                  <td><i>59.71</i></td>
+                  <td><i>71.62</i></td>
+                  <td><i>77.80</i></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="content has-text-justified" style="margin-top: 1rem;">
+            <p>
+              CRAFT achieves the best <b>Overall</b> score (76.47) while using only 10K reference-only training
+              instances and no composed-target supervision. On the single-subject split it obtains the best AVG (81.62),
+              improving over the strongest prior method (MOSAIC) by +1.57 points, with the largest gains on
+              identity-related metrics (Single ID 84.22, Single IP 84.23). Compared with the frozen FLUX.2-klein
+              backbone, CRAFT improves Overall by <b>+5.43</b> points.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Qualitative comparison -->
+  <section class="section hero is-light">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-4">Qualitative Comparison</h2>
+            <figure>
+              <img src="static/images/comparison.jpg"
+                alt="Qualitative comparison with state-of-the-art personalization models" />
+              <figcaption class="fig-caption">
+                Qualitative comparison with state-of-the-art subject-driven personalization models. CRAFT places
+                subjects at compatible positions, orientations, and scales so that the prompted <i>interaction</i> is
+                visually supported — a woman walking a corgi, a character physically situated on a bicycle, a cap and
+                ring integrated with the Avatar. Competing methods often preserve reference appearance but drop a
+                subject, place subjects in disconnected regions, or distort one subject to accommodate the other.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ablation + transfer + user study -->
+  <section class="section">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-4 has-text-centered">Component Ablation</h2>
+          <p class="table-caption">
+            (a) FLUX.2-klein backbone; (b) \(+\mathcal{R}_\text{ref}\), (c) \(+\mathcal{R}_\text{cons}\) (cumulative);
+            (d) \(\mathcal{R}_\text{id}\) alone on the backbone; (e) full CRAFT. Best/second-best in
+            <b>bold</b>/<u>underlined</u>.
+          </p>
+          <div class="res-table">
+            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+              <thead>
+                <tr>
+                  <th rowspan="2"></th>
+                  <th colspan="3">Component</th>
+                  <th colspan="5">Single subject</th>
+                  <th colspan="5">Multi subject</th>
+                  <th rowspan="2">Overall ↑</th>
+                </tr>
+                <tr>
+                  <th>\(\mathcal{R}_\text{ref}\)</th>
+                  <th>\(\mathcal{R}_\text{cons}\)</th>
+                  <th>\(\mathcal{R}_\text{id}\)</th>
+                  <th>DPG ↑</th>
+                  <th>ID ↑</th>
+                  <th>IP ↑</th>
+                  <th>AES ↑</th>
+                  <th>AVG ↑</th>
+                  <th>DPG ↑</th>
+                  <th>ID ↑</th>
+                  <th>IP ↑</th>
+                  <th>AES ↑</th>
+                  <th>AVG ↑</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>(a)</td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>97.22</td>
+                  <td>66.29</td>
+                  <td>78.15</td>
+                  <td>59.76</td>
+                  <td>75.36</td>
+                  <td>88.91</td>
+                  <td>50.22</td>
+                  <td>71.23</td>
+                  <td>56.52</td>
+                  <td>66.72</td>
+                  <td>71.04</td>
+                </tr>
+                <tr>
+                  <td>(b)</td>
+                  <td>✔</td>
+                  <td></td>
+                  <td></td>
+                  <td><u>96.89</u></td>
+                  <td>70.15</td>
+                  <td>79.75</td>
+                  <td>60.84</td>
+                  <td>76.91</td>
+                  <td><b>88.94</b></td>
+                  <td>48.11</td>
+                  <td>72.69</td>
+                  <td>57.86</td>
+                  <td>66.90</td>
+                  <td>71.91</td>
+                </tr>
+                <tr>
+                  <td>(c)</td>
+                  <td>✔</td>
+                  <td>✔</td>
+                  <td></td>
+                  <td><b>97.22</b></td>
+                  <td>70.63</td>
+                  <td>81.19</td>
+                  <td><u>61.94</u></td>
+                  <td>77.75</td>
+                  <td>88.09</td>
+                  <td>50.43</td>
+                  <td>70.70</td>
+                  <td><u>58.71</u></td>
+                  <td>66.98</td>
+                  <td>72.37</td>
+                </tr>
+                <tr>
+                  <td>(d)</td>
+                  <td></td>
+                  <td></td>
+                  <td>✔</td>
+                  <td>96.67</td>
+                  <td><u>73.27</u></td>
+                  <td><u>81.93</u></td>
+                  <td><b>61.96</b></td>
+                  <td><u>78.46</u></td>
+                  <td>87.32</td>
+                  <td><u>50.77</u></td>
+                  <td><u>72.90</u></td>
+                  <td><b>60.24</b></td>
+                  <td><u>67.81</u></td>
+                  <td><u>73.14</u></td>
+                </tr>
+                <tr class="ours">
+                  <td>(e)</td>
+                  <td>✔</td>
+                  <td>✔</td>
+                  <td>✔</td>
+                  <td>96.81</td>
+                  <td><b>84.22</b></td>
+                  <td><b>84.23</b></td>
+                  <td>61.24</td>
+                  <td><b>81.62</b></td>
+                  <td><u>88.71</u></td>
+                  <td><b>61.16</b></td>
+                  <td><b>77.25</b></td>
+                  <td>58.16</td>
+                  <td><b>71.32</b></td>
+                  <td><b>76.47</b></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="content has-text-justified" style="margin-top: 1rem;">
+            <p>
+              The attention rewards and the pixel identity reward are <b>complementary</b>. \(\mathcal{R}_\text{id}\)
+              alone (d) already improves over the backbone, but adding \(\mathcal{R}_\text{ref}\) and
+              \(\mathcal{R}_\text{cons}\) sharpens the attention-derived gate and yields a further jump to 76.47 Overall
+              — image-space identity supervision is most effective when the gate that localizes it is itself shaped by
+              the attention rewards.
+            </p>
+          </div>
+
+          <div class="columns is-centered" style="margin-top: 2rem;">
+            <div class="column is-half">
+              <h2 class="title is-5 has-text-centered">Transfer to Other Backbones</h2>
+              <p class="table-caption">
+                CRAFT applied to UNO and UMO on XVerseBench. <sup>†</sup> denotes results reproduced with official code.
+              </p>
+              <div class="res-table">
+                <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                  <thead>
+                    <tr>
+                      <th>Method</th>
+                      <th>Target.</th>
+                      <th>Single AVG ↑</th>
+                      <th>Multi AVG ↑</th>
+                      <th>Overall ↑</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>UNO</td>
+                      <td>✔</td>
+                      <td>68.47</td>
+                      <td>59.59</td>
+                      <td>64.03</td>
+                    </tr>
+                    <tr class="ours">
+                      <td><b>UNO + Ours</b></td>
+                      <td>✘</td>
+                      <td><b>76.61</b></td>
+                      <td><b>67.04</b></td>
+                      <td><b>71.83</b></td>
+                    </tr>
+                    <tr>
+                      <td>UMO<sup>†</sup></td>
+                      <td>✔</td>
+                      <td>75.70</td>
+                      <td>66.17</td>
+                      <td>70.94</td>
+                    </tr>
+                    <tr class="ours">
+                      <td><b>UMO + Ours</b></td>
+                      <td>✘</td>
+                      <td><b>79.75</b></td>
+                      <td><b>69.49</b></td>
+                      <td><b>74.62</b></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="fig-caption">
+                <b>UNO + CRAFT — supervised entirely by reference-side rewards — outperforms UMO</b>, which is itself a
+                reward-based fine-tuning of the same UNO backbone but requires composed-target supervision.
+              </p>
+            </div>
+
+            <div class="column is-half">
+              <h2 class="title is-5 has-text-centered">User Study (119 participants)</h2>
+              <p class="table-caption">
+                Preference (%) on Identity Consistency (IC), Prompt Fidelity (PF), and Image Quality (IQ). For each
+                question, participants see image sets from four methods in randomized order and select the best.
+              </p>
+              <div class="res-table">
+                <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                  <thead>
+                    <tr>
+                      <th>Method</th>
+                      <th>IC ↑</th>
+                      <th>PF ↑</th>
+                      <th>IQ ↑</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>UMO</td>
+                      <td>15.0</td>
+                      <td>5.9</td>
+                      <td>26.0</td>
+                    </tr>
+                    <tr>
+                      <td>XVerse</td>
+                      <td>15.0</td>
+                      <td>18.3</td>
+                      <td>16.5</td>
+                    </tr>
+                    <tr>
+                      <td>MOSAIC</td>
+                      <td>14.8</td>
+                      <td>13.2</td>
+                      <td>23.3</td>
+                    </tr>
+                    <tr class="ours">
+                      <td><b>Ours</b></td>
+                      <td><b>55.2</b></td>
+                      <td><b>62.6</b></td>
+                      <td><b>34.2</b></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="fig-caption">
+                CRAFT is preferred by a large margin on identity consistency and prompt fidelity against the top three
+                quantitative performers.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- More qualitative results -->
+  <section class="hero is-dark">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">🖼️ More Qualitative Results</h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section pt-6 pb-6">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+
+        <div class="item has-text-centered">
+          <h3 class="title is-5">XVerseBench — segmented-reference protocol</h3>
+          <img src="static/images/xverse_seg.jpg" alt="XVerseBench segmented protocol results"
+            style="max-width: 100%; height: auto;">
+        </div>
+
+        <div class="item has-text-centered">
+          <h3 class="title is-5">XVerseBench — mask-free protocol (raw references)</h3>
+          <img src="static/images/xverse_unseg.jpg" alt="XVerseBench mask-free protocol results"
+            style="max-width: 100%; height: auto;">
+        </div>
+
+        <div class="item has-text-centered">
+          <h3 class="title is-5">OmniContext benchmark</h3>
+          <img src="static/images/omnicontext.jpg" alt="OmniContext results" style="max-width: 100%; height: auto;">
+        </div>
+
+      </div>
+      <p class="fig-caption has-text-centered" style="margin-top: 1rem;">
+        Because subject masks are used only as reward-side training annotations, CRAFT runs on raw, unsegmented
+        references at inference (mask-free protocol) and reaches an even higher Overall score (77.80) than the
+        segmented-input configuration.
+      </p>
+    </div>
+  </section>
+
+  <!-- Carousel is initialized by static/js/index.js, which attaches all .carousel elements -->
+
+  <!-- Training data -->
+  <section class="section hero is-light">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-half">
+            <h2 class="title is-4">Reference-Only Training Data</h2>
+            <figure>
+              <img src="static/images/data_composition.png" alt="Dataset curation pipeline" />
+              <figcaption class="fig-caption">
+                Overall pipeline of dataset curation. References are isolated single-subject images rendered with FLUX.2
+                in text-to-image mode, and each subject mask is obtained with Grounded-SAM. <b>No scene composition or
+                  composed-target synthesis is involved</b> — 10K reference-only instances in total, versus the 150K to
+                over 2M composed-target pairs prior generalized methods require.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BibTeX -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{park2026craft,
+  title     = {CRAFT: Constrained Reward via Attention Fine-Tuning for Subject
+               Personalization without Composed Targets},
+  author    = {Park, Jihun and Lee, Kyoungmin and Gim, Jongmin and Jo, Hyeonseo and
+               Kim, Jaeyeul and Zou, Han and Zhan, Zhenpeng and Zhang, Yan and Im, Sunghoon},
+  journal   = {ACM Transactions on Graphics (Proc. SIGGRAPH Asia)},
+  year      = {2026}
+}</code></pre>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered">
+            <p style="font-size: 0.9rem;">
+              This page was built with the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page
+              template, which is licensed under a
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons
+                Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
