@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jihun Park</title>
   <meta name="author" content="Jihun Park">
-  <link rel="icon" type="image/png" href="images/icon.png">
+  <link rel="icon" href="images/favicon.ico" sizes="32x32">
+  <link rel="icon" href="images/icon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400&display=swap"
@@ -157,6 +158,14 @@
       color: var(--heading-color);
     }
 
+    .profile-text h1 .name-ko {
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--muted);
+      margin-left: 4px;
+      white-space: nowrap;
+    }
+
     .profile-text p {
       margin: 0 0 10px;
       font-size: 15px;
@@ -279,6 +288,81 @@
       border-radius: 6px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
       display: block;
+      cursor: zoom-in;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .pub-img img:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .16);
+    }
+
+    /* Click-to-zoom lightbox for publication teasers */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      background: rgba(0, 0, 0, .82);
+      cursor: zoom-out;
+      opacity: 0;
+      transition: opacity .18s ease;
+    }
+
+    .lightbox.open {
+      display: flex;
+      opacity: 1;
+    }
+
+    .lightbox-figure {
+      margin: 0;
+      max-width: 100%;
+      max-height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .lightbox-figure img {
+      max-width: 100%;
+      max-height: calc(100vh - 140px);
+      width: auto;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, .5);
+      cursor: default;
+    }
+
+    .lightbox-caption {
+      color: #f1f1f1;
+      font-size: 13px;
+      line-height: 1.5;
+      text-align: center;
+      max-width: 780px;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      width: 36px;
+      height: 36px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+      color: #fff;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+      transition: background .15s ease;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(255, 255, 255, .25);
     }
 
     .pub-img .badge {
@@ -560,6 +644,10 @@
         font-size: 28px;
       }
 
+      .profile-text h1 .name-ko {
+        font-size: 18px;
+      }
+
       .social {
         justify-content: center;
       }
@@ -618,7 +706,7 @@
         </div>
       </div>
       <div class="profile-text">
-        <h1>Jihun Park</h1>
+        <h1>Jihun Park <span class="name-ko">(박지훈)</span></h1>
         <p>
           I'm a M.S.-Ph.D. integrated course student at the Department of Artificial Intelligence at
           <a href="https://www.dgist.ac.kr/">DGIST</a>, South Korea, working under the supervision of
@@ -728,7 +816,7 @@
             Unit, Baidu, Inc.</div>
           <div class="pub-links">
             <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
-            <a href="">Paper</a>
+            <a href="https://arxiv.org/abs/2608.14403">Paper</a>
             <a href="https://jihun999.github.io/projects/CRAFT/">Project</a>
           </div>
           <div class="pub-abstract">Subject-driven image personalization—generating new images that preserve the identity
@@ -1232,11 +1320,60 @@
     </footer>
   </div>
 
+  <!-- Lightbox overlay for publication teaser images -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged teaser image">
+    <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+    <figure class="lightbox-figure">
+      <img id="lightbox-img" src="" alt="">
+      <figcaption class="lightbox-caption" id="lightbox-caption"></figcaption>
+    </figure>
+  </div>
+
   <script>
     function toggleAbstract(btn) {
       var abs = btn.closest('.pub-body').querySelector('.pub-abstract');
       if (abs) abs.classList.toggle('open');
     }
+
+    (function () {
+      var box = document.getElementById('lightbox');
+      var boxImg = document.getElementById('lightbox-img');
+      var boxCap = document.getElementById('lightbox-caption');
+
+      function open(img) {
+        var pub = img.closest('.pub');
+        var title = pub ? pub.querySelector('.pub-title') : null;
+        boxImg.src = img.currentSrc || img.src;
+        boxImg.alt = img.alt || '';
+        boxCap.textContent = title ? title.textContent.trim() : (img.alt || '');
+        box.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        box.classList.remove('open');
+        boxImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      document.addEventListener('click', function (e) {
+        var img = e.target.closest('.pub-img img');
+        if (img) {
+          e.preventDefault();
+          open(img);
+        }
+      });
+
+      // Click anywhere on the backdrop (or the close button) dismisses it;
+      // clicks on the enlarged image itself do not.
+      box.addEventListener('click', function (e) {
+        if (e.target !== boxImg) close();
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && box.classList.contains('open')) close();
+      });
+    })();
   </script>
 </body>
 
