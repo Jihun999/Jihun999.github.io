@@ -6,6 +6,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jihun Park</title>
   <meta name="author" content="Jihun Park">
+  <meta name="description"
+    content="Jihun Park is an M.S.-Ph.D. integrated course student at DGIST, working at the KAIST Robotics and Vision Lab on image/video generation, style transfer, and vision-language tasks.">
+  <link rel="canonical" href="https://jihun999.github.io/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jihun Park">
+  <meta property="og:title" content="Jihun Park — M.S.-Ph.D. Student at DGIST">
+  <meta property="og:description"
+    content="Image/Video Generation (Autoregressive, Diffusion), Style Transfer, and Vision-Language Tasks. KAIST Robotics and Vision Lab.">
+  <meta property="og:url" content="https://jihun999.github.io/">
+  <meta property="og:image" content="https://jihun999.github.io/images/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Jihun Park — M.S.-Ph.D. Student at DGIST, KAIST Robotics and Vision Lab">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jihun Park — M.S.-Ph.D. Student at DGIST">
+  <meta name="twitter:description"
+    content="Image/Video Generation (Autoregressive, Diffusion), Style Transfer, and Vision-Language Tasks. KAIST Robotics and Vision Lab.">
+  <meta name="twitter:image" content="https://jihun999.github.io/images/og-card.png">
+
   <link rel="icon" href="images/favicon.ico" sizes="32x32">
   <link rel="icon" href="images/icon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,14 +35,101 @@
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+  <!-- Applied before first paint so a saved theme choice never flashes the other theme -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme');
+        if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) { /* private mode: fall back to the system preference */ }
+    })();
+  </script>
+
   <style>
     :root {
+      color-scheme: light;
       --theme-color: #4285f4;
+      --theme-hover: #2a5db0;
       --text-color: #333;
       --heading-color: #222;
       --muted: #6c757d;
       --divider: #e8e8e8;
+      --divider-soft: #f0f0f0;
       --bg: #fff;
+      --nav-bg: rgba(255, 255, 255, .92);
+      --tint: rgba(66, 133, 244, .04);
+      --news-date: #888;
+      --abs-bg: #f8f6ff;
+      --abs-accent: #9370db;
+      --abs-text: #444;
+      --award: #b8860b;
+      --highlight: #c62828;
+      --intern: #6a5acd;
+      --badge-bg: rgba(147, 112, 219, .75);
+      --shadow-profile: 0 4px 15px rgba(0, 0, 0, .08);
+      --shadow-thumb: 0 2px 8px rgba(0, 0, 0, .06);
+      --shadow-thumb-hover: 0 6px 18px rgba(0, 0, 0, .16);
+      --logo-plate: transparent;
+      --logo-pad: 0;
+    }
+
+    /* Dark palette. Defined for the system default (no data-theme stamped) and
+       again for an explicit toggle, so both directions of the toggle win. */
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        color-scheme: dark;
+        --theme-color: #6ea4ff;
+        --theme-hover: #9dc0ff;
+        --text-color: #c4ccd6;
+        --heading-color: #e8eef6;
+        --muted: #8b949e;
+        --divider: #262c36;
+        --divider-soft: #1e242c;
+        --bg: #0d1117;
+        --nav-bg: rgba(13, 17, 23, .9);
+        --tint: rgba(110, 164, 255, .1);
+        --news-date: #7d8590;
+        --abs-bg: #181a24;
+        --abs-accent: #8a7ad6;
+        --abs-text: #aeb7c2;
+        --award: #d9a441;
+        --highlight: #f07171;
+        --intern: #9b8ff0;
+        --badge-bg: rgba(147, 112, 219, .85);
+        --shadow-profile: 0 4px 15px rgba(0, 0, 0, .55);
+        --shadow-thumb: 0 2px 8px rgba(0, 0, 0, .45);
+        --shadow-thumb-hover: 0 6px 18px rgba(0, 0, 0, .65);
+        --logo-plate: #fff;
+        --logo-pad: 6px;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --theme-color: #6ea4ff;
+      --theme-hover: #9dc0ff;
+      --text-color: #c4ccd6;
+      --heading-color: #e8eef6;
+      --muted: #8b949e;
+      --divider: #262c36;
+      --divider-soft: #1e242c;
+      --bg: #0d1117;
+      --nav-bg: rgba(13, 17, 23, .9);
+      --tint: rgba(110, 164, 255, .1);
+      --news-date: #7d8590;
+      --abs-bg: #181a24;
+      --abs-accent: #8a7ad6;
+      --abs-text: #aeb7c2;
+      --award: #d9a441;
+      --highlight: #f07171;
+      --intern: #9b8ff0;
+      --badge-bg: rgba(147, 112, 219, .85);
+      --shadow-profile: 0 4px 15px rgba(0, 0, 0, .55);
+      --shadow-thumb: 0 2px 8px rgba(0, 0, 0, .45);
+      --shadow-thumb-hover: 0 6px 18px rgba(0, 0, 0, .65);
+      --logo-plate: #fff;
+      --logo-pad: 6px;
     }
 
     *,
@@ -58,7 +166,7 @@
     }
 
     a:hover {
-      color: #2a5db0;
+      color: var(--theme-hover);
     }
 
     /* Navbar */
@@ -68,7 +176,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255, 255, 255, .92);
+      background: var(--nav-bg);
       backdrop-filter: blur(10px);
     }
 
@@ -107,6 +215,23 @@
       color: var(--theme-color);
     }
 
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      padding: 0;
+      border: none;
+      background: none;
+      color: var(--text-color);
+      font-size: 15px;
+      line-height: 1;
+      cursor: pointer;
+      transition: color .2s;
+    }
+
+    .theme-toggle:hover {
+      color: var(--theme-color);
+    }
+
     /* Profile */
     .profile {
       display: flex;
@@ -125,7 +250,7 @@
       height: 200px;
       border-radius: 50%;
       overflow: hidden;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, .08);
+      box-shadow: var(--shadow-profile);
       cursor: pointer;
     }
 
@@ -195,7 +320,7 @@
     .social a:hover {
       color: var(--theme-color);
       border-color: var(--theme-color);
-      background: rgba(66, 133, 244, .04);
+      background: var(--tint);
     }
 
     .social a i {
@@ -241,7 +366,7 @@
       padding: 6px 0;
       font-size: 14px;
       line-height: 1.6;
-      border-bottom: 1px solid #f0f0f0;
+      border-bottom: 1px solid var(--divider-soft);
     }
 
     .news-list li:last-child {
@@ -254,14 +379,88 @@
       font-family: 'Roboto Mono', monospace;
       font-size: 13px;
       font-weight: 500;
-      color: #888;
+      color: var(--news-date);
+    }
+
+    /* News collapse */
+    .news-hidden {
+      display: none;
+    }
+
+    .news-toggle {
+      margin-top: 12px;
+      padding: 5px 14px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--muted);
+      background: none;
+      border: 1px solid var(--divider);
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .news-toggle:hover {
+      color: var(--theme-color);
+      border-color: var(--theme-color);
     }
 
     /* Publications */
     .pub-note {
       font-size: 14px;
       color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    /* Topic filter */
+    .pub-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
       margin-bottom: 20px;
+    }
+
+    .filter-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 13px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 12.5px;
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--muted);
+      background: none;
+      border: 1px solid var(--divider);
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .filter-chip:hover {
+      color: var(--theme-color);
+      border-color: var(--theme-color);
+    }
+
+    .filter-chip.is-active {
+      color: var(--bg);
+      background: var(--theme-color);
+      border-color: var(--theme-color);
+    }
+
+    .filter-chip .count {
+      font-size: 11px;
+      opacity: .7;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .pub.is-filtered {
+      display: none;
+    }
+
+    .pub.is-last-visible {
+      border-bottom: none;
     }
 
     .pub {
@@ -286,7 +485,7 @@
     .pub-img img {
       width: 100%;
       border-radius: 6px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, .06);
+      box-shadow: var(--shadow-thumb);
       display: block;
       cursor: zoom-in;
       transition: transform .18s ease, box-shadow .18s ease;
@@ -294,7 +493,7 @@
 
     .pub-img img:hover {
       transform: scale(1.03);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, .16);
+      box-shadow: var(--shadow-thumb-hover);
     }
 
     /* Click-to-zoom lightbox for publication teasers */
@@ -369,7 +568,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      background: rgba(147, 112, 219, 0.75);
+      background: var(--badge-bg);
       color: #fff;
       font-size: 9px;
       font-weight: 600;
@@ -447,12 +646,12 @@
       display: none;
       margin-top: 10px;
       padding: 12px 14px;
-      background: #f8f6ff;
-      border-left: 3px solid #9370db;
+      background: var(--abs-bg);
+      border-left: 3px solid var(--abs-accent);
       border-radius: 0 6px 6px 0;
       font-size: 13px;
       line-height: 1.7;
-      color: #444;
+      color: var(--abs-text);
     }
 
     .pub-abstract.open {
@@ -460,13 +659,13 @@
     }
 
     .pub-award {
-      color: #b8860b;
+      color: var(--award);
       font-weight: 500;
       font-size: 13px;
     }
 
     .pub-highlight {
-      color: #c62828;
+      color: var(--highlight);
       font-weight: 700;
       font-size: 13px;
     }
@@ -478,7 +677,7 @@
       font-size: 12px;
       font-weight: 400;
       font-style: italic;
-      color: #6a5acd;
+      color: var(--intern);
       margin-top: 6px;
     }
 
@@ -492,7 +691,7 @@
       gap: 24px;
       padding: 14px 0;
       align-items: center;
-      border-bottom: 1px solid #f0f0f0;
+      border-bottom: 1px solid var(--divider-soft);
     }
 
     .exp:last-child {
@@ -511,6 +710,9 @@
       max-width: 100%;
       max-height: 75px;
       object-fit: contain;
+      background: var(--logo-plate);
+      padding: var(--logo-pad);
+      border-radius: 6px;
     }
 
     .exp-text {
@@ -692,6 +894,11 @@
         <li><a href="#publications">Publications</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="documents/Jihun_Park_resume_0804.pdf" target="_blank">CV</a></li>
+        <li>
+          <button class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Dark mode">
+            <i class="fas fa-moon"></i>
+          </button>
+        </li>
       </ul>
     </div>
   </nav>
@@ -799,8 +1006,14 @@
       <h2 class="sec-title">Publications</h2>
       <p class="pub-note">* indicates equal contribution. † indicates the corresponding author.</p>
 
+      <!-- Counts are filled in by script so they can never drift from the list below -->
+      <div class="pub-filter" role="group" aria-label="Filter publications">
+        <button type="button" class="filter-chip is-active" data-filter="selected" aria-pressed="true">Selected</button>
+        <button type="button" class="filter-chip" data-filter="all" aria-pressed="false">All</button>
+      </div>
+
       <!-- SIGGRAPH Asia 2026 - CRAFT -->
-      <div class="pub">
+      <div class="pub" data-selected>
         <div class="pub-img">
           <div class="badge">SIGGRAPH Asia 2026</div>
           <img src="images/craft_teaser.jpg" alt="CRAFT">
@@ -872,7 +1085,7 @@
       </div>
 
       <!-- arXiv 2025 — Work done during internship at Baidu -->
-      <div class="pub">
+      <div class="pub" data-selected>
         <div class="pub-img">
           <div class="badge">arXiv Preprint</div>
           <img src="images/ICCV_teaser.png" alt="Scale-wise AR">
@@ -1002,7 +1215,7 @@
       </div>
 
       <!-- CVPR 2026 - Style Personalization -->
-      <div class="pub">
+      <div class="pub" data-selected>
         <div class="pub-img">
           <div class="badge">CVPR 2026</div>
           <img src="images/style_personalization_teaser.png" alt="Style Personalization">
@@ -1032,7 +1245,7 @@
       </div>
 
       <!-- CVPR Findings 2026 - FREESTYLE -->
-      <div class="pub">
+      <div class="pub" data-selected>
         <div class="pub-img">
           <div class="badge">CVPR-F 2026</div>
           <img src="images/freestyle_cvpr.png" alt="FREESTYLE">
@@ -1099,7 +1312,7 @@
       </div>
 
       <!-- AAAI 2026 -->
-      <div class="pub">
+      <div class="pub" data-selected>
         <div class="pub-img">
           <div class="badge">AAAI 2026</div>
           <img src="images/infinite_story_teaser.png" alt="Infinite-Story">
@@ -1163,7 +1376,7 @@
       </div>
 
       <!-- CVPR 2025 -->
-      <div class="pub">
+      <div class="pub" data-selected>
         <div class="pub-img">
           <div class="badge">CVPR 2025</div>
           <img src="images/CVPR_teaser.png" alt="Style-Editor">
@@ -1373,6 +1586,123 @@
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape' && box.classList.contains('open')) close();
       });
+    })();
+
+    // Theme toggle. With no explicit choice the page follows the OS setting;
+    // clicking pins a theme and remembers it.
+    (function () {
+      var root = document.documentElement;
+      var btn = document.querySelector('.theme-toggle');
+      if (!btn) return;
+      var icon = btn.querySelector('i');
+      var media = window.matchMedia('(prefers-color-scheme: dark)');
+
+      function isDark() {
+        var t = root.getAttribute('data-theme');
+        return t ? t === 'dark' : media.matches;
+      }
+
+      function sync() {
+        var dark = isDark();
+        icon.className = dark ? 'fas fa-sun' : 'fas fa-moon';
+        btn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+        btn.setAttribute('title', dark ? 'Light mode' : 'Dark mode');
+      }
+
+      btn.addEventListener('click', function () {
+        var next = isDark() ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) { /* ignore */ }
+        sync();
+      });
+
+      if (media.addEventListener) media.addEventListener('change', sync);
+      sync();
+    })();
+
+    // Publication filter: selected papers by default, full list on request
+    (function () {
+      var bar = document.querySelector('.pub-filter');
+      if (!bar) return;
+      var pubs = [].slice.call(document.querySelectorAll('#publications .pub'));
+      var chips = [].slice.call(bar.querySelectorAll('.filter-chip'));
+
+      function matches(pub, filter) {
+        return filter === 'all' || pub.hasAttribute('data-selected');
+      }
+
+      chips.forEach(function (chip) {
+        var count = document.createElement('span');
+        count.className = 'count';
+        count.textContent = pubs.filter(function (p) { return matches(p, chip.dataset.filter); }).length;
+        chip.appendChild(count);
+      });
+
+      function apply(filter) {
+        var last = null;
+        pubs.forEach(function (p) {
+          var show = matches(p, filter);
+          p.classList.toggle('is-filtered', !show);
+          p.classList.remove('is-last-visible');
+          if (show) last = p;
+        });
+        // the last visible entry drops its divider, as .pub:last-child would
+        if (last) last.classList.add('is-last-visible');
+      }
+
+      bar.addEventListener('click', function (e) {
+        var chip = e.target.closest('.filter-chip');
+        if (!chip) return;
+        chips.forEach(function (c) {
+          var on = c === chip;
+          c.classList.toggle('is-active', on);
+          c.setAttribute('aria-pressed', String(on));
+        });
+        apply(chip.dataset.filter);
+      });
+
+      apply('selected');
+    })();
+
+    // Collapse older news behind a toggle
+    (function () {
+      var news = document.getElementById('news');
+      if (!news) return;
+      // Keep the most recent year expanded and collapse every older year group,
+      // so the cut always lands on a year boundary however the list grows.
+      var lists = news.querySelectorAll('.news-list');
+      if (lists.length <= 1) return;
+
+      var hidden = [];
+      var seenFirstGroup = false;
+      [].forEach.call(news.children, function (el) {
+        if (el.classList.contains('news-list')) {
+          if (seenFirstGroup) hidden.push(el);
+          seenFirstGroup = true;
+        } else if (el.classList.contains('news-year') && seenFirstGroup) {
+          hidden.push(el);
+        }
+      });
+
+      var buried = hidden.reduce(function (n, el) {
+        return n + (el.classList.contains('news-list') ? el.children.length : 0);
+      }, 0);
+      if (!buried) return;
+
+      var open = false;
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'news-toggle';
+
+      function render() {
+        hidden.forEach(function (el) { el.classList.toggle('news-hidden', !open); });
+        btn.textContent = open ? 'Show less' : 'Show ' + buried + ' earlier news';
+        btn.setAttribute('aria-expanded', String(open));
+      }
+
+      btn.addEventListener('click', function () { open = !open; render(); });
+      news.appendChild(btn);
+      render();
     })();
   </script>
 </body>
