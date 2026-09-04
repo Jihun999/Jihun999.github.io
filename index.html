@@ -199,16 +199,24 @@
 
     .nav-links {
       display: flex;
+      align-items: center;
       gap: 24px;
       list-style: none;
       margin: 0;
       padding: 0;
     }
 
+    .nav-links li {
+      display: flex;
+      align-items: center;
+      line-height: 1;
+    }
+
     .nav-links a {
       color: var(--text-color);
       font-size: 14px;
       font-weight: 400;
+      line-height: 1;
     }
 
     .nav-links a:hover {
@@ -218,11 +226,15 @@
     .theme-toggle {
       display: flex;
       align-items: center;
+      justify-content: center;
+      /* Sized above the 14px nav text; the row centers it, so it stays aligned */
+      height: 18px;
       padding: 0;
       border: none;
       background: none;
       color: var(--text-color);
-      font-size: 15px;
+      font-family: inherit;
+      font-size: 18px;
       line-height: 1;
       cursor: pointer;
       transition: color .2s;
@@ -700,7 +712,7 @@
 
     .exp-logo {
       flex-shrink: 0;
-      width: 100px;
+      width: 130px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -708,7 +720,7 @@
 
     .exp-logo img {
       max-width: 100%;
-      max-height: 75px;
+      max-height: 95px;
       object-fit: contain;
       background: var(--logo-plate);
       padding: var(--logo-pad);
@@ -1446,7 +1458,7 @@
       <h2 class="sec-title">Education & Experience</h2>
 
       <div class="exp">
-        <div class="exp-logo"><img src="images/baidu.png" alt="Baidu" style="max-height:100px"></div>
+        <div class="exp-logo"><img src="images/baidu.png" alt="Baidu" style="max-height:125px"></div>
         <div class="exp-text">
           <p class="title">Generative Model Research Intern (Advisor: Yan Zhang)</p>
           <p class="detail">Global Business Unit, Baidu, Inc., Shenzhen, China</p>
@@ -1455,7 +1467,7 @@
       </div>
 
       <div class="exp">
-        <div class="exp-logo"><img src="images/dgist_logo.jpg" alt="DGIST" style="max-height:70px"></div>
+        <div class="exp-logo"><img src="images/dgist_logo.jpg" alt="DGIST" style="max-height:88px"></div>
         <div class="exp-text">
           <p class="title">M.S.-Ph.D. Integrated Course (Advisor: Sunghoon Im)</p>
           <p class="detail">Department of Artificial Intelligence, DGIST, South Korea</p>
@@ -1464,7 +1476,7 @@
       </div>
 
       <div class="exp">
-        <div class="exp-logo"><img src="images/zhejiang_university.png" alt="ZJU" style="max-height:90px"></div>
+        <div class="exp-logo"><img src="images/zhejiang_university.png" alt="ZJU" style="max-height:112px"></div>
         <div class="exp-text">
           <p class="title">Bachelor's Degree</p>
           <p class="detail">Department of Mechanical Engineering, Zhejiang University, China</p>
@@ -1473,7 +1485,7 @@
       </div>
 
       <div class="exp">
-        <div class="exp-logo"><img src="images/samsung_logo.png" alt="Samsung" style="max-height:90px"></div>
+        <div class="exp-logo"><img src="images/samsung_logo.png" alt="Samsung" style="max-height:112px"></div>
         <div class="exp-text">
           <p class="detail">Chungnam Samsung Academy, South Korea</p>
           <p class="date">Mar. 2015 – Feb. 2018</p>
