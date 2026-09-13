@@ -836,12 +836,21 @@
     }
 
     .clustrmaps-wrap>div {
-      width: 60px;
+      max-width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
     }
 
-    /* Shift the globe's green visitor dots (hue ~117deg) to the site's purple accent (~260deg) */
-    .clustrmaps-wrap .mmvst_globe {
-      filter: hue-rotate(125deg);
+    /* The widget's colors are baked into a PNG, so dark mode inverts lightness
+       while hue-rotate(180deg) keeps the blue dots blue */
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .clustrmaps-wrap>div {
+        filter: invert(0.92) hue-rotate(180deg);
+      }
+    }
+
+    :root[data-theme="dark"] .clustrmaps-wrap>div {
+      filter: invert(0.92) hue-rotate(180deg);
     }
 
     /* Responsive */
@@ -978,7 +987,8 @@
         <li><span class="news-date">Feb 2026</span><span>Our AI-Created Artworks are being exhibited at <a
               href="https://rv.kaist.ac.kr/news-our-ai-created-artworks-will-be-exhibited-at-kansong-art-museum-daegu-for-3-5-months-2026-2-14-2026-5-31.html"><b>Kansong
                 Art Museum Daegu</b></a> for 3.5 months (2026.2.14 – 2026.5.31). [<a
-              href="https://rv.kaist.ac.kr/news-our-ai-created-artworks-will-be-exhibited-at-kansong-art-museum-daegu-for-3-5-months-2026-2-14-2026-5-31.html">Link</a>]</span></li>
+              href="https://rv.kaist.ac.kr/news-our-ai-created-artworks-will-be-exhibited-at-kansong-art-museum-daegu-for-3-5-months-2026-2-14-2026-5-31.html">Link</a>]</span>
+        </li>
         <li><span class="news-date">Feb 2026</span><span>Two papers accepted to <a
               href="https://cvpr.thecvf.com/"><b>CVPR 2026</b></a> and one paper accepted to <a
               href="https://cvpr.thecvf.com/"><b>CVPR 2026 Findings</b></a>.</span></li>
@@ -990,10 +1000,13 @@
       <div class="news-year">2025</div>
       <ul class="news-list">
         <li><span class="news-date">Dec 2025</span><span>Started a <span class="pub-award">Generative Model Research
-              Intern</span> position at Global Business Unit, <a href="https://ir.baidu.com/"><b>Baidu, Inc.</b></a></span></li>
+              Intern</span> position at Global Business Unit, <a href="https://ir.baidu.com/"><b>Baidu,
+                Inc.</b></a></span></li>
         <li><span class="news-date">Nov 2025</span><span>AI-driven artworks by our research team exhibited at <a
               href="https://rv.kaist.ac.kr/news-ai-created-artworks-by-our-team-exhibited-at-dgist-gallery.html"><b>DGIST
-                Gallery</b></a> (Nov. 2025 – Feb. 2026). [<a href="https://rv.kaist.ac.kr/news-ai-created-artworks-by-our-team-exhibited-at-dgist-gallery.html">Link</a>]</span></li>
+                Gallery</b></a> (Nov. 2025 – Feb. 2026). [<a
+              href="https://rv.kaist.ac.kr/news-ai-created-artworks-by-our-team-exhibited-at-dgist-gallery.html">Link</a>]</span>
+        </li>
         <li><span class="news-date">Nov 2025</span><span>One paper accepted to <a
               href="https://aaai.org/Conferences/AAAI-26/"><b>AAAI 2026</b></a> as an <span class="pub-highlight">oral
               paper</span>.</span></li>
@@ -1042,7 +1055,7 @@
             Zou, Zhenpeng Zhan, Yan Zhang†, Sunghoon Im†</div>
           <div class="pub-venue">ACM SIGGRAPH Conference and Exhibition on Computer Graphics and Interactive Techniques
             in Asia (SIGGRAPH Asia), 2026</div>
-          <span class="pub-highlight">Oral Presentation</span> 
+          <span class="pub-highlight">Oral Presentation</span>
           <div></div>
           <div class="pub-intern"><i class="fas fa-briefcase"></i> Work done during an internship at Global Business
             Unit, Baidu, Inc.</div>
@@ -1051,15 +1064,18 @@
             <a href="https://arxiv.org/abs/2608.14403">Paper</a>
             <a href="https://jihun999.github.io/projects/CRAFT/">Project</a>
           </div>
-          <div class="pub-abstract">Subject-driven image personalization—generating new images that preserve the identity
+          <div class="pub-abstract">Subject-driven image personalization—generating new images that preserve the
+            identity
             of one or several reference subjects in novel scenes—is a foundational capability for modern visual content
             creation. It is currently dominated by generalized methods that fine-tune a pretrained multimodal diffusion
             transformer (MMDiT) on hundreds of thousands to millions of paired (reference, composed-target) examples,
             where each composed target is a synthesized image of the subject in a novel scene. Producing such targets
             demands a costly multi-stage curation pipeline—LLM-based prompt generation, T2I-based composed-target
-            synthesis, reference-subject extraction, VLM-based quality filtering, and correspondence labeling—and tightly
+            synthesis, reference-subject extraction, VLM-based quality filtering, and correspondence labeling—and
+            tightly
             couples each method to a particular target synthesizer and curation choice. We introduce CRAFT (Constrained
-            Reward via Attention Fine-Tuning), a single-step ReFL framework that fine-tunes a pre-trained reference-aware
+            Reward via Attention Fine-Tuning), a single-step ReFL framework that fine-tunes a pre-trained
+            reference-aware
             MMDiT via LoRA adapters using a compact reference-only data construction—10K reference images and subject
             masks, with no composed-target supervision. CRAFT realizes a "Where to look" principle: attention-level
             rewards align noise- and phrase-token attention with the correct reference subject, and the resulting
@@ -1119,7 +1135,7 @@
             Unit, Baidu, Inc.</div>
           <div class="pub-links">
             <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
-            <a href="https://arxiv.org/abs/2504.06144">Paper</a> 
+            <a href="https://arxiv.org/abs/2504.06144">Paper</a>
           </div>
           <div class="pub-abstract">We present a training-free style-aligned image generation method that leverages a
             scale-wise autoregressive model. While large-scale text-to-image (T2I) models, particularly diffusion-based
@@ -1341,7 +1357,8 @@
           <div class="pub-authors"><b><u>Jihun Park*</u></b>, Kyoungmin Lee*, Jongmin Gim*, Hyeonseo Jo, Minseok Oh,
             Wonhyeok Choi, Kyumin Hwang, Jaeyeul Kim, Minwoo Choi, Sunghoon Im†</div>
           <div class="pub-venue">The 40th Annual AAAI Conference on Artificial Intelligence (AAAI), 2026</div>
-          <span class="pub-highlight">Oral Presentation</span> · <span class="pub-award">Encouragement Prize, 32nd HumanTech
+          <span class="pub-highlight">Oral Presentation</span> · <span class="pub-award">Encouragement Prize, 32nd
+            HumanTech
             Paper Award</span>
           <div class="pub-links">
             <button class="abs-btn" onclick="toggleAbstract(this)">Abstract</button>
@@ -1525,9 +1542,11 @@
       <div class="act-cat">Other Experiences</div>
       <ul class="act-list">
         <li>Exhibition of our team's AI-Created Artworks at Kansong Art Museum Daegu, Feb. 2026 - May. 2026 [<a
-            href="https://rv.kaist.ac.kr/news-our-ai-created-artworks-will-be-exhibited-at-kansong-art-museum-daegu-for-3-5-months-2026-2-14-2026-5-31.html">Link</a>]</li>
+            href="https://rv.kaist.ac.kr/news-our-ai-created-artworks-will-be-exhibited-at-kansong-art-museum-daegu-for-3-5-months-2026-2-14-2026-5-31.html">Link</a>]
+        </li>
         <li>Exhibition of our team's research on AI-driven art at DGIST, Nov. 2025 - Feb. 2026 [<a
-            href="https://rv.kaist.ac.kr/news-ai-created-artworks-by-our-team-exhibited-at-dgist-gallery.html">Link</a>]</li>
+            href="https://rv.kaist.ac.kr/news-ai-created-artworks-by-our-team-exhibited-at-dgist-gallery.html">Link</a>]
+        </li>
         <li>Attended International Computer Vision Summer School (ICVSS 2025) in Sicily, Italy, Jul. 2025</li>
         <li>Selected to represent DGIST at the official institutional booth during the 2025 Korea Science Festival, Apr.
           2025</li>
@@ -1539,7 +1558,8 @@
       <div class="footer-globe-row">
         <div class="clustrmaps-wrap">
           <div>
-            <script type="text/javascript" id="mmvst_globe" src="//mapmyvisitors.com/globe.js?d=VmBdswZauuWeR4Fqi2gWwSZV_4WwUKrzJyY-sNl34_4"></script>
+            <script type="text/javascript" id="mapmyvisitors"
+              src="https://mapmyvisitors.com/map.js?cl=080808&w=300&t=n&d=JTWGIbr4w2KI_Rox4O9QFlH-N4Fb-Upd8HOnAhShs7Y&co=ffffff&cmo=9ec3ff&cmn=4285f4&ct=808080"></script>
           </div>
         </div>
         <div class="footer-credits">
