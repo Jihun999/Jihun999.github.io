@@ -508,6 +508,13 @@
       box-shadow: var(--shadow-thumb-hover);
     }
 
+    .pub-img video {
+      width: 100%;
+      border-radius: 6px;
+      box-shadow: var(--shadow-thumb);
+      display: block;
+    }
+
     /* Click-to-zoom lightbox for publication teasers */
     .lightbox {
       position: fixed;
@@ -1046,7 +1053,8 @@
       <div class="pub" data-selected>
         <div class="pub-img">
           <div class="badge">SIGGRAPH Asia 2026</div>
-          <img src="images/craft_teaser.jpg" alt="CRAFT">
+          <video src="images/CRAFT_FF_20s_C_merged.mp4" poster="images/craft_teaser.jpg" autoplay muted loop playsinline
+            aria-label="CRAFT overview video"></video>
         </div>
         <div class="pub-body">
           <div class="pub-title">CRAFT: Constrained Reward via Attention Fine-Tuning for Subject Personalization without
