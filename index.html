@@ -309,6 +309,41 @@
       line-height: 1.8;
     }
 
+    /* Publication highlight chips */
+    .pub-stats {
+      display: flex;
+      gap: 8px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    .stat-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--theme-color);
+      padding: 4px 12px;
+      border: 1px solid var(--theme-color);
+      border-radius: 999px;
+      background: var(--tint);
+      transition: all .2s;
+    }
+
+    .stat-chip:hover {
+      color: #fff;
+      background: var(--theme-color);
+    }
+
+    .stat-chip i {
+      font-size: 12px;
+    }
+
+    .stat-chip b {
+      font-weight: 700;
+    }
+
     /* Social */
     .social {
       display: flex;
@@ -886,7 +921,8 @@
         font-size: 18px;
       }
 
-      .social {
+      .social,
+      .pub-stats {
         justify-content: center;
       }
 
@@ -965,6 +1001,13 @@
           <b>Image/Video Generation (Autoregressive, Diffusion)</b>, <b>Style Transfer</b>, and <b>Vision-Language
             Tasks</b>. Currently, my research centers on <b>Video World Models</b>.
         </p>
+        <div class="pub-stats">
+          <a class="stat-chip stat-count" href="#publications"><i class="fas fa-file-alt"></i><b>19</b>&nbsp;Papers
+            (incl. under review)</a>
+          <a class="stat-chip" href="#publications"><i class="fas fa-award"></i>SIGGRAPH Asia Oral</a>
+          <a class="stat-chip" href="#publications"><i class="fas fa-award"></i>AAAI Oral</a>
+          <a class="stat-chip" href="#publications"><i class="fas fa-award"></i>CVPR Highlight</a>
+        </div>
         <div class="social">
           <a href="mailto:pjh2857@dgist.ac.kr"><i class="fas fa-envelope"></i> Email</a>
           <a href="https://scholar.google.com/citations?user=OPboq9YAAAAJ&hl=ko"><i class="ai ai-google-scholar"></i>
