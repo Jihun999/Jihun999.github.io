@@ -309,6 +309,14 @@
       line-height: 1.8;
     }
 
+    .profile-text .tagline {
+      font-size: 15.5px;
+      font-weight: 500;
+      color: var(--theme-color);
+      letter-spacing: .1px;
+      margin: -6px 0 16px;
+    }
+
     /* Social */
     .social {
       display: flex;
@@ -425,6 +433,73 @@
       margin-bottom: 14px;
     }
 
+    /* Featured papers */
+    .featured-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 4px 0 24px;
+    }
+
+    .featured-card {
+      display: block;
+      color: inherit;
+      border: 1px solid var(--divider);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--bg);
+      box-shadow: var(--shadow-thumb);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .featured-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-thumb-hover);
+    }
+
+    .featured-media {
+      position: relative;
+    }
+
+    .featured-media img,
+    .featured-media video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+    }
+
+    .featured-tag {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      background: var(--badge-bg);
+      color: #fff;
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: .2px;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+
+    .featured-body {
+      padding: 10px 12px 12px;
+    }
+
+    .featured-title {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--heading-color);
+      margin-bottom: 3px;
+    }
+
+    .featured-body p {
+      margin: 0;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
     /* Topic filter */
     .pub-filter {
       display: flex;
@@ -496,6 +571,8 @@
 
     .pub-img img {
       width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
       border-radius: 6px;
       box-shadow: var(--shadow-thumb);
       display: block;
@@ -510,6 +587,8 @@
 
     .pub-img video {
       width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
       border-radius: 6px;
       box-shadow: var(--shadow-thumb);
       display: block;
@@ -890,6 +969,10 @@
         justify-content: center;
       }
 
+      .featured-grid {
+        grid-template-columns: 1fr;
+      }
+
       .pub {
         flex-direction: column;
         gap: 14px;
@@ -950,6 +1033,7 @@
       </div>
       <div class="profile-text">
         <h1>Jihun Park <span class="name-ko">(박지훈)</span></h1>
+        <p class="tagline">Consistent &amp; controllable visual generation — from images to video world models.</p>
         <p>
           I'm a M.S.-Ph.D. integrated course student at the Department of Artificial Intelligence at
           <a href="https://www.dgist.ac.kr/">DGIST</a>, South Korea, working under the supervision of
@@ -1045,6 +1129,41 @@
     <section id="publications">
       <h2 class="sec-title">Publications</h2>
       <p class="pub-note">* indicates equal contribution. † indicates the corresponding author.</p>
+
+      <!-- Featured papers -->
+      <div class="featured-grid">
+        <a class="featured-card" href="https://jihun999.github.io/projects/CRAFT/">
+          <div class="featured-media">
+            <video src="images/CRAFT_FF_20s_C_merged.mp4" poster="images/craft_teaser.jpg" autoplay muted loop
+              playsinline aria-label="CRAFT overview video"></video>
+            <span class="featured-tag">SIGGRAPH Asia 2026 · Oral</span>
+          </div>
+          <div class="featured-body">
+            <div class="featured-title">CRAFT</div>
+            <p>Subject personalization with attention-constrained rewards — no composed-target supervision.</p>
+          </div>
+        </a>
+        <a class="featured-card" href="https://jihun999.github.io/projects/Infinite-Story/">
+          <div class="featured-media">
+            <img src="images/infinite_story_teaser.png" alt="Infinite-Story teaser">
+            <span class="featured-tag">AAAI 2026 · Oral</span>
+          </div>
+          <div class="featured-body">
+            <div class="featured-title">Infinite-Story</div>
+            <p>Training-free consistent text-to-image generation for multi-prompt storytelling.</p>
+          </div>
+        </a>
+        <a class="featured-card" href="https://jihun999.github.io/projects/Style-Editor/">
+          <div class="featured-media">
+            <img src="images/CVPR_teaser.png" alt="Style-Editor teaser">
+            <span class="featured-tag">CVPR 2025 · Highlight</span>
+          </div>
+          <div class="featured-body">
+            <div class="featured-title">Style-Editor</div>
+            <p>Text-driven object-centric style editing without reference images.</p>
+          </div>
+        </a>
+      </div>
 
       <!-- Counts are filled in by script so they can never drift from the list below -->
       <div class="pub-filter" role="group" aria-label="Filter publications">
