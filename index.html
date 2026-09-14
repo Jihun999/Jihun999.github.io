@@ -465,7 +465,8 @@
     .featured-media video {
       width: 100%;
       aspect-ratio: 16 / 9;
-      object-fit: cover;
+      object-fit: contain;
+      background: #fff;
       display: block;
     }
 
@@ -583,12 +584,6 @@
       box-shadow: var(--shadow-thumb-hover);
     }
 
-    .pub-img video {
-      width: 100%;
-      border-radius: 6px;
-      box-shadow: var(--shadow-thumb);
-      display: block;
-    }
     /* Click-to-zoom lightbox for publication teasers */
     .lightbox {
       position: fixed;
@@ -966,7 +961,21 @@
       }
 
       .featured-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 8px;
+      }
+
+      .featured-card {
+        flex: 0 0 82%;
+        scroll-snap-align: start;
+      }
+
+      .featured-card:hover {
+        transform: none;
       }
 
       .pub {
@@ -1176,8 +1185,7 @@
       <div class="pub" data-selected>
         <div class="pub-img">
           <div class="badge">SIGGRAPH Asia 2026</div>
-          <video src="images/CRAFT_FF_20s_C_merged.mp4" poster="images/craft_teaser.jpg" autoplay muted loop playsinline
-            aria-label="CRAFT overview video"></video>
+          <img src="images/craft_teaser.jpg" alt="CRAFT">
         </div>
         <div class="pub-body">
           <div class="pub-title">CRAFT: Constrained Reward via Attention Fine-Tuning for Subject Personalization without
