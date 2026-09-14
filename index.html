@@ -354,6 +354,35 @@
       display: inline-block;
     }
 
+    /* Short bio */
+    .bio-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .bio-list li {
+      display: flex;
+      gap: 14px;
+      padding: 6px 0;
+      font-size: 14px;
+      line-height: 1.6;
+      border-bottom: 1px solid var(--divider-soft);
+    }
+
+    .bio-list li:last-child {
+      border-bottom: none;
+    }
+
+    .bio-date {
+      flex-shrink: 0;
+      min-width: 160px;
+      font-family: 'Roboto Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--news-date);
+    }
+
     /* News */
     .news-year {
       font-size: 16px;
@@ -957,10 +986,6 @@
           <a href="https://rv.kaist.ac.kr/index.html">KAIST Robotics and Vision Lab</a>.
         </p>
         <p>
-          I earned my B.S. degree in Mechanical Engineering from
-          <a href="https://www.zju.edu.cn/english/">Zhejiang University</a> in 2022, and
-          most recently worked as a generative model research intern at
-          Global Business Unit, <a href="https://ir.baidu.com/">Baidu, Inc.</a> in Shenzhen, China.
           My research interests lie in computer vision and deep learning, with a focus on
           <b>Image/Video Generation (Autoregressive, Diffusion)</b>, <b>Style Transfer</b>, and <b>Vision-Language
             Tasks</b>.
@@ -976,6 +1001,20 @@
         </div>
       </div>
     </div>
+
+    <!-- Short Bio -->
+    <section id="bio">
+      <h2 class="sec-title">Short Bio</h2>
+      <ul class="bio-list">
+        <li><span class="bio-date">Dec. 2025 - Mar. 2026</span><span>Generative model research intern at Global
+            Business Unit, <a href="https://ir.baidu.com/">Baidu, Inc.</a>, Shenzhen, China</span></li>
+        <li><span class="bio-date">Mar. 2023 - Present</span><span>M.S.-Ph.D. integrated course at the Department of
+            Artificial Intelligence, <a href="https://www.dgist.ac.kr/">DGIST</a>, South Korea, advised by
+            <a href="https://sunghoonim.github.io/">Prof. Sunghoon Im</a></span></li>
+        <li><span class="bio-date">Sep. 2018 - Jul. 2022</span><span>B.S. in Mechanical Engineering,
+            <a href="https://www.zju.edu.cn/english/">Zhejiang University</a>, China</span></li>
+      </ul>
+    </section>
 
     <!-- News -->
     <section id="news">
