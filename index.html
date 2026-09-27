@@ -787,6 +787,23 @@
       font-size: 13px;
     }
 
+    /* Same shape as .pub-intern, but neutral grey for anonymized summaries */
+    .pub-note {
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .pub-note i {
+      font-size: 13px;
+      margin-top: 1px;
+    }
+
     .pub-highlight+.pub-intern {
       margin-top: 0;
     }
@@ -1214,7 +1231,7 @@
           <div class="pub-title">Long-Term Memory for Consistent Interactive World Models</div>
           <div class="pub-authors"><b><u>Jihun Park</u></b> et al.</div>
           <div class="pub-venue">Under review (anonymized)</div>
-          <div class="pub-intern"><i class="fas fa-lock"></i> A lightweight external KV memory that lets frozen
+          <div class="pub-note"><i class="fas fa-lock"></i> A lightweight external KV memory that lets frozen
             interactive world models stay consistent when revisiting scenes over long interactions.</div>
         </div>
       </div>
