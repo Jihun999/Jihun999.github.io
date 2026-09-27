@@ -652,6 +652,20 @@
       background: rgba(255, 255, 255, .25);
     }
 
+    /* Placeholder teaser for work that is not public yet */
+    .pub-img .pub-placeholder {
+      aspect-ratio: 16 / 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px dashed var(--divider);
+      border-radius: 6px;
+      background: var(--tint);
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.2px;
+    }
+
     .pub-img .badge {
       position: absolute;
       top: 0;
@@ -1194,7 +1208,7 @@
       <div class="pub" data-selected>
         <div class="pub-img">
           <div class="badge">Under Review</div>
-          <img src="images/under_review_qual.png" alt="Consistent interactive world model">
+          <div class="pub-placeholder">Coming soon</div>
         </div>
         <div class="pub-body">
           <div class="pub-title">Long-Term Memory for Consistent Interactive World Models</div>
