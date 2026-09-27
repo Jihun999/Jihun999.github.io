@@ -9,6 +9,7 @@
   <meta name="description"
     content="Jihun Park is an M.S.-Ph.D. student at DGIST (KAIST Robotics and Vision Lab) studying representation alignment for consistent and controllable visual generation, from images to video world models.">
   <link rel="canonical" href="https://jihun999.github.io/">
+  <meta name="robots" content="noindex">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Jihun Park">
@@ -1038,109 +1039,6 @@
         gap: 14px;
       }
     }
-
-    /* ---------- Borrowed layout patterns ---------- */
-
-    /* Full-width bands so alternating sections read as distinct blocks,
-       while the content keeps the existing container width. */
-    .band {
-      padding: 8px 0;
-    }
-
-    /* Bands add their own padding, so trim the section's to keep the original
-       vertical rhythm rather than stacking two sets of gaps. */
-    .band section {
-      padding: 22px 0;
-    }
-
-    .band--alt {
-      background: var(--tint);
-      border-top: 1px solid var(--divider-soft);
-      border-bottom: 1px solid var(--divider-soft);
-    }
-
-    /* Anchor jumps clear the sticky navbar instead of hiding the header. */
-    section[id],
-    .profile[id] {
-      scroll-margin-top: 72px;
-    }
-
-    /* Centred section header: small eyebrow label over the existing title. */
-    .sec-head {
-      text-align: center;
-      margin-bottom: 18px;
-    }
-
-    .sec-label {
-      display: block;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 2.2px;
-      text-transform: uppercase;
-      color: var(--theme-color);
-      margin-bottom: 6px;
-    }
-
-    .sec-head .sec-title {
-      margin: 0;
-      border-bottom: none;
-      padding-bottom: 10px;
-      position: relative;
-    }
-
-    .sec-head .sec-title::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: 0;
-      transform: translateX(-50%);
-      width: 46px;
-      height: 2px;
-      background: var(--theme-color);
-    }
-
-    /* Navbar condenses once the page is scrolled. */
-    .navbar {
-      transition: padding .25s ease, box-shadow .25s ease;
-    }
-
-    .navbar.is-stuck {
-      padding: 9px 0;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, .06);
-    }
-
-    :root[data-theme="dark"] .navbar.is-stuck {
-      box-shadow: 0 2px 10px rgba(0, 0, 0, .5);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root:not([data-theme="light"]) .navbar.is-stuck {
-        box-shadow: 0 2px 10px rgba(0, 0, 0, .5);
-      }
-    }
-
-    /* Scroll reveal. The class is added by script, so with JavaScript off
-       every section stays visible. */
-    .reveal {
-      opacity: 0;
-      transform: translateY(18px);
-      transition: opacity .6s ease, transform .6s ease;
-    }
-
-    .reveal.is-visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-
-      .reveal,
-      .reveal.is-visible {
-        opacity: 1;
-        transform: none;
-        transition: none;
-      }
-    }
   </style>
 </head>
 
@@ -1166,8 +1064,7 @@
   </nav>
 
   <!-- Profile / About -->
-  <div class="band">
-    <div class="container">
+  <div class="container">
     <div class="profile" id="about">
       <div class="profile-img-wrap">
         <div class="profile-img-box">
@@ -1210,17 +1107,9 @@
       </div>
     </div>
 
-    </div>
-  </div>
-
-  <div class="band band--alt">
-    <div class="container">
     <!-- Research Highlights -->
     <section id="highlights">
-      <div class="sec-head">
-        <span class="sec-label">Featured Work</span>
-        <h2 class="sec-title">Research Highlights</h2>
-      </div>
+      <h2 class="sec-title">Research Highlights</h2>
       <div class="featured-grid">
         <a class="featured-card" href="https://jihun999.github.io/projects/CRAFT/">
           <div class="featured-media">
@@ -1258,17 +1147,9 @@
       </div>
     </section>
 
-    </div>
-  </div>
-
-  <div class="band">
-    <div class="container">
     <!-- News -->
     <section id="news">
-      <div class="sec-head">
-        <span class="sec-label">Latest Updates</span>
-        <h2 class="sec-title">News</h2>
-      </div>
+      <h2 class="sec-title">News</h2>
 
       <div class="news-year">2026</div>
       <ul class="news-list">
@@ -1330,17 +1211,9 @@
       </ul>
     </section>
 
-    </div>
-  </div>
-
-  <div class="band band--alt">
-    <div class="container">
     <!-- Publications -->
     <section id="publications">
-      <div class="sec-head">
-        <span class="sec-label">Peer-Reviewed Work</span>
-        <h2 class="sec-title">Publications</h2>
-      </div>
+      <h2 class="sec-title">Publications</h2>
       <p class="pub-note">* indicates equal contribution. † indicates the corresponding author.</p>
 
       <!-- Counts are filled in by script so they can never drift from the list below -->
@@ -1796,17 +1669,9 @@
       </div>
     </section>
 
-    </div>
-  </div>
-
-  <div class="band">
-    <div class="container">
     <!-- Education & Experience -->
     <section id="experience">
-      <div class="sec-head">
-        <span class="sec-label">Background</span>
-        <h2 class="sec-title">Education & Experience</h2>
-      </div>
+      <h2 class="sec-title">Education & Experience</h2>
 
       <div class="exp">
         <div class="exp-logo"><img src="images/baidu.png" alt="Baidu" style="max-height:125px"></div>
@@ -1845,17 +1710,9 @@
       </div>
     </section>
 
-    </div>
-  </div>
-
-  <div class="band band--alt">
-    <div class="container">
     <!-- Academic Activities -->
     <section>
-      <div class="sec-head">
-        <span class="sec-label">Service &amp; Awards</span>
-        <h2 class="sec-title">Academic Activities</h2>
-      </div>
+      <h2 class="sec-title">Academic Activities</h2>
 
       <div class="act-cat">Honors & Awards</div>
       <ul class="act-list">
@@ -1892,11 +1749,6 @@
       </ul>
     </section>
 
-    </div>
-  </div>
-
-  <div class="band">
-    <div class="container">
     <!-- Footer -->
     <footer class="footer">
       <div class="footer-globe-row">
@@ -1914,7 +1766,6 @@
       </div>
       <p>&copy; Jihun Park | Last updated: Sep. 2026</p>
     </footer>
-    </div>
   </div>
 
   <!-- Lightbox overlay for publication teaser images -->
@@ -2087,32 +1938,6 @@
       btn.addEventListener('click', function () { open = !open; render(); });
       news.appendChild(btn);
       render();
-    })();
-
-    // Navbar condenses once the hero area is scrolled past.
-    (function () {
-      var nav = document.querySelector('.navbar');
-      if (!nav) return;
-      function sync() { nav.classList.toggle('is-stuck', window.scrollY > 40); }
-      window.addEventListener('scroll', sync, { passive: true });
-      sync();
-    })();
-
-    // Reveal sections as they enter the viewport.
-    (function () {
-      if (!('IntersectionObserver' in window)) return;
-      var targets = document.querySelectorAll('.sec-head, .profile, .featured-card, .pub, .exp, .act-cat, .act-list, .news-year, .news-list');
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (!e.isIntersecting) return;
-          e.target.classList.add('is-visible');
-          io.unobserve(e.target);
-        });
-      }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
-      [].forEach.call(targets, function (el) {
-        el.classList.add('reveal');
-        io.observe(el);
-      });
     })();
   </script>
 </body>
