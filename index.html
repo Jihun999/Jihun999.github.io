@@ -857,6 +857,54 @@
       line-height: 1.65;
     }
 
+    /* ---------- Under review summary ---------- */
+    .review {
+      margin-top: 28px;
+      padding: 20px 22px;
+      border: 1px dashed var(--rule);
+      border-radius: 10px;
+      background: var(--surface);
+    }
+
+    .review-head { display: flex; align-items: center; gap: 14px; }
+
+    .review-noise { width: 36px; height: 36px; flex: none; border-radius: 4px; image-rendering: pixelated; }
+
+    .review h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 1.0625rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .review-head p { margin: 2px 0 0; color: var(--muted); font-size: .75rem; }
+
+    .review-note { margin: 16px 0 10px; font-size: .9rem; color: var(--muted); }
+
+    .review-group {
+      display: grid;
+      grid-template-columns: 128px minmax(0, 1fr);
+      gap: 8px 16px;
+      align-items: start;
+      padding: 8px 0;
+    }
+
+    .review-role { padding-top: 4px; color: var(--muted); font-size: .75rem; }
+
+    .review-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+
+    .review-tags li {
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--accent-wash);
+      color: var(--accent-strong);
+      font-size: .8125rem;
+      line-height: 1.5;
+    }
+
+    .review-tags--quiet li { background: transparent; border: 1px solid var(--rule); color: var(--ink-2); }
+
     /* ---------- Background (education / experience) ---------- */
     .timeline { margin: 0; padding: 0; list-style: none; }
 
@@ -1021,6 +1069,8 @@
       .tl-logo { width: 56px; }
       .tl .when { grid-column: 2; }
       .acts li { grid-template-columns: minmax(0, 1fr); }
+      .review { padding: 16px; }
+      .review-group { grid-template-columns: minmax(0, 1fr); gap: 6px; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1462,6 +1512,40 @@
         </div>
       </article>
           </div>
+          <aside class="review" aria-labelledby="review-h">
+            <div class="review-head">
+              <canvas class="noise-tile review-noise" width="24" height="24" aria-hidden="true"></canvas>
+              <div>
+                <h3 id="review-h">16 papers under review</h3>
+                <p class="mono">5 as first or co-first author · titles withheld until the reviews are done</p>
+              </div>
+            </div>
+            <p class="review-note">Two are listed above. The others, by topic:</p>
+            <div class="review-group">
+              <span class="review-role mono">First / co-first</span>
+              <ul class="review-tags">
+                <li>Training-free instruction-based image editing</li>
+                <li>Style alignment for image editing models</li>
+                <li>Part-level 3D grounding in multimodal LLMs</li>
+              </ul>
+            </div>
+            <div class="review-group">
+              <span class="review-role mono">Co-author</span>
+              <ul class="review-tags review-tags--quiet">
+                <li>Reference-guided image generation</li>
+                <li>Distillation for interactive world models</li>
+                <li>Text-editable novel view synthesis</li>
+                <li>Reward alignment for flow models</li>
+                <li>Feature alignment in diffusion transformers</li>
+                <li>Trajectory control for video diffusion</li>
+                <li>Open-vocabulary 3D Gaussian splatting</li>
+                <li>Diffusion models for online RL</li>
+                <li>Cross-embodiment robot learning</li>
+                <li>End-to-end autonomous driving</li>
+                <li>Audio–text integration</li>
+              </ul>
+            </div>
+          </aside>
         </div>
       </div>
     </section>
