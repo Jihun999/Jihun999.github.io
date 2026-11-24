@@ -36,8 +36,6 @@
   <link
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+KR:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Schibsted+Grotesk:wght@500;600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
   <!-- Runs before first paint: restores a saved theme and marks that JS is on -->
   <script>
@@ -355,11 +353,11 @@
 
     .links a:hover { color: var(--ink); border-color: var(--accent); text-decoration: none; transform: translateY(-1px); }
 
-    .links a i { color: var(--accent); font-size: .95em; }
+    .links a .ico { width: 1em; height: 1em; fill: currentColor; color: var(--accent); flex: none; }
 
     .links a.primary { background: var(--ink); border-color: var(--ink); color: var(--bg); }
 
-    .links a.primary i { color: inherit; }
+    .links a.primary .ico { color: inherit; }
 
     .links a.primary:hover { background: var(--accent-strong); border-color: var(--accent-strong); color: var(--bg); }
 
@@ -1077,12 +1075,12 @@
             </p>
           </div>
           <div class="links">
-            <a class="primary" href="documents/Jihun_Park_CV.pdf"><i class="fas fa-file-lines" aria-hidden="true"></i>CV</a>
-            <a href="mailto:pjh2857@dgist.ac.kr"><i class="fas fa-envelope" aria-hidden="true"></i>pjh2857@dgist.ac.kr</a>
-            <a href="https://scholar.google.com/citations?user=OPboq9YAAAAJ&amp;hl=en"><i class="ai ai-google-scholar" aria-hidden="true"></i>Scholar</a>
-            <a href="https://github.com/Jihun999"><i class="fab fa-github" aria-hidden="true"></i>GitHub</a>
-            <a href="https://www.linkedin.com/in/jihun-park-a26b8b245/"><i class="fab fa-linkedin" aria-hidden="true"></i>LinkedIn</a>
-            <a href="https://openreview.net/profile?id=~Jihun_Park4"><i class="ai ai-openreview" aria-hidden="true"></i>OpenReview</a>
+            <a class="primary" href="documents/Jihun_Park_CV.pdf"><svg class="ico" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM112 256H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>CV</a>
+            <a href="mailto:pjh2857@dgist.ac.kr"><svg class="ico" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>pjh2857@dgist.ac.kr</a>
+            <a href="https://scholar.google.com/citations?user=OPboq9YAAAAJ&amp;hl=en"><svg class="ico" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M390.9 298.5c0 0 0 .1 .1 .1c9.2 19.4 14.4 41.1 14.4 64C405.3 445.1 338.5 512 256 512s-149.3-66.9-149.3-149.3c0-22.9 5.2-44.6 14.4-64h0c1.7-3.6 3.6-7.2 5.6-10.7c4.4-7.6 9.4-14.7 15-21.3c27.4-32.6 68.5-53.3 114.4-53.3c33.6 0 64.6 11.1 89.6 29.9c9.1 6.9 17.4 14.7 24.8 23.5c5.6 6.6 10.6 13.8 15 21.3c2 3.4 3.8 7 5.5 10.5zm26.4-18.8c-30.1-58.4-91-98.4-161.3-98.4s-131.2 40-161.3 98.4L0 202.7 256 0 512 202.7l-94.7 77.1z"/></svg>Scholar</a>
+            <a href="https://github.com/Jihun999"><svg class="ico" aria-hidden="true" focusable="false" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>GitHub</a>
+            <a href="https://www.linkedin.com/in/jihun-park-a26b8b245/"><svg class="ico" aria-hidden="true" focusable="false" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>LinkedIn</a>
+            <a href="https://openreview.net/profile?id=~Jihun_Park4"><svg class="ico" aria-hidden="true" focusable="false" viewBox="0 0 640 512"><path d="M208 352c114.9 0 208-78.8 208-176S322.9 0 208 0S0 78.8 0 176c0 38.6 14.7 74.3 39.6 103.4c-3.5 9.4-8.7 17.7-14.2 24.7c-4.8 6.2-9.7 11-13.3 14.3c-1.8 1.6-3.3 2.9-4.3 3.7c-.5 .4-.9 .7-1.1 .8l-.2 .2 0 0 0 0C1 327.2-1.4 334.4 .8 340.9S9.1 352 16 352c21.8 0 43.8-5.6 62.1-12.5c9.2-3.5 17.8-7.4 25.3-11.4C134.1 343.3 169.8 352 208 352zM448 176c0 112.3-99.1 196.9-216.5 207C255.8 457.4 336.4 512 432 512c38.2 0 73.9-8.7 104.7-23.9c7.5 4 16 7.9 25.2 11.4c18.3 6.9 40.3 12.5 62.1 12.5c6.9 0 13.1-4.5 15.2-11.1c2.1-6.6-.2-13.8-5.8-17.9l0 0 0 0-.2-.2c-.2-.2-.6-.4-1.1-.8c-1-.8-2.5-2-4.3-3.7c-3.6-3.3-8.5-8.1-13.3-14.3c-5.5-7-10.7-15.4-14.2-24.7c24.9-29 39.6-64.7 39.6-103.4c0-92.8-84.9-168.9-192.6-175.5c.4 5.1 .6 10.3 .6 15.5z"/></svg>OpenReview</a>
           </div>
         </div>
 
@@ -1167,7 +1165,7 @@
         <div class="sec-body">
           <h2 id="featured-h" style="margin-bottom:24px">Selected projects</h2>
           <div class="featured">
-            <a class="feat" href="projects/CRAFT/">
+            <a class="feat" href="https://jihun999.github.io/projects/CRAFT/">
               <div class="feat-media">
                 <video src="images/CRAFT_FF_20s_C_merged.mp4" poster="images/craft_teaser.jpg" autoplay muted loop
                   playsinline preload="metadata" aria-label="CRAFT results video"></video>
@@ -1178,7 +1176,7 @@
                 <p>Teaches the model where to look. State-of-the-art personalization from 10K reference-only images, with no composed targets.</p>
               </div>
             </a>
-            <a class="feat" href="projects/Infinite-Story/">
+            <a class="feat" href="https://jihun999.github.io/projects/Infinite-Story/">
               <div class="feat-media">
                 <img src="images/infinite_story_teaser.png" alt="Infinite-Story teaser" loading="lazy">
               </div>
@@ -1188,7 +1186,7 @@
                 <p>Training-free consistent storytelling at 1.72 s per image, 6× faster than prior consistent text-to-image methods.</p>
               </div>
             </a>
-            <a class="feat" href="projects/Style-Editor/">
+            <a class="feat" href="https://jihun999.github.io/projects/Style-Editor/">
               <div class="feat-media">
                 <img src="images/CVPR_teaser.png" alt="Style-Editor teaser" loading="lazy">
               </div>
@@ -1212,7 +1210,7 @@
           <ul class="news" id="news-list">
         <li><time class="news-date">Oct 2026</time><span>CRAFT is invited to the <span class="hl">Invited Session</span> of <a href="https://www.asiagraphics.org/CADGraphics2026">CAD/Graphics 2026</a> at Seoul National University (Dec 2026).</span></li>
         <li><time class="news-date">Aug 2026</time><span>One paper accepted to <a href="https://signalprocessingsociety.org/publications-resources/ieee-signal-processing-letters">IEEE Signal Processing Letters</a>.</span></li>
-        <li><time class="news-date">Jul 2026</time><span><a href="projects/CRAFT/">CRAFT</a> accepted to <a href="https://asia.siggraph.org/2026/">SIGGRAPH Asia 2026</a> as an <span class="hl">oral</span>.</span></li>
+        <li><time class="news-date">Jul 2026</time><span><a href="https://jihun999.github.io/projects/CRAFT/">CRAFT</a> accepted to <a href="https://asia.siggraph.org/2026/">SIGGRAPH Asia 2026</a> as an <span class="hl">oral</span>.</span></li>
         <li><time class="news-date">May 2026</time><span>One paper accepted to <a href="https://dl.acm.org/journal/tomm">ACM TOMM</a>.</span></li>
         <li><time class="news-date">Mar 2026</time><span>One paper accepted to <a href="https://signalprocessingsociety.org/publications-resources/ieee-signal-processing-letters">IEEE Signal Processing Letters</a>.</span></li>
         <li><time class="news-date">Feb 2026</time><span>Our AI-created artworks are on view at <a href="https://rv.kaist.ac.kr/news-our-ai-created-artworks-will-be-exhibited-at-kansong-art-museum-daegu-for-3-5-months-2026-2-14-2026-5-31.html">Kansong Art Museum Daegu</a> (Feb 14 – May 31).</span></li>
@@ -1220,11 +1218,11 @@
         <li class="is-older"><time class="news-date">Feb 2026</time><span><span class="hl">Encouragement Prize</span>, 32nd <a href="https://humantech.samsung.com/saitext/index.jsp">Samsung HumanTech Paper Award</a>.</span></li>
         <li class="is-older"><time class="news-date">Dec 2025</time><span>Started as a generative model research intern at the Global Business Unit of <a href="https://ir.baidu.com/">Baidu</a>, Shenzhen.</span></li>
         <li class="is-older"><time class="news-date">Nov 2025</time><span>AI-driven artworks by our team exhibited at <a href="https://rv.kaist.ac.kr/news-ai-created-artworks-by-our-team-exhibited-at-dgist-gallery.html">DGIST Gallery</a> (Nov 2025 – Feb 2026).</span></li>
-        <li class="is-older"><time class="news-date">Nov 2025</time><span><a href="projects/Infinite-Story/">Infinite-Story</a> accepted to <a href="https://aaai.org/Conferences/AAAI-26/">AAAI 2026</a> as an <span class="hl">oral</span>.</span></li>
+        <li class="is-older"><time class="news-date">Nov 2025</time><span><a href="https://jihun999.github.io/projects/Infinite-Story/">Infinite-Story</a> accepted to <a href="https://aaai.org/Conferences/AAAI-26/">AAAI 2026</a> as an <span class="hl">oral</span>.</span></li>
         <li class="is-older"><time class="news-date">Oct 2025</time><span><span class="hl">Best Oral Presentation Award</span>, DGIST EECS/AI Student Conference.</span></li>
         <li class="is-older"><time class="news-date">Jul 2025</time><span>One paper accepted to the <a href="https://e2e3d.github.io/">ICCV 2025 Workshop</a>.</span></li>
         <li class="is-older"><time class="news-date">Jul 2025</time><span>Attended <a href="https://icvss.dmi.unict.it/icvss2025/Home">ICVSS 2025</a> in Sicily, Italy.</span></li>
-        <li class="is-older"><time class="news-date">Feb 2025</time><span><a href="projects/Style-Editor/">Style-Editor</a> accepted to <a href="https://cvpr.thecvf.com/">CVPR 2025</a> as a <span class="hl">highlight (top 3.7%)</span>.</span></li>
+        <li class="is-older"><time class="news-date">Feb 2025</time><span><a href="https://jihun999.github.io/projects/Style-Editor/">Style-Editor</a> accepted to <a href="https://cvpr.thecvf.com/">CVPR 2025</a> as a <span class="hl">highlight (top 3.7%)</span>.</span></li>
         <li class="is-older"><time class="news-date">Oct 2024</time><span>One paper accepted to <a href="https://accv2024.org/">ACCV 2024</a>.</span></li>
         <li class="is-older"><time class="news-date">Feb 2024</time><span><span class="hl">Encouragement Prize</span>, 30th <a href="https://humantech.samsung.com/saitext/index.jsp">Samsung HumanTech Paper Award</a>.</span></li>
           </ul>
