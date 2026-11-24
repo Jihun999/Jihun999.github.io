@@ -66,8 +66,8 @@
       --accent-wash: rgba(42, 82, 201, .08);
       --mark: #7a5800;
       --mark-wash: #fbf1cc;
-      --hi-bg: #fbd94a;
-      --hi-ink: #2b2200;
+      --hi-bg: #2a52c9;
+      --hi-ink: #ffffff;
       --plate: transparent;
       --shadow: 0 1px 2px rgba(15, 22, 38, .05), 0 8px 24px rgba(15, 22, 38, .07);
       /* viridis: the colormap attention maps are drawn in */
@@ -102,8 +102,8 @@
         --accent-wash: rgba(126, 170, 255, .12);
         --mark: #f2cf5b;
         --mark-wash: rgba(242, 207, 91, .13);
-        --hi-bg: #f2cf5b;
-        --hi-ink: #16130a;
+        --hi-bg: #7eaaff;
+        --hi-ink: #0a0e16;
         --plate: #f1f3f4;
         --shadow: 0 1px 2px rgba(0, 0, 0, .45), 0 8px 24px rgba(0, 0, 0, .4);
       }
@@ -123,8 +123,8 @@
       --accent-wash: rgba(126, 170, 255, .12);
       --mark: #f2cf5b;
       --mark-wash: rgba(242, 207, 91, .13);
-      --hi-bg: #f2cf5b;
-      --hi-ink: #16130a;
+      --hi-bg: #7eaaff;
+      --hi-ink: #0a0e16;
       --plate: #f1f3f4;
       --shadow: 0 1px 2px rgba(0, 0, 0, .45), 0 8px 24px rgba(0, 0, 0, .4);
     }
@@ -674,7 +674,7 @@
 
     .feat-body { padding: 16px 18px 18px; }
 
-    .feat-venue { display: block; color: var(--mark); margin-bottom: 4px; }
+    .feat-venue { display: block; color: var(--accent); margin-bottom: 4px; }
 
     .feat h3 {
       margin: 0 0 6px;
@@ -715,7 +715,7 @@
 
     .news.show-all .is-older { display: grid; }
 
-    .hl { color: var(--mark); font-weight: 500; }
+    .hl { color: var(--accent); font-weight: 500; }
 
     .more-btn {
       margin-top: 16px;
@@ -858,7 +858,9 @@
 
     .mark--hi { background: var(--hi-bg); color: var(--hi-ink); }
 
-    .mark--plain { background: transparent; color: var(--muted); border: 1px solid var(--rule); }
+    .mark--plain { background: var(--accent-wash); color: var(--accent-strong); }
+
+    .mark--plain svg { display: inline-block; margin-right: 5px; vertical-align: -1px; }
 
     .pub-links { display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: 10px; }
 
@@ -1490,7 +1492,7 @@
           <p class="pub-venue"><span class="venue-tag">SIGGRAPH Asia 2026</span><span class="venue-full">ACM SIGGRAPH Conference and Exhibition on Computer Graphics and Interactive Techniques in Asia (SIGGRAPH Asia), 2026</span></p>
           <h3 class="pub-title">CRAFT: Constrained Reward via Attention Fine-Tuning for Subject Personalization without Composed Targets</h3>
           <p class="pub-authors"><strong class="me">Jihun Park</strong>, Kyoungmin Lee, Jongmin Gim, Hyeonseo Jo, Jaeyeul Kim, Han Zou, Zhenpeng Zhan, Yan Zhang†, Sunghoon Im†</p>
-          <p class="pub-marks"><span class="mark mark--hi">Oral Presentation</span><span class="mark">Invited Session, CAD/Graphics 2026</span><span class="mark mark--plain">Baidu internship</span></p>
+          <p class="pub-marks"><span class="mark mark--hi">Oral Presentation</span><span class="mark">Invited Session, CAD/Graphics 2026</span><span class="mark mark--plain"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>Baidu internship</span></p>
           <div class="pub-links"><button type="button" class="link-btn abs-btn" aria-expanded="false" aria-controls="abs-craft">Abstract</button><a href="https://arxiv.org/abs/2608.14403">Paper</a><a href="https://jihun999.github.io/projects/CRAFT/">Project</a><a href="https://github.com/Jihun999/CRAFT">Code</a><button type="button" class="link-btn bib-btn" aria-expanded="false" aria-controls="bib-craft">BibTeX</button></div>
           <p class="pub-abs" id="abs-craft" hidden>Subject-driven image personalization—generating new images that preserve the identity of one or several reference subjects in novel scenes—is a foundational capability for modern visual content creation. It is currently dominated by generalized methods that fine-tune a pretrained multimodal diffusion transformer (MMDiT) on hundreds of thousands to millions of paired (reference, composed-target) examples, where each composed target is a synthesized image of the subject in a novel scene. Producing such targets demands a costly multi-stage curation pipeline—LLM-based prompt generation, T2I-based composed-target synthesis, reference-subject extraction, VLM-based quality filtering, and correspondence labeling—and tightly couples each method to a particular target synthesizer and curation choice. We introduce CRAFT (Constrained Reward via Attention Fine-Tuning), a single-step ReFL framework that fine-tunes a pre-trained reference-aware MMDiT via LoRA adapters using a compact reference-only data construction—10K reference images and subject masks, with no composed-target supervision. CRAFT realizes a &quot;Where to look&quot; principle: attention-level rewards align noise- and phrase-token attention with the correct reference subject, and the resulting per-subject attention masks gate a pixel-level identity reward to keep image-space supervision consistent with the learned attention routing. Applied to FLUX.2-klein-9B, CRAFT achieves state-of-the-art performance on XVerseBench, surpassing prior generalized methods that use 150K to over 2M composed-target samples—a 15–200× reduction in training data. The same recipe transfers to other reference-aware backbones, consistently improving performance.</p>
           <div class="pub-bib" id="bib-craft" hidden><pre><code>@inproceedings{park2026craft,
@@ -1531,7 +1533,7 @@
           <p class="pub-venue"><span class="venue-tag">arXiv 2025</span><span class="venue-full">arXiv Preprint</span></p>
           <h3 class="pub-title">A Training-Free Style-aligned Image Generation with Scale-wise Autoregressive Model</h3>
           <p class="pub-authors"><strong class="me">Jihun Park*</strong>, Jongmin Gim*, Kyoungmin Lee*, Minseok Oh, Minwoo Choi, Jaeyeul Kim, Woochool Park, Yan Zhang, Zhenpeng Zhan, Sunghoon Im†</p>
-          <p class="pub-marks"><span class="mark mark--plain">Baidu internship</span></p>
+          <p class="pub-marks"><span class="mark mark--plain"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>Baidu internship</span></p>
           <div class="pub-links"><button type="button" class="link-btn abs-btn" aria-expanded="false" aria-controls="abs-scalewise-ar">Abstract</button><a href="https://arxiv.org/abs/2504.06144">Paper</a><button type="button" class="link-btn bib-btn" aria-expanded="false" aria-controls="bib-scalewise-ar">BibTeX</button></div>
           <p class="pub-abs" id="abs-scalewise-ar" hidden>We present a training-free style-aligned image generation method that leverages a scale-wise autoregressive model. While large-scale text-to-image (T2I) models, particularly diffusion-based methods, have demonstrated impressive generation quality, they often suffer from style misalignment across generated image sets and slow inference speeds, limiting their practical usability. To address these issues, we propose three key components: initial feature replacement to ensure consistent background appearance, pivotal feature interpolation to align object placement, and dynamic style injection, which reinforces style consistency using a schedule function. Unlike previous methods requiring fine-tuning or additional training, our approach maintains fast inference while preserving individual content details. Extensive experiments show that our method achieves generation quality comparable to competing approaches, significantly improves style alignment, and delivers inference speeds over six times faster than the fastest model.</p>
           <div class="pub-bib" id="bib-scalewise-ar" hidden><pre><code>@article{park2025trainingfree,
