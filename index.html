@@ -54,20 +54,22 @@
        column, like marginalia in a paper. The hero pairs the bio with "Fig. 0",
        a live forward-diffusion of the portrait the visitor can scrub through t. */
     :root {
-      --bg: #f5f7f7;
+      --bg: #f5f7fb;
       --surface: #ffffff;
-      --ink: #12171c;
-      --ink-2: #3f4852;
-      --muted: #6b7580;
-      --rule: #dce1e4;
-      --rule-soft: #e9edef;
-      --accent: #0d6b77;
-      --accent-strong: #08525c;
-      --accent-wash: rgba(13, 107, 119, .08);
-      --mark: #8a5a00;
-      --mark-wash: #f8eed2;
+      --ink: #0f1626;
+      --ink-2: #3b4558;
+      --muted: #667086;
+      --rule: #dce2ec;
+      --rule-soft: #e8edf5;
+      --accent: #2a52c9;
+      --accent-strong: #1c3b9c;
+      --accent-wash: rgba(42, 82, 201, .08);
+      --mark: #7a5800;
+      --mark-wash: #fbf1cc;
+      --hi-bg: #fbd94a;
+      --hi-ink: #2b2200;
       --plate: transparent;
-      --shadow: 0 1px 2px rgba(18, 23, 28, .05), 0 8px 24px rgba(18, 23, 28, .06);
+      --shadow: 0 1px 2px rgba(15, 22, 38, .05), 0 8px 24px rgba(15, 22, 38, .07);
       /* viridis: the colormap attention maps are drawn in */
       --viridis: linear-gradient(90deg, #440154, #3b528b 25%, #21918c 50%, #5ec962 75%, #fde725);
 
@@ -88,39 +90,43 @@
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme="light"]) {
         color-scheme: dark;
-        --bg: #0b0e12;
-        --surface: #12171d;
-        --ink: #e6e9ec;
-        --ink-2: #b2bac3;
-        --muted: #7d8792;
-        --rule: #232a33;
-        --rule-soft: #1a2028;
-        --accent: #5cc6b8;
-        --accent-strong: #8fded3;
-        --accent-wash: rgba(92, 198, 184, .1);
-        --mark: #f0c24b;
-        --mark-wash: rgba(240, 194, 75, .12);
+        --bg: #0a0e16;
+        --surface: #111827;
+        --ink: #e8edf6;
+        --ink-2: #b6c0d0;
+        --muted: #8591a5;
+        --rule: #222c3d;
+        --rule-soft: #182030;
+        --accent: #7eaaff;
+        --accent-strong: #adc9ff;
+        --accent-wash: rgba(126, 170, 255, .12);
+        --mark: #f2cf5b;
+        --mark-wash: rgba(242, 207, 91, .13);
+        --hi-bg: #f2cf5b;
+        --hi-ink: #16130a;
         --plate: #f1f3f4;
-        --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .35);
+        --shadow: 0 1px 2px rgba(0, 0, 0, .45), 0 8px 24px rgba(0, 0, 0, .4);
       }
     }
 
     :root[data-theme="dark"] {
       color-scheme: dark;
-      --bg: #0b0e12;
-      --surface: #12171d;
-      --ink: #e6e9ec;
-      --ink-2: #b2bac3;
-      --muted: #7d8792;
-      --rule: #232a33;
-      --rule-soft: #1a2028;
-      --accent: #5cc6b8;
-      --accent-strong: #8fded3;
-      --accent-wash: rgba(92, 198, 184, .1);
-      --mark: #f0c24b;
-      --mark-wash: rgba(240, 194, 75, .12);
+      --bg: #0a0e16;
+      --surface: #111827;
+      --ink: #e8edf6;
+      --ink-2: #b6c0d0;
+      --muted: #8591a5;
+      --rule: #222c3d;
+      --rule-soft: #182030;
+      --accent: #7eaaff;
+      --accent-strong: #adc9ff;
+      --accent-wash: rgba(126, 170, 255, .12);
+      --mark: #f2cf5b;
+      --mark-wash: rgba(242, 207, 91, .13);
+      --hi-bg: #f2cf5b;
+      --hi-ink: #16130a;
       --plate: #f1f3f4;
-      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 8px 24px rgba(0, 0, 0, .35);
+      --shadow: 0 1px 2px rgba(0, 0, 0, .45), 0 8px 24px rgba(0, 0, 0, .4);
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -324,7 +330,7 @@
     .thesis em {
       font-style: normal;
       background: linear-gradient(transparent 62%, var(--accent-wash) 62%);
-      color: var(--accent-strong);
+      color: var(--accent);
     }
 
     .bio { max-width: 62ch; }
@@ -850,7 +856,7 @@
       font-weight: 500;
     }
 
-    .mark--hi { background: var(--mark); color: var(--surface); }
+    .mark--hi { background: var(--hi-bg); color: var(--hi-ink); }
 
     .mark--plain { background: transparent; color: var(--muted); border: 1px solid var(--rule); }
 
@@ -1896,7 +1902,7 @@
       </div>
       <div class="visitor-map">
         <script type="text/javascript" id="mapmyvisitors"
-          src="https://mapmyvisitors.com/map.js?cl=080808&amp;w=220&amp;t=n&amp;d=JTWGIbr4w2KI_Rox4O9QFlH-N4Fb-Upd8HOnAhShs7Y&amp;co=ffffff&amp;cmo=5cc6b8&amp;cmn=0d6b77&amp;ct=808080"></script>
+          src="https://mapmyvisitors.com/map.js?cl=080808&amp;w=220&amp;t=n&amp;d=JTWGIbr4w2KI_Rox4O9QFlH-N4Fb-Upd8HOnAhShs7Y&amp;co=ffffff&amp;cmo=7eaaff&amp;cmn=2a52c9&amp;ct=808080"></script>
       </div>
     </div>
   </footer>
