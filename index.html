@@ -385,7 +385,30 @@
 
     .fig0-frame .p-smile { opacity: 0; transition: opacity .35s ease; }
 
+    .fig0-frame.seed-1 .p-smile,
     .fig0-frame.is-clean:hover .p-smile { opacity: 1; }
+
+    .fig0-frame.seed-1.is-clean:hover .p-smile { opacity: 0; }
+
+    .fig0-frame canvas { z-index: 1; }
+
+    .seed-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      height: 30px;
+      padding: 0 10px;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      background: var(--surface);
+      color: var(--ink-2);
+      font-family: var(--font-mono);
+      font-size: .75rem;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .seed-btn:hover { color: var(--ink); border-color: var(--accent); }
 
     .fig0-frame canvas {
       image-rendering: pixelated;
@@ -397,6 +420,7 @@
 
     .fig0-readout {
       position: absolute;
+      z-index: 2;
       left: 10px;
       bottom: 10px;
       padding: 3px 8px;
@@ -1266,7 +1290,7 @@
         <figure class="fig0">
           <div class="fig0-frame" id="portrait">
             <img class="p-clean" src="images/web/JihunPark.webp" alt="Portrait of Jihun Park" width="827" height="1063" fetchpriority="high">
-            <img class="p-smile" src="images/web/jihun_park_smile_web.webp" alt="" aria-hidden="true" loading="lazy">
+            <img class="p-smile" src="images/web/jihun_park_smile_web.webp" alt="" aria-hidden="true" decoding="async">
             <canvas id="noise-canvas" aria-hidden="true"></canvas>
             <span class="fig0-readout mono" id="t-readout" aria-hidden="true">t = 1000</span>
           </div>
@@ -1274,13 +1298,13 @@
             <div class="fig0-ctrl">
               <label class="mono" for="t-slider">t</label>
               <input type="range" id="t-slider" min="0" max="1000" step="1" value="0" aria-describedby="fig0-cap">
-              <button class="icon-btn" id="t-replay" type="button" aria-label="Resample noise and denoise again" title="Resample ε and denoise">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 3v5h5"/></svg>
+              <button class="seed-btn" id="t-replay" type="button" aria-label="Draw new noise and denoise to the other sample" title="New ε, other sample">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 3v5h5"/></svg><span id="seed-label">seed 0</span>
               </button>
             </div>
             <p id="fig0-cap"><span class="mono">Fig. 0.</span> The author under forward diffusion,
               <span class="eq">x<sub>t</sub> = √ᾱ<sub>t</sub> x<sub>0</sub> + √(1−ᾱ<sub>t</sub>) ε</span>,
-              cosine schedule, T = 1000. Drag <i>t</i> to add noise.</p>
+              cosine schedule, T = 1000. Drag <i>t</i> to add noise; press the seed button to draw a new ε and get the other sample.</p>
           </figcaption>
         </figure>
       </div>
@@ -1944,17 +1968,20 @@
         ctx.putImageData(img, 0, 0);
       });
 
-      /* ---------- Fig. 0: forward diffusion of the portrait ---------- */
+      /* ---------- Fig. 0: forward diffusion of the portrait ----------
+         Two clean samples share the figure: seed 0 (portrait) and seed 1 (smile).
+         Each press of the replay button draws a new eps and denoises to the other seed. */
       (function () {
         var frame = document.getElementById('portrait');
-        var src = frame.querySelector('.p-clean');
+        var imgs = [frame.querySelector('.p-clean'), frame.querySelector('.p-smile')];
         var canvas = document.getElementById('noise-canvas');
         var slider = document.getElementById('t-slider');
         var readout = document.getElementById('t-readout');
         var replay = document.getElementById('t-replay');
+        var seedLabel = document.getElementById('seed-label');
         var T = 1000, W = 128, H = 160, S = 0.008;
         var ctx = canvas.getContext('2d');
-        var x0, eps, out, anim = null;
+        var x0s = [null, null], seed = 0, eps, out, anim = null;
 
         canvas.width = W; canvas.height = H;
 
@@ -1968,11 +1995,33 @@
           for (var i = 0; i < eps.length; i++) eps[i] = gauss();
         }
 
+        function toX0(img) {
+          var off = document.createElement('canvas');
+          off.width = W; off.height = H;
+          var octx = off.getContext('2d');
+          var iw = img.naturalWidth, ih = img.naturalHeight;
+          var scale = Math.max(W / iw, H / ih), sw = W / scale, sh = H / scale;
+          octx.drawImage(img, (iw - sw) / 2, (ih - sh) / 2, sw, sh, 0, 0, W, H);
+          var data = octx.getImageData(0, 0, W, H).data, x = new Float32Array(W * H * 3);
+          for (var p = 0, k = 0; p < data.length; p += 4, k += 3) {
+            x[k] = data[p] / 127.5 - 1;
+            x[k + 1] = data[p + 1] / 127.5 - 1;
+            x[k + 2] = data[p + 2] / 127.5 - 1;
+          }
+          return x;
+        }
+
+        function setSeed(n) {
+          seed = n;
+          frame.classList.toggle('seed-1', n === 1);
+          seedLabel.textContent = 'seed ' + n;
+        }
+
         function render(t) {
           t = Math.round(t);
           slider.value = t;
-          var ab = alphaBar(t), a = Math.sqrt(ab), b = Math.sqrt(1 - ab);
-          readout.textContent = 't = ' + String(t).padStart(4, '0') + '  ᾱ = ' + ab.toFixed(2);
+          var ab = alphaBar(t), a = Math.sqrt(ab), b = Math.sqrt(1 - ab), x0 = x0s[seed];
+          readout.textContent = 't = ' + String(t).padStart(4, '0') + '  ᾱ = ' + ab.toFixed(2) + '  seed ' + seed;
           frame.classList.toggle('is-clean', t === 0);
           canvas.style.opacity = t === 0 ? 0 : Math.min(1, t / 40);
           if (!x0) return;
@@ -2000,46 +2049,38 @@
           anim = requestAnimationFrame(step);
         }
 
-        function fail() { x0 = null; render(0); canvas.remove(); readout.remove(); }
+        function fail() { x0s = [null, null]; render(0); canvas.remove(); readout.remove(); }
 
-        function init() {
+        function whenLoaded(img, cb) {
+          if (img.complete && img.naturalWidth) cb();
+          else img.addEventListener('load', cb, { once: true });
+        }
+
+        whenLoaded(imgs[0], function () {
           try {
-            var off = document.createElement('canvas');
-            off.width = W; off.height = H;
-            var octx = off.getContext('2d');
-            var iw = src.naturalWidth, ih = src.naturalHeight;
-            var scale = Math.max(W / iw, H / ih);
-            var sw = W / scale, sh = H / scale;
-            octx.drawImage(src, (iw - sw) / 2, (ih - sh) / 2, sw, sh, 0, 0, W, H);
-            var data = octx.getImageData(0, 0, W, H).data;
-            x0 = new Float32Array(W * H * 3);
-            for (var p = 0, k = 0; p < data.length; p += 4, k += 3) {
-              x0[k] = data[p] / 127.5 - 1;
-              x0[k + 1] = data[p + 1] / 127.5 - 1;
-              x0[k + 2] = data[p + 2] / 127.5 - 1;
-            }
+            x0s[0] = toX0(imgs[0]);
             out = ctx.createImageData(W, H);
             sampleNoise();
           } catch (e) { fail(); return; }
           if (reduceMotion) { render(0); return; }
           render(T);
           setTimeout(function () { denoise(T, 2600); }, 250);
-        }
-
-        if (src.complete && src.naturalWidth) init();
-        else { src.addEventListener('load', init); src.addEventListener('error', fail); }
+        });
+        imgs[0].addEventListener('error', fail);
+        whenLoaded(imgs[1], function () { try { x0s[1] = toX0(imgs[1]); } catch (e) { } });
 
         slider.addEventListener('input', function () {
           if (anim) { cancelAnimationFrame(anim); anim = null; }
           render(+slider.value);
         });
-        slider.addEventListener('change', function () { /* keep the visitor's t */ });
         replay.addEventListener('click', function () {
-          if (!x0) return;
+          var next = 1 - seed;
+          if (!x0s[0]) { setSeed(next); return; }
+          if (!x0s[next]) return;
           sampleNoise();
-          var from = +slider.value > 0 ? +slider.value : T;
-          render(from);
-          denoise(from, 2200 * from / T + 400);
+          setSeed(next);
+          render(T);
+          denoise(T, 2400);
         });
       })();
 
