@@ -903,6 +903,10 @@
       line-height: 1.5;
     }
 
+    .review-areas { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+
+    .review-areas p { margin: 0; font-size: .875rem; color: var(--ink-2); }
+
     .review-tags--quiet li { background: transparent; border: 1px solid var(--rule); color: var(--ink-2); }
 
     /* ---------- Background (education / experience) ---------- */
@@ -1520,7 +1524,7 @@
                 <p class="mono">2 as first author · 3 as co-first author · titles withheld until the reviews are done</p>
               </div>
             </div>
-            <p class="review-note">The two first-author papers are listed above. The others, by topic:</p>
+            <p class="review-note">The two first-author papers are listed above.</p>
             <div class="review-group">
               <span class="review-role mono">Co-first author</span>
               <ul class="review-tags">
@@ -1531,19 +1535,16 @@
             </div>
             <div class="review-group">
               <span class="review-role mono">Co-author</span>
-              <ul class="review-tags review-tags--quiet">
-                <li>Distillation for interactive world models</li>
-                <li>Text-editable novel view synthesis</li>
-                <li>Reference-guided image generation</li>
-                <li>Reward alignment for flow models</li>
-                <li>Open-vocabulary segmentation in 3D Gaussian splatting</li>
-                <li>End-to-end autonomous driving</li>
-                <li>Cross-embodiment robot mobility</li>
-                <li>Audio–text integration</li>
-                <li>Feature alignment in diffusion transformers</li>
-                <li>Diffusion models for online RL</li>
-                <li>Trajectory control for video diffusion</li>
-              </ul>
+              <div class="review-areas">
+                <p>11 papers across</p>
+                <ul class="review-tags review-tags--quiet">
+                  <li>Generative modeling</li>
+                  <li>3D vision</li>
+                  <li>Reinforcement learning</li>
+                  <li>Robotics</li>
+                  <li>Autonomous driving</li>
+                </ul>
+              </div>
             </div>
           </aside>
         </div>
