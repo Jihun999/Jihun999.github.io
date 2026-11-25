@@ -111,6 +111,9 @@
       --hi-bg: #2a52c9;
       --hi-ink: #ffffff;
       --plate: transparent;
+      --c-red: #d9543a;
+      --c-yellow: #e2ad1a;
+      --c-green: #2e9b68;
       --shadow: 0 1px 2px rgba(15, 22, 38, .05), 0 8px 24px rgba(15, 22, 38, .07);
       /* viridis: the colormap attention maps are drawn in */
       --viridis: linear-gradient(90deg, #440154, #3b528b 25%, #21918c 50%, #5ec962 75%, #fde725);
@@ -147,6 +150,9 @@
         --hi-bg: #7eaaff;
         --hi-ink: #0a0e16;
         --plate: #f1f3f4;
+        --c-red: #ff8a75;
+        --c-yellow: #f2cf5b;
+        --c-green: #5fd39a;
         --shadow: 0 1px 2px rgba(0, 0, 0, .45), 0 8px 24px rgba(0, 0, 0, .4);
       }
     }
@@ -168,6 +174,9 @@
       --hi-bg: #7eaaff;
       --hi-ink: #0a0e16;
       --plate: #f1f3f4;
+      --c-red: #ff8a75;
+      --c-yellow: #f2cf5b;
+      --c-green: #5fd39a;
       --shadow: 0 1px 2px rgba(0, 0, 0, .45), 0 8px 24px rgba(0, 0, 0, .4);
     }
 
@@ -387,7 +396,7 @@
       margin: 22px 0 0;
       padding: 12px 16px;
       border: 1px solid var(--rule);
-      border-left: 3px solid var(--accent);
+      border-left: 3px solid var(--c-green);
       border-radius: 6px;
       background: var(--surface);
       font-size: .9375rem;
@@ -400,7 +409,7 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: var(--accent);
+      background: var(--c-green);
       transform: translateY(-1px);
     }
 
@@ -409,7 +418,7 @@
       position: absolute;
       inset: -4px;
       border-radius: 50%;
-      border: 1px solid var(--accent);
+      border: 1px solid var(--c-green);
       animation: ping 2.4s ease-out infinite;
     }
 
@@ -654,8 +663,8 @@
       left: 7px;
       right: 0;
       height: 2px;
-      background: var(--viridis);
-      opacity: .85;
+      background: linear-gradient(90deg, var(--c-red), var(--c-yellow) 34%, var(--c-green) 67%, var(--accent));
+      opacity: .9;
     }
 
     .stop { position: relative; padding-top: 34px; }
@@ -669,10 +678,10 @@
       height: 16px;
       border-radius: 50%;
       background: var(--bg);
-      border: 2px solid var(--ink);
+      border: 3px solid var(--stage, var(--ink));
     }
 
-    .stop.is-now::before { background: #fde725; border-color: var(--ink); }
+    .stop.is-now::before { background: var(--stage); }
 
     .stop.is-now::after {
       content: "";
@@ -682,7 +691,7 @@
       width: 28px;
       height: 28px;
       border-radius: 50%;
-      border: 1px solid #c9b61a;
+      border: 1px solid var(--stage);
       animation: ping 2.4s ease-out infinite;
     }
 
@@ -905,6 +914,24 @@
 
     .venue-full { font-size: .8125rem; color: var(--muted); }
 
+    /* Research-thread stages carry one colour each, from the timeline to the papers */
+    [data-stage="1"] { --stage: var(--c-red); }
+    [data-stage="2"] { --stage: var(--c-yellow); }
+    [data-stage="3"] { --stage: var(--c-green); }
+    [data-stage="4"] { --stage: var(--accent); }
+
+    .pub[data-stage] .venue-tag::before,
+    .feat[data-stage] .feat-venue::before {
+      content: "";
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      margin-right: 8px;
+      border-radius: 2px;
+      background: var(--stage);
+      vertical-align: 1px;
+    }
+
     .pub-title {
       margin: 0 0 6px;
       font-family: var(--font-display);
@@ -1014,9 +1041,9 @@
       cursor: pointer;
     }
 
-    .stage-btn:hover { color: var(--ink); border-color: var(--accent); }
+    .stage-btn:hover { color: var(--ink); border-color: var(--stage, var(--accent)); }
 
-    .stop.is-active::before { background: var(--accent); border-color: var(--accent); }
+    .stop.is-active::before { background: var(--stage); }
 
     .stop.is-active .stage-btn { background: var(--ink); border-color: var(--ink); color: var(--bg); }
 
@@ -1027,8 +1054,8 @@
       margin: 0;
       padding: 4px 6px 4px 12px;
       border-radius: 999px;
-      background: var(--accent-wash);
-      color: var(--accent-strong);
+      background: color-mix(in srgb, var(--stage, var(--accent)) 16%, transparent);
+      color: var(--ink);
       font-size: .875rem;
     }
 
@@ -1452,7 +1479,7 @@
         <div class="sec-body">
           <h2 id="featured-h" style="margin-bottom:24px">Selected projects</h2>
           <div class="featured">
-            <a class="feat" href="https://jihun999.github.io/projects/CRAFT/">
+            <a class="feat" data-stage="3" href="https://jihun999.github.io/projects/CRAFT/">
               <div class="feat-media heat">
                 <video src="images/CRAFT_FF_20s_C_merged.mp4" poster="images/web/craft_teaser.webp" autoplay muted loop
                   playsinline preload="metadata" aria-label="CRAFT results video"></video>
@@ -1463,7 +1490,7 @@
                 <p>Teaches the model where to look. State-of-the-art personalization from 10K reference-only images, with no composed targets.</p>
               </div>
             </a>
-            <a class="feat" href="https://jihun999.github.io/projects/Infinite-Story/">
+            <a class="feat" data-stage="2" href="https://jihun999.github.io/projects/Infinite-Story/">
               <div class="feat-media heat">
                 <img src="images/web/infinite_story_teaser.webp" alt="Infinite-Story teaser" loading="lazy">
               </div>
@@ -1473,7 +1500,7 @@
                 <p>Training-free consistent storytelling at 1.72 s per image, 6× faster than prior consistent text-to-image methods.</p>
               </div>
             </a>
-            <a class="feat" href="https://jihun999.github.io/projects/Style-Editor/">
+            <a class="feat" data-stage="1" href="https://jihun999.github.io/projects/Style-Editor/">
               <div class="feat-media heat">
                 <img src="images/web/CVPR_teaser.webp" alt="Style-Editor teaser" loading="lazy">
               </div>
@@ -2200,6 +2227,7 @@
         pubs.forEach(function (p) { p.hidden = !matches(p, f); });
         var stage = f.indexOf('stage-') === 0 ? f.slice(6) : null;
         stagePill.hidden = !stage;
+        if (stage) stagePill.setAttribute('data-stage', stage);
         stops.forEach(function (s) { s.classList.toggle('is-active', s.getAttribute('data-stage') === stage); });
         if (stage) stageName.textContent = document.querySelector('.stop[data-stage="' + stage + '"] h3').textContent;
       }
