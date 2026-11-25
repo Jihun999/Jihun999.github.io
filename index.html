@@ -300,6 +300,8 @@
 
     .nav-links a:hover { color: var(--ink); background: var(--accent-wash); text-decoration: none; }
 
+    .nav-links a[aria-current="true"] { color: var(--accent); font-weight: 500; }
+
     .theme-toggle {
       display: grid;
       place-items: center;
@@ -2142,6 +2144,25 @@
           } else { select(); }
         });
       });
+
+      /* ---------- Nav: mark the section being read ---------- */
+      (function () {
+        if (!('IntersectionObserver' in window)) return;
+        var map = { research: 'research', featured: 'research', news: 'news', publications: 'publications', background: 'background', activities: 'background' };
+        var links = {};
+        document.querySelectorAll('.nav-links a[href^="#"]').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+        function mark(id) {
+          Object.keys(links).forEach(function (k) {
+            if (k === id) links[k].setAttribute('aria-current', 'true'); else links[k].removeAttribute('aria-current');
+          });
+        }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) { if (en.isIntersecting) mark(map[en.target.id]); });
+        }, { rootMargin: '-45% 0px -50% 0px' });
+        Object.keys(map).forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });
+        var hero = document.querySelector('.hero');
+        if (hero) new IntersectionObserver(function (e) { if (e[0].isIntersecting) mark(null); }, { rootMargin: '-45% 0px -50% 0px' }).observe(hero);
+      })();
 
       /* ---------- News ---------- */
       var newsBtn = document.getElementById('news-more');
