@@ -27,6 +27,48 @@
     content="Representation alignment for consistent and controllable visual generation, from images to video world models. KAIST Robotics and Vision Lab.">
   <meta name="twitter:image" content="https://jihun999.github.io/images/og-card.png?v=2">
 
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jihun Park",
+    "alternateName": "박지훈",
+    "url": "https://jihun999.github.io/",
+    "image": "https://jihun999.github.io/images/web/JihunPark.webp",
+    "email": "mailto:pjh2857@dgist.ac.kr",
+    "jobTitle": "Ph.D. Student",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "DGIST (Daegu Gyeongbuk Institute of Science and Technology)",
+      "url": "https://www.dgist.ac.kr/"
+    },
+    "memberOf": {
+      "@type": "Organization",
+      "name": "KAIST Robotics and Vision Lab",
+      "url": "https://rv.kaist.ac.kr/"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Zhejiang University",
+      "url": "https://www.zju.edu.cn/english/"
+    },
+    "knowsAbout": [
+      "Generative models",
+      "Diffusion models",
+      "Representation alignment",
+      "Subject personalization",
+      "Style transfer",
+      "Video world models"
+    ],
+    "sameAs": [
+      "https://scholar.google.com/citations?user=OPboq9YAAAAJ",
+      "https://github.com/Jihun999",
+      "https://www.linkedin.com/in/jihun-park-a26b8b245/",
+      "https://openreview.net/profile?id=~Jihun_Park4"
+    ]
+  }
+  </script>
+
   <link rel="icon" href="images/favicon.ico" sizes="32x32">
   <link rel="icon" href="images/jihun-park-symbol-mono.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
@@ -336,6 +378,40 @@
     .bio { max-width: 62ch; }
 
     .bio p { margin: 0 0 14px; }
+
+    .seeking {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      max-width: 62ch;
+      margin: 22px 0 0;
+      padding: 12px 16px;
+      border: 1px solid var(--rule);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      background: var(--surface);
+      font-size: .9375rem;
+      line-height: 1.55;
+    }
+
+    .seeking-dot {
+      position: relative;
+      flex: none;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .seeking-dot::after {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 1px solid var(--accent);
+      animation: ping 2.4s ease-out infinite;
+    }
 
     .links {
       display: flex;
@@ -1275,6 +1351,11 @@
               long-horizon temporal consistency and control are the open problems.
             </p>
           </div>
+          <p class="seeking">
+            <span class="seeking-dot" aria-hidden="true"></span>
+            <span><b>Looking for research internships in 2027.</b> If your team works on generative models, I would be glad to
+              hear from you at <a href="mailto:pjh2857@dgist.ac.kr">pjh2857@dgist.ac.kr</a>.</span>
+          </p>
           <div class="links">
             <a class="primary" href="documents/Jihun_Park_CV.pdf"><svg class="ico" aria-hidden="true" focusable="false" viewBox="0 0 384 512"><path d="M64 0C28.7 0 0 28.7 0 64V448c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V160H256c-17.7 0-32-14.3-32-32V0H64zM256 0V128H384L256 0zM112 256H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64H272c8.8 0 16 7.2 16 16s-7.2 16-16 16H112c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>CV</a>
             <a href="mailto:pjh2857@dgist.ac.kr"><svg class="ico" aria-hidden="true" focusable="false" viewBox="0 0 512 512"><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>pjh2857@dgist.ac.kr</a>
