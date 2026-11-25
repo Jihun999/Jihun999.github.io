@@ -2146,6 +2146,15 @@
         });
       })();
 
+      /* ---------- Publication filter ---------- */
+      var pubs = Array.prototype.slice.call(document.querySelectorAll('.pub'));
+      var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+      function matches(p, f) {
+        if (f === 'all') return true;
+        if (f.indexOf('stage-') === 0) return p.getAttribute('data-stage') === f.slice(6);
+        if (f === 'selected') return p.hasAttribute('data-selected');
+        return p.getAttribute('data-topic') === f;
+      }
       chips.forEach(function (c) {
         var f = c.getAttribute('data-filter');
         c.querySelector('.count').textContent = pubs.filter(function (p) { return matches(p, f); }).length;
