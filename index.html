@@ -1561,11 +1561,10 @@
           <p class="pub-marks"><span class="mark mark--hi">Oral Presentation</span><span class="mark">Invited Session, CAD/Graphics 2026</span><span class="mark mark--plain"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>Baidu internship</span></p>
           <div class="pub-links"><button type="button" class="link-btn abs-btn" aria-expanded="false" aria-controls="abs-craft">Abstract</button><a href="https://arxiv.org/abs/2608.14403">Paper</a><a href="https://jihun999.github.io/projects/CRAFT/">Project</a><a href="https://github.com/Jihun999/CRAFT">Code</a><button type="button" class="link-btn bib-btn" aria-expanded="false" aria-controls="bib-craft">BibTeX</button></div>
           <p class="pub-abs" id="abs-craft" hidden>Subject-driven image personalization—generating new images that preserve the identity of one or several reference subjects in novel scenes—is a foundational capability for modern visual content creation. It is currently dominated by generalized methods that fine-tune a pretrained multimodal diffusion transformer (MMDiT) on hundreds of thousands to millions of paired (reference, composed-target) examples, where each composed target is a synthesized image of the subject in a novel scene. Producing such targets demands a costly multi-stage curation pipeline—LLM-based prompt generation, T2I-based composed-target synthesis, reference-subject extraction, VLM-based quality filtering, and correspondence labeling—and tightly couples each method to a particular target synthesizer and curation choice. We introduce CRAFT (Constrained Reward via Attention Fine-Tuning), a single-step ReFL framework that fine-tunes a pre-trained reference-aware MMDiT via LoRA adapters using a compact reference-only data construction—10K reference images and subject masks, with no composed-target supervision. CRAFT realizes a &quot;Where to look&quot; principle: attention-level rewards align noise- and phrase-token attention with the correct reference subject, and the resulting per-subject attention masks gate a pixel-level identity reward to keep image-space supervision consistent with the learned attention routing. Applied to FLUX.2-klein-9B, CRAFT achieves state-of-the-art performance on XVerseBench, surpassing prior generalized methods that use 150K to over 2M composed-target samples—a 15–200× reduction in training data. The same recipe transfers to other reference-aware backbones, consistently improving performance.</p>
-          <div class="pub-bib" id="bib-craft" hidden><pre><code>@inproceedings{park2026craft,
+          <div class="pub-bib" id="bib-craft" hidden><pre><code>@article{park2026craft,
   title={CRAFT: Constrained Reward via Attention Fine-Tuning for Subject Personalization without Composed Targets},
   author={Park, Jihun and Lee, Kyoungmin and Gim, Jongmin and Jo, Hyeonseo and Kim, Jaeyeul and Zou, Han and Zhan, Zhenpeng and Zhang, Yan and Im, Sunghoon},
-  booktitle={Proceedings of the SIGGRAPH Asia 2026 Conference Papers},
-  pages={1--11},
+  journal={arXiv preprint arXiv:2608.14403},
   year={2026}
 }</code></pre><button type="button" class="copy-btn mono">Copy</button></div>
         </div>
@@ -1586,8 +1585,6 @@
   title={Object-Centric LiDAR-to-Radar Distillation for 3D Object Detection},
   author={Moon, Sungho and Kim, Jaeyeul and Choi, Wonhyeok and Park, Jihun and Shin, Ukcheol and Im, Sunghoon},
   journal={IEEE Signal Processing Letters},
-  volume={33},
-  pages={3586--3590},
   year={2026},
   publisher={IEEE}
 }</code></pre><button type="button" class="copy-btn mono">Copy</button></div>
@@ -1607,8 +1604,8 @@
           <div class="pub-links"><button type="button" class="link-btn abs-btn" aria-expanded="false" aria-controls="abs-scalewise-ar">Abstract</button><a href="https://arxiv.org/abs/2504.06144">Paper</a><button type="button" class="link-btn bib-btn" aria-expanded="false" aria-controls="bib-scalewise-ar">BibTeX</button></div>
           <p class="pub-abs" id="abs-scalewise-ar" hidden>We present a training-free style-aligned image generation method that leverages a scale-wise autoregressive model. While large-scale text-to-image (T2I) models, particularly diffusion-based methods, have demonstrated impressive generation quality, they often suffer from style misalignment across generated image sets and slow inference speeds, limiting their practical usability. To address these issues, we propose three key components: initial feature replacement to ensure consistent background appearance, pivotal feature interpolation to align object placement, and dynamic style injection, which reinforces style consistency using a schedule function. Unlike previous methods requiring fine-tuning or additional training, our approach maintains fast inference while preserving individual content details. Extensive experiments show that our method achieves generation quality comparable to competing approaches, significantly improves style alignment, and delivers inference speeds over six times faster than the fastest model.</p>
           <div class="pub-bib" id="bib-scalewise-ar" hidden><pre><code>@article{park2025training,
-  title={A Training-Free Style-aligned Image Generation with Scale-wise Autoregressive Model},
-  author={Park, Jihun and Gim, Jongmin and Lee, Kyoungmin and Oh, Minseok and Choi, Minwoo and Kim, Jaeyeul and Park, Woochool and Zhang, Yan and Zhan, Zhenpeng and Im, Sunghoon},
+  title={A training-free style-aligned image generation with scale-wise autoregressive model},
+  author={Park, Jihun and Gim, Jongmin and Lee, Kyoungmin and Oh, Minseok and Choi, Minwoo and Kim, Jaeyeul and Park, Woo Chool and Im, Sunghoon},
   journal={arXiv preprint arXiv:2504.06144},
   year={2025}
 }</code></pre><button type="button" class="copy-btn mono">Copy</button></div>
@@ -1627,14 +1624,11 @@
           <div class="pub-links"><button type="button" class="link-btn abs-btn" aria-expanded="false" aria-controls="abs-nasl">Abstract</button><a href="https://dl.acm.org/doi/abs/10.1145/3827612">Paper</a><button type="button" class="link-btn bib-btn" aria-expanded="false" aria-controls="bib-nasl">BibTeX</button></div>
           <p class="pub-abs" id="abs-nasl" hidden>In video-text retrieval, addressing the noisy correspondence problem is crucial for achieving accurate retrieval performance. Recent methods address this challenge by either suppressing the impact of noisy data or predictions distorted by noise. However, existing approaches often overlook two critical aspects: distinguishing hard noise from semantically ambiguous cases, and preserving latent associations within unmatched negative pairs. To address this limitation, we propose a Noise-mined Adaptive Self-Labeling (NASL), which effectively manages noisy data during training. NASL consists of two loss functions: 1) Noise-mined Matching Loss (NML), which identifies and penalizes noisy data based on a two-stage suppression strategy, and 2) Adaptive Self-labeling Loss (ASL), which employs optimal transport to explore extra relationships among false negatives in noisy conditions and provides soft supervision to prevent excessive penalization of semantically plausible pairs. Extensive experiments demonstrate that NASL improves the separation between clean and noisy data while effectively mitigating noise, leading to significant performance improvements on the MSR-VTT, DiDeMo, MSVD, LSMDC and ActivityNet datasets.</p>
           <div class="pub-bib" id="bib-nasl" hidden><pre><code>@article{kim2026mitigating,
-  title={Mitigating Noisy Correspondence in Video--Text Retrieval via Noise-Mined Adaptive Self-Labeling},
+  title={Mitigating Noisy Correspondence in Video-Text Retrieval via Noise-mined Adaptive Self-Labeling},
   author={Kim, Jeonghoon and Kang, Hyeon and Park, Jihun and Kim, Jinhwoi and Kim, Jaeyeul and Im, Sunghoon},
-  journal={ACM Transactions on Multimedia Computing, Communications, and Applications},
-  volume={22},
-  number={9},
-  pages={1--20},
+  journal={ACM Transactions on Multimedia Computing, Communications and Applications},
   year={2026},
-  publisher={ACM New York, NY}
+  publisher={ACM, New York, NY}
 }</code></pre><button type="button" class="copy-btn mono">Copy</button></div>
         </div>
       </article>
@@ -1673,12 +1667,13 @@
           <p class="pub-authors">Wonhyeok Choi, Kyumin Hwang, <strong class="me">Jihun Park</strong>, Kyoungmin Lee, Seunghun Lee, Jaeyeul Kim, Minwoo Choi, Sunghoon Im†</p>
           <div class="pub-links"><button type="button" class="link-btn abs-btn" aria-expanded="false" aria-controls="abs-taskforce">Abstract</button><a href="https://openaccess.thecvf.com/content/CVPR2026/html/Choi_TaskForce_Cooperative_Multi-agent_Reinforcement_Learning_for_Multi-task_Optimization_CVPR_2026_paper.html">Paper</a><button type="button" class="link-btn bib-btn" aria-expanded="false" aria-controls="bib-taskforce">BibTeX</button></div>
           <p class="pub-abs" id="abs-taskforce" hidden>Multi-task learning (MTL) involves the simultaneous optimization of multiple task-specific losses, often leading to gradient conflicts and scale imbalances that result in negative transfer. While existing multi-task optimization methods attempt to mitigate these challenges, they either lack the stochasticity needed to escape poor local minima or fail to explicitly address conflicts at the gradient level. In this work, we propose TaskForce, a novel multi-task optimization framework incorporating cooperative multi-agent reinforcement learning (MARL), where agents learn to find an effective joint optimization strategy based on their respective task gradients and losses. To keep the optimization process compact yet informative, agents observe a summary of the training dynamics that consists of the gradient Gram matrix---capturing both gradient magnitudes and pairwise alignments---and task loss values. Each agent then predicts the balancing parameters that determine the weight of their contribution to the final gradient update. Crucially, we design a hybrid reward function that incorporates both gradient-based signals and loss improvement dynamics, enabling agents to effectively resolve gradient conflicts and avoid poor convergence by considering both direct gradient information and the resulting impact on loss reduction. TaskForce achieves consistent improvements over state-of-the-art MTL baselines on NYU-v2, Cityscapes, and QM9, demonstrating the promise of cooperative MARL in complex multi-task scenarios.</p>
-          <div class="pub-bib" id="bib-taskforce" hidden><pre><code>@inproceedings{choi2026taskforce,
-  title={TaskForce: Cooperative Multi-agent Reinforcement Learning for Multi-task Optimization},
-  author={Choi, Wonhyeok and Hwang, Kyumin and Park, Jihun and Lee, Kyoungmin and Lee, Seunghun and Kim, Jaeyeul and Choi, Minwoo and Im, Sunghoon},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  pages={36871--36880},
-  year={2026}
+          <div class="pub-bib" id="bib-taskforce" hidden><pre><code>@InProceedings{Choi_2026_CVPR,
+    author    = {Choi, Wonhyeok and Hwang, Kyumin and Park, Jihun and Lee, Kyoungmin and Lee, Seunghun and Kim, Jaeyeul and Choi, Minwoo and Im, Sunghoon},
+    title     = {TaskForce: Cooperative Multi-agent Reinforcement Learning for Multi-task Optimization},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2026},
+    pages     = {36871-36880}
 }</code></pre><button type="button" class="copy-btn mono">Copy</button></div>
         </div>
       </article>
@@ -1694,12 +1689,13 @@
           <p class="pub-authors">Kyoungmin Lee*, <strong class="me">Jihun Park*</strong>, Jongmin Gim*, Wonhyeok Choi, Kyumin Hwang, Jaeyeul Kim, Sunghoon Im†</p>
           <div class="pub-links"><button type="button" class="link-btn abs-btn" aria-expanded="false" aria-controls="abs-svd-style">Abstract</button><a href="https://openaccess.thecvf.com/content/CVPR2026/html/Lee_A_Training-Free_Style-Personalization_via_SVD-Based_Feature_Decomposition_CVPR_2026_paper.html">Paper</a><button type="button" class="link-btn bib-btn" aria-expanded="false" aria-controls="bib-svd-style">BibTeX</button></div>
           <p class="pub-abs" id="abs-svd-style" hidden>We present a training-free framework for style-personalized image generation that operates during inference using a scale-wise autoregressive model. Our method generates a stylized image guided by a single reference style while preserving semantic consistency and mitigating content leakage. Through a detailed step-wise analysis of the generation process, we identify a pivotal step where the dominant singular values of the internal feature encode style-related components. Building upon this insight, we introduce two lightweight control modules: Principal Feature Blending, which enables precise modulation of style through SVD-based feature reconstruction, and Structural Attention Correction, which stabilizes structural consistency by leveraging content-guided attention correction across fine stages. Without any additional training, extensive experiments demonstrate that our method achieves competitive style fidelity and prompt fidelity compared to fine-tuned baselines, while offering faster inference and greater deployment flexibility.</p>
-          <div class="pub-bib" id="bib-svd-style" hidden><pre><code>@inproceedings{lee2026training,
-  title={A Training-Free Style-Personalization via SVD-Based Feature Decomposition},
-  author={Lee, Kyoungmin and Park, Jihun and Gim, Jongmin and Choi, Wonhyeok and Hwang, Kyumin and Kim, Jaeyeul and Im, Sunghoon},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  pages={506--516},
-  year={2026}
+          <div class="pub-bib" id="bib-svd-style" hidden><pre><code>@InProceedings{Lee_2026_CVPR,
+    author    = {Lee, Kyoungmin and Park, Jihun and Gim, Jongmin and Choi, Wonhyeok and Hwang, Kyumin and Kim, Jaeyeul and Im, Sunghoon},
+    title     = {A Training-Free Style-Personalization via SVD-Based Feature Decomposition},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2026},
+    pages     = {506-516}
 }</code></pre><button type="button" class="copy-btn mono">Copy</button></div>
         </div>
       </article>
@@ -1715,12 +1711,13 @@
           <p class="pub-authors">Minseok Oh*, <strong class="me">Jihun Park*</strong>, Jongmin Gim, Minwoo Choi, Kyoungmin Lee, Ferdinando Fioretto†, Sunghoon Im†</p>
           <div class="pub-links"><button type="button" class="link-btn abs-btn" aria-expanded="false" aria-controls="abs-freestyle">Abstract</button><a href="https://openaccess.thecvf.com/content/CVPR2026F/html/Oh_FREESTYLE_An_Anchor-Free_Mechanism_for_Training-Free_Style-Aligned_Image_Generation_CVPRF_2026_paper.html">Paper</a><button type="button" class="link-btn bib-btn" aria-expanded="false" aria-controls="bib-freestyle">BibTeX</button></div>
           <p class="pub-abs" id="abs-freestyle" hidden>Text-to-Image (T2I) generation models have become central to creative workflows, where producing style-consistent image sets is crucial for applications such as visual identity design, illustration, and asset creation. While recent training-free methods have enabled efficient style-aligned synthesis, they commonly rely on anchor-dependent propagation, where style features from a single reference image are shared across the batch. This dependency often leads to inconsistent results: when the anchor fails to capture the intended reference style, its unintended artifacts are propagated to all samples, and excessive feature sharing further causes content leakage and semantic distortion. To overcome these limitations, we propose FREESTYLE, a training-free and anchor-free framework for robust style alignment within a scale-wise autoregressive generation paradigm. Our method integrates three core components—Majority Voting (MV), which aggregates dominant style cues across the batch to form a representative style feature; Majority Style Injection (MSI), which adaptively injects these aggregated features to enforce global style coherence; and Set-Based Projection (SBP), which refines local object regions by projecting them onto a shared style manifold for context-aware adaptation. Extensive experiments demonstrate that, without any retraining or parameter updates, FREESTYLE achieves state-of-the-art performance in both style consistency and content preservation, while maintaining real-time inference efficiency.</p>
-          <div class="pub-bib" id="bib-freestyle" hidden><pre><code>@inproceedings{oh2026freestyle,
-  title={FREESTYLE: An Anchor-Free Mechanism for Training-Free Style-Aligned Image Generation},
-  author={Oh, Minseok and Park, Jihun and Gim, Jongmin and Choi, Minwoo and Lee, Kyoungmin and Fioretto, Ferdinando and Im, Sunghoon},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition Findings},
-  pages={3779--3788},
-  year={2026}
+          <div class="pub-bib" id="bib-freestyle" hidden><pre><code>@InProceedings{Oh_2026_CVPR,
+    author    = {Oh, Minseok and Park, Jihun and Gim, Jongmin and Choi, Minwoo and Lee, Kyoungmin and Fioretto, Ferdinando and Im, Sunghoon},
+    title     = {FREESTYLE: An Anchor-Free Mechanism for Training-Free Style-Aligned Image Generation},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Findings},
+    month     = {June},
+    year      = {2026},
+    pages     = {3779-3788}
 }</code></pre><button type="button" class="copy-btn mono">Copy</button></div>
         </div>
       </article>
@@ -1737,9 +1734,9 @@
           <div class="pub-links"><button type="button" class="link-btn abs-btn" aria-expanded="false" aria-controls="abs-briges">Abstract</button><a href="https://ieeexplore.ieee.org/abstract/document/11386238">Paper</a><button type="button" class="link-btn bib-btn" aria-expanded="false" aria-controls="bib-briges">BibTeX</button></div>
           <p class="pub-abs" id="abs-briges" hidden>We present Bridging Geometric and Semantic (BriGeS), an effective method that fuses geometric and semantic information within foundation models to enhance Monocular Depth Estimation (MDE). Central to BriGeS is the Bridging Gate, which integrates the complementary strengths of depth and segmentation foundation models. This integration is further refined by our Attention Temperature Scaling technique. It finely adjusts the focus of the attention mechanisms to prevent over-concentration on specific features, thus ensuring balanced performance across diverse inputs. BriGeS capitalizes on pretrained foundation models and adopts a strategy that focuses on training only the Bridging Gate. This method significantly reduces resource demands and training time while maintaining the model&#x27;s ability to generalize effectively. Extensive experiments across multiple challenging datasets demonstrate that BriGeS outperforms state-of-the-art methods in MDE for complex scenes, effectively handling intricate structures and overlapping objects.</p>
           <div class="pub-bib" id="bib-briges" hidden><pre><code>@inproceedings{ma2026bridging,
-  title={Bridging Geometric and Semantic Foundation Models for Generalized Monocular Depth Estimation},
+  title={Bridging geometric and semantic foundation models for generalized monocular depth estimation},
   author={Ma, Sanggyun and Choi, Wonjoon and Park, Jihun and Kim, Jaeyeul and Lee, Seunghun and Seo, Jiwan and Im, Sunghoon},
-  booktitle={2026 International Conference on Electronics, Information, and Communication},
+  booktitle={2026 International Conference on Electronics, Information, and Communication (ICEIC)},
   pages={1--6},
   year={2026},
   organization={IEEE}
@@ -1760,7 +1757,7 @@
           <div class="pub-links"><button type="button" class="link-btn abs-btn" aria-expanded="false" aria-controls="abs-infinite-story">Abstract</button><a href="https://ojs.aaai.org/index.php/AAAI/article/view/37776">Paper</a><a href="https://jihun999.github.io/projects/Infinite-Story/">Project</a><a href="https://github.com/Jihun999/Infinite_story">Code</a><button type="button" class="link-btn bib-btn" aria-expanded="false" aria-controls="bib-infinite-story">BibTeX</button></div>
           <p class="pub-abs" id="abs-infinite-story" hidden>We present Infinite-Story, a training-free framework for consistent text-to-image (T2I) generation tailored for multi-prompt storytelling scenarios. Built upon a scale-wise autoregressive model, our method addresses two key challenges in consistent T2I generation: identity inconsistency and style inconsistency. To overcome these issues, we introduce three complementary techniques: Identity Prompt Replacement, which mitigates context bias in text encoders to align identity attributes across prompts; and a unified attention guidance mechanism comprising Adaptive Style Injection and Synchronized Guidance Adaptation, which jointly enforce global style and identity appearance consistency while preserving prompt fidelity. Unlike prior diffusion-based approaches that require fine-tuning or suffer from slow inference, Infinite-Story operates entirely at test time, delivering high identity and style consistency across diverse prompts. Extensive experiments demonstrate that our method achieves state-of-the-art generation performance, while offering over 6X faster inference (1.72 seconds per image) than the existing fastest consistent T2I models, highlighting its effectiveness and practicality for real-world visual storytelling.</p>
           <div class="pub-bib" id="bib-infinite-story" hidden><pre><code>@inproceedings{park2026infinite,
-  title={Infinite-Story: A Training-Free Consistent Text-to-Image Generation},
+  title={Infinite-story: A training-free consistent text-to-image generation},
   author={Park, Jihun and Lee, Kyoungmin and Gim, Jongmin and Jo, Hyeonseo and Oh, Minseok and Choi, Wonhyeok and Hwang, Kyumin and Kim, Jaeyeul and Choi, Minwoo and Im, Sunghoon},
   booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
   volume={40},
@@ -1785,7 +1782,7 @@
           <div class="pub-bib" id="bib-semantic-mde" hidden><pre><code>@inproceedings{ma2026semantic,
   title={Semantic-Enhanced Monocular Depth Estimation via Fusion and Distillation of Foundation Models},
   author={Ma, Sanggyun and Choi, Wonjoon and Park, Jihun and Kim, Jaeyeul and Im, Sunghoon},
-  booktitle={2026 International Conference on Electronics, Information, and Communication},
+  booktitle={2026 International Conference on Electronics, Information, and Communication (ICEIC)},
   pages={1--5},
   year={2026},
   organization={IEEE}
@@ -1805,12 +1802,13 @@
           <p class="pub-marks"><span class="mark mark--hi">Highlight Paper (Top 3.7%)</span><span class="mark">Encouragement Prize, 30th HumanTech Paper Award</span></p>
           <div class="pub-links"><button type="button" class="link-btn abs-btn" aria-expanded="false" aria-controls="abs-style-editor">Abstract</button><a href="https://openaccess.thecvf.com/content/CVPR2025/html/Park_Style-Editor_Text-driven_Object-centric_Style_Editing_CVPR_2025_paper.html">Paper</a><a href="https://jihun999.github.io/projects/Style-Editor/">Project</a><a href="https://github.com/Jihun999/Style-Editor">Code</a><button type="button" class="link-btn bib-btn" aria-expanded="false" aria-controls="bib-style-editor">BibTeX</button></div>
           <p class="pub-abs" id="abs-style-editor" hidden>We present Text-driven object-centric style editing model named Style-Editor, a novel method that guides style editing at an object-centric level using textual inputs. The core of Style-Editor is our Patch-wise Co-Directional (PCD) loss, meticulously designed for precise object-centric editing that are closely aligned with the input text. This loss combines a patch directional loss for text-guided style direction and a patch distribution consistency loss for even CLIP embedding distribution across object regions. It ensures a seamless and harmonious style editing across object regions. Key to our method are the Text-Matched Patch Selection (TMPS) and Pre-fixed Region Selection (PRS) modules for identifying object locations via text, eliminating the need for segmentation masks. Lastly, we introduce an Adaptive Background Preservation (ABP) loss to maintain the original style and structural essence of the image&#x27;s background. This loss is applied to dynamically identified background areas. Extensive experiments underline the effectiveness of our approach in creating visually coherent and textually aligned style editing.</p>
-          <div class="pub-bib" id="bib-style-editor" hidden><pre><code>@inproceedings{park2025style,
-  title={Style-Editor: Text-driven Object-centric Style Editing},
-  author={Park, Jihun and Gim, Jongmin and Lee, Kyoungmin and Lee, Seunghun and Im, Sunghoon},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  pages={18281--18291},
-  year={2025}
+          <div class="pub-bib" id="bib-style-editor" hidden><pre><code>@InProceedings{Park_2025_CVPR,
+    author    = {Park, Jihun and Gim, Jongmin and Lee, Kyoungmin and Lee, Seunghun and Im, Sunghoon},
+    title     = {Style-Editor: Text-driven Object-centric Style Editing},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2025},
+    pages     = {18281-18291}
 }</code></pre><button type="button" class="copy-btn mono">Copy</button></div>
         </div>
       </article>
@@ -1826,12 +1824,13 @@
           <p class="pub-authors">Jongmin Gim*, <strong class="me">Jihun Park*</strong>, Kyoungmin Lee*, Sunghoon Im†</p>
           <div class="pub-links"><button type="button" class="link-btn abs-btn" aria-expanded="false" aria-controls="abs-cast">Abstract</button><a href="https://openaccess.thecvf.com/content/ACCV2024/html/Gim_Content-Adaptive_Style_Transfer__A_Training-Free_Approach_with_VQ_Autoencoders_ACCV_2024_paper.html">Paper</a><button type="button" class="link-btn bib-btn" aria-expanded="false" aria-controls="bib-cast">BibTeX</button></div>
           <p class="pub-abs" id="abs-cast" hidden>We introduce Content-Adaptive Style Transfer (CAST), a novel training-free approach for arbitrary style transfer that enhances visual fidelity using vector quantized-based pretrained autoencoder. Our method systematically applies coherent stylization to corresponding content regions. It starts by capturing the global structure of images through vector quantization, then refines local details using our style-injected decoder. CAST consists of three main components: a content-consistent style injection module, which tailors stylization to unique image regions; an adaptive style refinement module, which fine-tunes stylization intensity; and a content refinement module, which ensures content integrity through interpolation and feature distribution maintenance. Experimental results indicate that CAST outperforms existing generative-based and traditional style transfer models in both quantitative and qualitative measures.</p>
-          <div class="pub-bib" id="bib-cast" hidden><pre><code>@inproceedings{gim2024content,
-  title={Content-Adaptive Style Transfer: A Training-Free Approach with VQ Autoencoders},
-  author={Gim, Jongmin and Park, Jihun and Lee, Kyoungmin and Im, Sunghoon},
-  booktitle={Proceedings of the Asian Conference on Computer Vision},
-  pages={2337--2353},
-  year={2024}
+          <div class="pub-bib" id="bib-cast" hidden><pre><code>@InProceedings{Gim_2024_ACCV,
+    author    = {Gim, Jongmin and Park, Jihun and Lee, Kyoungmin and Im, Sunghoon},
+    title     = {Content-Adaptive Style Transfer:  A Training-Free Approach with VQ Autoencoders},
+    booktitle = {Proceedings of the Asian Conference on Computer Vision (ACCV)},
+    month     = {December},
+    year      = {2024},
+    pages     = {2337-2353}
 }</code></pre><button type="button" class="copy-btn mono">Copy</button></div>
         </div>
       </article>
