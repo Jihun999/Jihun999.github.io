@@ -1581,12 +1581,15 @@
           <p class="pub-authors">Sungho Moon*, Jaeyeul Kim*, Wonhyeok Choi, <strong class="me">Jihun Park</strong>, Ukcheol Shin†, Sunghoon Im†</p>
           <div class="pub-links"><button type="button" class="link-btn abs-btn" aria-expanded="false" aria-controls="abs-lidar2radar">Abstract</button><a href="https://ieeexplore.ieee.org/document/11644926">Paper</a><button type="button" class="link-btn bib-btn" aria-expanded="false" aria-controls="bib-lidar2radar">BibTeX</button></div>
           <p class="pub-abs" id="abs-lidar2radar" hidden>Radar is an essential sensor for autonomous driving due to its cost-effectiveness and robustness under adverse weather conditions. However, 3D radar points are inherently sparse, noisy, and lack elevation information. As a result, they provide much weaker geometric cues than LiDAR measurements, making reliable representation learning fundamentally challenging. To address this issue, prior works have explored LiDAR-to-radar distillation, enriching radar representations with dense LiDAR geometric priors. However, the substantial modality gap between LiDAR and radar may make such fine-grained alignment unnecessarily restrictive and limit the effectiveness of knowledge transfer. In this letter, we present an object-centric distillation framework that emphasizes semantically meaningful object-level cues rather than dense voxel-level matching. Specifically, we perform object-wise distillation by aggregating teacher and student features within each object region using Gaussian-weighted pooling. We further introduce density-aware curriculum weighting, which adaptively modulates the distillation strength according to the radar point density of each object. Experimental results on the nuScenes dataset show that the proposed method surpasses the existing state of the art by 32.1%, which validates the effectiveness of the proposed framework.</p>
-          <div class="pub-bib" id="bib-lidar2radar" hidden><pre><code>@article{moon2026object,
-  title={Object-Centric LiDAR-to-Radar Distillation for 3D Object Detection},
-  author={Moon, Sungho and Kim, Jaeyeul and Choi, Wonhyeok and Park, Jihun and Shin, Ukcheol and Im, Sunghoon},
-  journal={IEEE Signal Processing Letters},
-  year={2026},
-  publisher={IEEE}
+          <div class="pub-bib" id="bib-lidar2radar" hidden><pre><code>@article{moon2026objectcentric,
+  title     = {Object-Centric LiDAR-to-Radar Distillation for 3D Object Detection},
+  author    = {Moon, Sungho and Kim, Jaeyeul and Choi, Wonhyeok and Park, Jihun and Shin, Ukcheol and Im, Sunghoon},
+  journal   = {IEEE Signal Processing Letters},
+  volume    = {33},
+  pages     = {3586--3590},
+  year      = {2026},
+  publisher = {Institute of Electrical and Electronics Engineers (IEEE)},
+  doi       = {10.1109/lsp.2026.3722159}
 }</code></pre><button type="button" class="copy-btn mono">Copy</button></div>
         </div>
       </article>
@@ -1624,11 +1627,15 @@
           <div class="pub-links"><button type="button" class="link-btn abs-btn" aria-expanded="false" aria-controls="abs-nasl">Abstract</button><a href="https://dl.acm.org/doi/abs/10.1145/3827612">Paper</a><button type="button" class="link-btn bib-btn" aria-expanded="false" aria-controls="bib-nasl">BibTeX</button></div>
           <p class="pub-abs" id="abs-nasl" hidden>In video-text retrieval, addressing the noisy correspondence problem is crucial for achieving accurate retrieval performance. Recent methods address this challenge by either suppressing the impact of noisy data or predictions distorted by noise. However, existing approaches often overlook two critical aspects: distinguishing hard noise from semantically ambiguous cases, and preserving latent associations within unmatched negative pairs. To address this limitation, we propose a Noise-mined Adaptive Self-Labeling (NASL), which effectively manages noisy data during training. NASL consists of two loss functions: 1) Noise-mined Matching Loss (NML), which identifies and penalizes noisy data based on a two-stage suppression strategy, and 2) Adaptive Self-labeling Loss (ASL), which employs optimal transport to explore extra relationships among false negatives in noisy conditions and provides soft supervision to prevent excessive penalization of semantically plausible pairs. Extensive experiments demonstrate that NASL improves the separation between clean and noisy data while effectively mitigating noise, leading to significant performance improvements on the MSR-VTT, DiDeMo, MSVD, LSMDC and ActivityNet datasets.</p>
           <div class="pub-bib" id="bib-nasl" hidden><pre><code>@article{kim2026mitigating,
-  title={Mitigating Noisy Correspondence in Video-Text Retrieval via Noise-mined Adaptive Self-Labeling},
-  author={Kim, Jeonghoon and Kang, Hyeon and Park, Jihun and Kim, Jinhwoi and Kim, Jaeyeul and Im, Sunghoon},
-  journal={ACM Transactions on Multimedia Computing, Communications and Applications},
-  year={2026},
-  publisher={ACM, New York, NY}
+  title     = {Mitigating Noisy Correspondence in Video--Text Retrieval via Noise-Mined Adaptive Self-Labeling},
+  author    = {Kim, Jeonghoon and Kang, Hyeon and Park, Jihun and Kim, Jinhwoi and Kim, Jaeyeul and Im, Sunghoon},
+  journal   = {ACM Transactions on Multimedia Computing, Communications, and Applications},
+  volume    = {22},
+  number    = {9},
+  pages     = {1--20},
+  year      = {2026},
+  publisher = {Association for Computing Machinery (ACM)},
+  doi       = {10.1145/3827612}
 }</code></pre><button type="button" class="copy-btn mono">Copy</button></div>
         </div>
       </article>
@@ -1645,13 +1652,14 @@
           <div class="pub-links"><button type="button" class="link-btn abs-btn" aria-expanded="false" aria-controls="abs-cascadeocc">Abstract</button><a href="https://ieeexplore.ieee.org/document/11474772">Paper</a><button type="button" class="link-btn bib-btn" aria-expanded="false" aria-controls="bib-cascadeocc">BibTeX</button></div>
           <p class="pub-abs" id="abs-cascadeocc" hidden>This letter proposes CascadeOcc, a novel occupancy world model that prioritizes intrinsic structural hierarchy over extrinsic auxiliary modalities for autonomous driving. Occupancy world models—forecasting the future driving environment and planning the driving trajectory—effectively bridge perception and planning, but current approaches often heavily rely on external modalities or large language models, failing to fully exploit the inherent structural potential of occupancy representations themselves. To enhance representational capacity for complex 3D scenes, we integrate a cascaded Vector Quantized (VQ) mechanism into an autoregressive framework. Following a coarse-to-fine principle, CascadeOcc progressively refines fine-grained details from global structures through a multi-scale architecture. Additionally, we incorporate a TimeMixer to capture multi-scale temporal dependencies, establishing a dual-hierarchy mechanism in both space and time. Experimental results on 4D occupancy forecasting and motion planning benchmarks demonstrate that CascadeOcc achieves superior performance among vision-centric approaches, validating that optimizing inherent representations is a powerful alternative to relying on external foundation models.</p>
           <div class="pub-bib" id="bib-cascadeocc" hidden><pre><code>@article{hwang2026cascadeocc,
-  title={CascadeOcc: Rethinking 3D Occupancy World Models With Cascaded VQ Representations},
-  author={Hwang, Kyumin and Choi, Wonhyeok and Kim, Jaeyeul and Park, Jihun and Park, Daehee and Im, Sunghoon},
-  journal={IEEE Signal Processing Letters},
-  volume={33},
-  pages={1506--1510},
-  year={2026},
-  publisher={IEEE}
+  title     = {CascadeOcc: Rethinking 3D Occupancy World Models With Cascaded VQ Representations},
+  author    = {Hwang, Kyumin and Choi, Wonhyeok and Kim, Jaeyeul and Park, Jihun and Park, Daehee and Im, Sunghoon},
+  journal   = {IEEE Signal Processing Letters},
+  volume    = {33},
+  pages     = {1506--1510},
+  year      = {2026},
+  publisher = {Institute of Electrical and Electronics Engineers (IEEE)},
+  doi       = {10.1109/lsp.2026.3680426}
 }</code></pre><button type="button" class="copy-btn mono">Copy</button></div>
         </div>
       </article>
@@ -1734,12 +1742,13 @@
           <div class="pub-links"><button type="button" class="link-btn abs-btn" aria-expanded="false" aria-controls="abs-briges">Abstract</button><a href="https://ieeexplore.ieee.org/abstract/document/11386238">Paper</a><button type="button" class="link-btn bib-btn" aria-expanded="false" aria-controls="bib-briges">BibTeX</button></div>
           <p class="pub-abs" id="abs-briges" hidden>We present Bridging Geometric and Semantic (BriGeS), an effective method that fuses geometric and semantic information within foundation models to enhance Monocular Depth Estimation (MDE). Central to BriGeS is the Bridging Gate, which integrates the complementary strengths of depth and segmentation foundation models. This integration is further refined by our Attention Temperature Scaling technique. It finely adjusts the focus of the attention mechanisms to prevent over-concentration on specific features, thus ensuring balanced performance across diverse inputs. BriGeS capitalizes on pretrained foundation models and adopts a strategy that focuses on training only the Bridging Gate. This method significantly reduces resource demands and training time while maintaining the model&#x27;s ability to generalize effectively. Extensive experiments across multiple challenging datasets demonstrate that BriGeS outperforms state-of-the-art methods in MDE for complex scenes, effectively handling intricate structures and overlapping objects.</p>
           <div class="pub-bib" id="bib-briges" hidden><pre><code>@inproceedings{ma2026bridging,
-  title={Bridging geometric and semantic foundation models for generalized monocular depth estimation},
-  author={Ma, Sanggyun and Choi, Wonjoon and Park, Jihun and Kim, Jaeyeul and Lee, Seunghun and Seo, Jiwan and Im, Sunghoon},
-  booktitle={2026 International Conference on Electronics, Information, and Communication (ICEIC)},
-  pages={1--6},
-  year={2026},
-  organization={IEEE}
+  title     = {Bridging Geometric and Semantic Foundation Models for Generalized Monocular Depth Estimation},
+  author    = {Ma, Sanggyun and Choi, Wonjoon and Park, Jihun and Kim, Jaeyeul and Lee, Seunghun and Seo, Jiwan and Im, Sunghoon},
+  booktitle = {2026 International Conference on Electronics, Information, and Communication (ICEIC)},
+  pages     = {1--6},
+  year      = {2026},
+  publisher = {IEEE},
+  doi       = {10.1109/iceic69189.2026.11386238}
 }</code></pre><button type="button" class="copy-btn mono">Copy</button></div>
         </div>
       </article>
@@ -1756,14 +1765,17 @@
           <p class="pub-marks"><span class="mark mark--hi">Oral Presentation</span><span class="mark">Encouragement Prize, 32nd HumanTech Paper Award</span></p>
           <div class="pub-links"><button type="button" class="link-btn abs-btn" aria-expanded="false" aria-controls="abs-infinite-story">Abstract</button><a href="https://ojs.aaai.org/index.php/AAAI/article/view/37776">Paper</a><a href="https://jihun999.github.io/projects/Infinite-Story/">Project</a><a href="https://github.com/Jihun999/Infinite_story">Code</a><button type="button" class="link-btn bib-btn" aria-expanded="false" aria-controls="bib-infinite-story">BibTeX</button></div>
           <p class="pub-abs" id="abs-infinite-story" hidden>We present Infinite-Story, a training-free framework for consistent text-to-image (T2I) generation tailored for multi-prompt storytelling scenarios. Built upon a scale-wise autoregressive model, our method addresses two key challenges in consistent T2I generation: identity inconsistency and style inconsistency. To overcome these issues, we introduce three complementary techniques: Identity Prompt Replacement, which mitigates context bias in text encoders to align identity attributes across prompts; and a unified attention guidance mechanism comprising Adaptive Style Injection and Synchronized Guidance Adaptation, which jointly enforce global style and identity appearance consistency while preserving prompt fidelity. Unlike prior diffusion-based approaches that require fine-tuning or suffer from slow inference, Infinite-Story operates entirely at test time, delivering high identity and style consistency across diverse prompts. Extensive experiments demonstrate that our method achieves state-of-the-art generation performance, while offering over 6X faster inference (1.72 seconds per image) than the existing fastest consistent T2I models, highlighting its effectiveness and practicality for real-world visual storytelling.</p>
-          <div class="pub-bib" id="bib-infinite-story" hidden><pre><code>@inproceedings{park2026infinite,
-  title={Infinite-story: A training-free consistent text-to-image generation},
-  author={Park, Jihun and Lee, Kyoungmin and Gim, Jongmin and Jo, Hyeonseo and Oh, Minseok and Choi, Wonhyeok and Hwang, Kyumin and Kim, Jaeyeul and Choi, Minwoo and Im, Sunghoon},
-  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+          <div class="pub-bib" id="bib-infinite-story" hidden><pre><code>@article{Park_Lee_Gim_Jo_Oh_Choi_Hwang_Kim_Choi_Im_2026,
+  title={Infinite-Story: A Training-Free Consistent Text-to-Image Generation},
   volume={40},
+  url={https://ojs.aaai.org/index.php/AAAI/article/view/37776},
+  DOI={10.1609/aaai.v40i10.37776},
   number={10},
-  pages={8278--8286},
-  year={2026}
+  journal={Proceedings of the AAAI Conference on Artificial Intelligence},
+  author={Park, Jihun and Lee, Kyoungmin and Gim, Jongmin and Jo, Hyeonseo and Oh, Minseok and Choi, Wonhyeok and Hwang, Kyumin and Kim, Jaeyeul and Choi, Minwoo and Im, Sunghoon},
+  year={2026},
+  month={Mar.},
+  pages={8278–8286}
 }</code></pre><button type="button" class="copy-btn mono">Copy</button></div>
         </div>
       </article>
@@ -1780,12 +1792,13 @@
           <div class="pub-links"><button type="button" class="link-btn abs-btn" aria-expanded="false" aria-controls="abs-semantic-mde">Abstract</button><a href="https://ieeexplore.ieee.org/abstract/document/11385908">Paper</a><button type="button" class="link-btn bib-btn" aria-expanded="false" aria-controls="bib-semantic-mde">BibTeX</button></div>
           <p class="pub-abs" id="abs-semantic-mde" hidden>We propose SEEDepth, a two-stage framework that effectively fuses information of depth and semantic foundation models to enhance Monocular Depth Estimation (MDE). First, a Fusion Module directly integrates features from depth and segmentation foundation models through attention mechanisms. The fused representations are then distilled into a depth model equipped with Residual Split-wise Transformer (ReSplit), a lightweight semantic injection module. SEEDepth leverages pre-trained foundation models by exclusively training the Fusion Module and ReSplit, keeping computational costs low while preserving pretrained knowledge. Experiments show that SEEDepth outperforms state-of-the-art MDE methods, especially in complex scenes involving fine structures and unclear boundaries.</p>
           <div class="pub-bib" id="bib-semantic-mde" hidden><pre><code>@inproceedings{ma2026semantic,
-  title={Semantic-Enhanced Monocular Depth Estimation via Fusion and Distillation of Foundation Models},
-  author={Ma, Sanggyun and Choi, Wonjoon and Park, Jihun and Kim, Jaeyeul and Im, Sunghoon},
-  booktitle={2026 International Conference on Electronics, Information, and Communication (ICEIC)},
-  pages={1--5},
-  year={2026},
-  organization={IEEE}
+  title     = {Semantic-Enhanced Monocular Depth Estimation via Fusion and Distillation of Foundation Models},
+  author    = {Ma, Sanggyun and Choi, Wonjoon and Park, Jihun and Kim, Jaeyeul and Im, Sunghoon},
+  booktitle = {2026 International Conference on Electronics, Information, and Communication (ICEIC)},
+  pages     = {1--5},
+  year      = {2026},
+  publisher = {IEEE},
+  doi       = {10.1109/iceic69189.2026.11385908}
 }</code></pre><button type="button" class="copy-btn mono">Copy</button></div>
         </div>
       </article>
