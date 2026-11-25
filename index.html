@@ -1303,6 +1303,7 @@
         <li class="opt"><a href="#news">News</a></li>
         <li><a href="#publications">Publications</a></li>
         <li><a href="#background">Background</a></li>
+        <li class="opt"><a href="#activities">Activities</a></li>
         <li><a href="documents/Jihun_Park_CV.pdf?v=2026-11-25">CV</a></li>
         <li>
           <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode">
@@ -2148,7 +2149,7 @@
       /* ---------- Nav: mark the section being read ---------- */
       (function () {
         if (!('IntersectionObserver' in window)) return;
-        var map = { research: 'research', featured: 'research', news: 'news', publications: 'publications', background: 'background', activities: 'background' };
+        var map = { research: 'research', featured: 'research', news: 'news', publications: 'publications', background: 'background', activities: 'activities' };
         var links = {};
         document.querySelectorAll('.nav-links a[href^="#"]').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
         function mark(id) {
