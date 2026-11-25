@@ -876,7 +876,6 @@
 
     .pub-thumb {
       position: relative;
-      --r: 46px;
       display: block;
       width: 100%;
       aspect-ratio: 16 / 10;
@@ -989,43 +988,6 @@
       font-size: .9rem;
       line-height: 1.65;
     }
-
-    /* "Where to look": a viridis attention blob that follows the pointer */
-    .heat { position: relative; }
-
-    .heat::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      opacity: 0;
-      transition: opacity .25s ease;
-      background:
-        radial-gradient(circle calc(var(--r, 70px)) at var(--mx, 50%) var(--my, 50%),
-          rgba(253, 231, 37, .78), rgba(94, 201, 98, .6) 32%, rgba(33, 145, 140, .45) 58%, rgba(59, 82, 139, .3) 80%, transparent 100%),
-        rgba(68, 1, 84, .42);
-      mix-blend-mode: hard-light;
-    }
-
-    .heat.is-heat::after { opacity: 1; }
-
-    .heat .heat-label {
-      position: absolute;
-      right: 8px;
-      top: 8px;
-      z-index: 2;
-      padding: 1px 7px;
-      border-radius: 3px;
-      background: rgba(10, 12, 15, .62);
-      color: #f2f4f5;
-      font-family: var(--font-mono);
-      font-size: .68rem;
-      opacity: 0;
-      transition: opacity .25s;
-      pointer-events: none;
-    }
-
-    .heat.is-heat .heat-label { opacity: 1; }
 
     .stage-btn {
       margin-top: 12px;
@@ -1477,7 +1439,7 @@
           <h2 id="featured-h" style="margin-bottom:24px">Selected projects</h2>
           <div class="featured">
             <a class="feat" href="https://jihun999.github.io/projects/CRAFT/">
-              <div class="feat-media heat">
+              <div class="feat-media">
                 <video src="images/CRAFT_FF_20s_C_merged.mp4" poster="images/web/craft_teaser.webp" autoplay muted loop
                   playsinline preload="metadata" aria-label="CRAFT results video"></video>
               </div>
@@ -1488,7 +1450,7 @@
               </div>
             </a>
             <a class="feat" href="https://jihun999.github.io/projects/Infinite-Story/">
-              <div class="feat-media heat">
+              <div class="feat-media">
                 <img src="images/web/infinite_story_teaser.webp" alt="Infinite-Story teaser" loading="lazy">
               </div>
               <div class="feat-body">
@@ -1498,7 +1460,7 @@
               </div>
             </a>
             <a class="feat" href="https://jihun999.github.io/projects/Style-Editor/">
-              <div class="feat-media heat">
+              <div class="feat-media">
                 <img src="images/web/CVPR_teaser.webp" alt="Style-Editor teaser" loading="lazy">
               </div>
               <div class="feat-body">
@@ -2184,33 +2146,6 @@
         });
       })();
 
-      /* ---------- "Where to look" heat on thumbnails ---------- */
-      if (window.matchMedia('(hover: hover)').matches) {
-        document.querySelectorAll('.pub-thumb[data-full], .feat-media').forEach(function (el) {
-          el.classList.add('heat');
-          var label = document.createElement('span');
-          label.className = 'heat-label';
-          label.textContent = 'where to look';
-          el.appendChild(label);
-          el.addEventListener('pointermove', function (e) {
-            var r = el.getBoundingClientRect();
-            el.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-            el.style.setProperty('--my', (e.clientY - r.top) + 'px');
-            el.classList.add('is-heat');
-          });
-          el.addEventListener('pointerleave', function () { el.classList.remove('is-heat'); });
-        });
-      }
-
-      /* ---------- Publication filter ---------- */
-      var pubs = Array.prototype.slice.call(document.querySelectorAll('.pub'));
-      var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
-      function matches(p, f) {
-        if (f === 'all') return true;
-        if (f.indexOf('stage-') === 0) return p.getAttribute('data-stage') === f.slice(6);
-        if (f === 'selected') return p.hasAttribute('data-selected');
-        return p.getAttribute('data-topic') === f;
-      }
       chips.forEach(function (c) {
         var f = c.getAttribute('data-filter');
         c.querySelector('.count').textContent = pubs.filter(function (p) { return matches(p, f); }).length;
