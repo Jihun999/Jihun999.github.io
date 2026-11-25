@@ -663,8 +663,8 @@
       left: 7px;
       right: 0;
       height: 2px;
-      background: linear-gradient(90deg, var(--c-red), var(--c-yellow) 34%, var(--c-green) 67%, var(--accent));
-      opacity: .9;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent) 70%, var(--c-yellow));
+      opacity: .75;
     }
 
     .stop { position: relative; padding-top: 34px; }
@@ -678,10 +678,10 @@
       height: 16px;
       border-radius: 50%;
       background: var(--bg);
-      border: 3px solid var(--stage, var(--ink));
+      border: 3px solid var(--accent);
     }
 
-    .stop.is-now::before { background: var(--stage); }
+    .stop.is-now::before { background: var(--c-yellow); border-color: var(--c-yellow); }
 
     .stop.is-now::after {
       content: "";
@@ -691,7 +691,7 @@
       width: 28px;
       height: 28px;
       border-radius: 50%;
-      border: 1px solid var(--stage);
+      border: 1px solid var(--c-yellow);
       animation: ping 2.4s ease-out infinite;
     }
 
@@ -797,6 +797,21 @@
     }
 
     .news .is-older { display: none; }
+
+    .new-tag {
+      display: inline-block;
+      margin-right: 8px;
+      padding: 0 6px;
+      border-radius: 3px;
+      background: var(--c-red);
+      color: var(--surface);
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      vertical-align: 2px;
+    }
 
     .news.show-all .is-older { display: grid; }
 
@@ -914,24 +929,6 @@
 
     .venue-full { font-size: .8125rem; color: var(--muted); }
 
-    /* Research-thread stages carry one colour each, from the timeline to the papers */
-    [data-stage="1"] { --stage: var(--c-red); }
-    [data-stage="2"] { --stage: var(--c-yellow); }
-    [data-stage="3"] { --stage: var(--c-green); }
-    [data-stage="4"] { --stage: var(--accent); }
-
-    .pub[data-stage] .venue-tag::before,
-    .feat[data-stage] .feat-venue::before {
-      content: "";
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      margin-right: 8px;
-      border-radius: 2px;
-      background: var(--stage);
-      vertical-align: 1px;
-    }
-
     .pub-title {
       margin: 0 0 6px;
       font-family: var(--font-display);
@@ -1041,9 +1038,9 @@
       cursor: pointer;
     }
 
-    .stage-btn:hover { color: var(--ink); border-color: var(--stage, var(--accent)); }
+    .stage-btn:hover { color: var(--ink); border-color: var(--accent); }
 
-    .stop.is-active::before { background: var(--stage); }
+    .stop.is-active::before { background: var(--accent); }
 
     .stop.is-active .stage-btn { background: var(--ink); border-color: var(--ink); color: var(--bg); }
 
@@ -1054,8 +1051,8 @@
       margin: 0;
       padding: 4px 6px 4px 12px;
       border-radius: 999px;
-      background: color-mix(in srgb, var(--stage, var(--accent)) 16%, transparent);
-      color: var(--ink);
+      background: var(--accent-wash);
+      color: var(--accent-strong);
       font-size: .875rem;
     }
 
@@ -1479,7 +1476,7 @@
         <div class="sec-body">
           <h2 id="featured-h" style="margin-bottom:24px">Selected projects</h2>
           <div class="featured">
-            <a class="feat" data-stage="3" href="https://jihun999.github.io/projects/CRAFT/">
+            <a class="feat" href="https://jihun999.github.io/projects/CRAFT/">
               <div class="feat-media heat">
                 <video src="images/CRAFT_FF_20s_C_merged.mp4" poster="images/web/craft_teaser.webp" autoplay muted loop
                   playsinline preload="metadata" aria-label="CRAFT results video"></video>
@@ -1490,7 +1487,7 @@
                 <p>Teaches the model where to look. State-of-the-art personalization from 10K reference-only images, with no composed targets.</p>
               </div>
             </a>
-            <a class="feat" data-stage="2" href="https://jihun999.github.io/projects/Infinite-Story/">
+            <a class="feat" href="https://jihun999.github.io/projects/Infinite-Story/">
               <div class="feat-media heat">
                 <img src="images/web/infinite_story_teaser.webp" alt="Infinite-Story teaser" loading="lazy">
               </div>
@@ -1500,7 +1497,7 @@
                 <p>Training-free consistent storytelling at 1.72 s per image, 6× faster than prior consistent text-to-image methods.</p>
               </div>
             </a>
-            <a class="feat" data-stage="1" href="https://jihun999.github.io/projects/Style-Editor/">
+            <a class="feat" href="https://jihun999.github.io/projects/Style-Editor/">
               <div class="feat-media heat">
                 <img src="images/web/CVPR_teaser.webp" alt="Style-Editor teaser" loading="lazy">
               </div>
@@ -1522,7 +1519,7 @@
         <div class="sec-body">
           <h2 id="news-h" style="margin-bottom:20px">Recent updates</h2>
           <ul class="news" id="news-list">
-        <li><time class="news-date">Oct 2026</time><span>CRAFT is invited to the <span class="hl">Invited Session</span> of <a href="https://www.asiagraphics.org/CADGraphics2026">CAD/Graphics 2026</a> at Seoul National University (Dec 2026).</span></li>
+        <li><time class="news-date">Oct 2026</time><span><span class="new-tag">New</span>CRAFT is invited to the <span class="hl">Invited Session</span> of <a href="https://www.asiagraphics.org/CADGraphics2026">CAD/Graphics 2026</a> at Seoul National University (Dec 2026).</span></li>
         <li><time class="news-date">Aug 2026</time><span>One paper accepted to <a href="https://signalprocessingsociety.org/publications-resources/ieee-signal-processing-letters">IEEE Signal Processing Letters</a>.</span></li>
         <li><time class="news-date">Jul 2026</time><span><a href="https://jihun999.github.io/projects/CRAFT/">CRAFT</a> accepted to <a href="https://asia.siggraph.org/2026/">SIGGRAPH Asia 2026</a> as an <span class="hl">oral</span>.</span></li>
         <li><time class="news-date">May 2026</time><span>One paper accepted to <a href="https://dl.acm.org/journal/tomm">ACM TOMM</a>.</span></li>
@@ -2227,7 +2224,6 @@
         pubs.forEach(function (p) { p.hidden = !matches(p, f); });
         var stage = f.indexOf('stage-') === 0 ? f.slice(6) : null;
         stagePill.hidden = !stage;
-        if (stage) stagePill.setAttribute('data-stage', stage);
         stops.forEach(function (s) { s.classList.toggle('is-active', s.getAttribute('data-stage') === stage); });
         if (stage) stageName.textContent = document.querySelector('.stop[data-stage="' + stage + '"] h3').textContent;
       }
